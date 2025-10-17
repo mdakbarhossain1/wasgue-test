@@ -1,0 +1,129 @@
+project:
+  name: "Wasgeurtje.nl Clone V2"
+  language: "nl-NL"
+  goals:
+    - "Bouw de storefront van wasgeurtje.nl na met Next.js (App Router)"
+    - "Werk sectie-voor-sectie op basis van Figma"
+    - "Optimaliseer voor performance, toegankelijkheid en SEO"
+
+workflow:
+  figma:
+    - "Gebruik MCP: selecteer een frame/sectie in Figma voor mapping"
+    - "Haal sectie-overzicht, variabelen en preview op voor implementatievolgorde"
+  implementation_order:
+    - "Layout (RootLayout, Header, Footer)"
+    - "Home: Hero → USP's → Categorieën → Bestsellers → Reviews → Promo"
+    - "PLP (grid, filters, sort, pagination)"
+    - "PDP (galerij, varianten, prijs, add-to-cart, reviews)"
+    - "Cart & mini-cart"
+    - "Checkout UI (zonder payment-koppeling in eerste instantie)"
+    - "Zoek UI"
+    - "Contentpagina's en 404"
+
+rules:
+  - "Geen automatische start van `npm run dev` door de assistent"
+  - "Gebruik Next.js App Router en TypeScript (strict)"
+  - "Gebruik Tailwind CSS; shadcn/ui alleen als het de velocity verhoogt"
+  - "Herbruik bestaande componenten en patterns waar mogelijk (reuse-first)"
+  - "Schrijf duidelijke namen, early returns, betekenisvolle error handling"
+  - "Vermijd overmatige nesting; geen lege catch blocks"
+  - "Houd componenten klein, samenstelbaar en toegankelijk (a11y-first)"
+  - "SEO: per route metadata, nette URL's, structured data waar relevant"
+  - "Performance: image optimization, lazy-loading, bundling mindful"
+  - "Port 3000 voor lokaal; gebruik geen niet-standaard poorten"
+  - "Conventional Commits; Prettier + ESLint consistentie"
+  - "BELANGRIJK: Gebruik ALTIJD API endpoints voor product/content data - NOOIT hardcoded data"
+  - "TEXT VISIBILITY: Gebruik altijd text-gray-900 voor labels en text-gray-900 bg-white voor inputs om zichtbaarheid te garanderen"
+  - "POSTCODE LOOKUP: Voor Nederlandse adressen ALTIJD /api/postcode endpoint gebruiken voor automatische adres-lookup"
+
+files_structure:
+  - "app/(routes)/... voor routes"
+  - "components/ui en components/sections voor UI"
+  - "lib voor helpers en utilities"
+  - "public voor statische assets"
+
+assistant_guidance:
+  - "Vraag alleen om verduidelijking als het echt nodig is"
+  - "Voer autonoom uit en lever productieklare edits"
+  - "Gebruik absolute paden in tool calls wanneer mogelijk"
+  - "Gebruik MCP voor Figma mapping en asset-export"
+  - "Maak kleine, gerichte edits en houd ongerelateerde code ongewijzigd"
+
+api_data_rules:
+  wordpress_api:
+    - "Gebruik ALTIJD WordPress REST API endpoints voor content (pages, posts, media)"
+    - "ACF data ophalen via: /wp/v2/pages?acf_format=standard"
+    - "Media ophalen via: /wp/v2/media/{id}"
+  woocommerce_api:
+    - "Gebruik WooCommerce REST API v3 voor alle product data"
+    - "Endpoint: /wp-json/wc/v3/products/{id}"
+    - "Authenticatie vereist: gebruik consumer key/secret in Authorization header"
+    - "NOOIT hardcoded prijzen, afbeeldingen of product details"
+  data_fetching:
+    - "Implementeer proper error handling met fallback data"
+    - "Cache responses met Next.js revalidate voor performance"
+    - "Transform API data naar TypeScript interfaces"
+    - "Bij ACF product refs: eerst ACF data, dan WooCommerce data ophalen"
+  forbidden:
+    - "GEEN hardcoded product prijzen in code"
+    - "GEEN hardcoded product afbeelding URLs"
+    - "GEEN lokale mock data voor production features"
+    - "GEEN assumptions over data - altijd van API ophalen" 
+
+html_css_best_practices:
+  You are an expert developer in HTML and CSS, focusing on best practices, accessibility, and responsive design.
+
+  Key Principles:
+  - Write semantic HTML to improve accessibility and SEO.
+  - Use CSS for styling, avoiding inline styles.
+  - Ensure responsive design using media queries and flexible layouts.
+  - Prioritize accessibility by using ARIA roles and attributes.
+
+  HTML:
+  - Use semantic elements (e.g., <header>, <main>, <footer>, <article>, <section>).
+  - Use <button> for clickable elements, not <div> or <span>.
+  - Use <a> for links, ensuring href attribute is present.
+  - Use <img> with alt attribute for images.
+  - Use <form> for forms, with appropriate input types and labels.
+  - Avoid using deprecated elements (e.g., <font>, <center>).
+
+  CSS:
+  - Use external stylesheets for CSS.
+  - Use class selectors over ID selectors for styling.
+  - Use Flexbox and Grid for layout.
+  - Use rem and em units for scalable and accessible typography.
+  - Use CSS variables for consistent theming.
+  - Use BEM (Block Element Modifier) methodology for naming classes.
+  - Avoid !important; use specificity to manage styles.
+
+  Responsive Design:
+  - Use media queries to create responsive layouts.
+  - Use mobile-first approach for media queries.
+  - Ensure touch targets are large enough for touch devices.
+  - Use responsive images with srcset and sizes attributes.
+  - Use viewport meta tag for responsive scaling.
+
+  Accessibility:
+  - Use ARIA roles and attributes to enhance accessibility.
+  - Ensure sufficient color contrast for text.
+  - Provide keyboard navigation for interactive elements.
+  - Use focus styles to indicate focus state.
+  - Use landmarks (e.g., <nav>, <main>, <aside>) for screen readers.
+
+  Performance:
+  - Minimize CSS and HTML file sizes.
+  - Use CSS minification and compression.
+  - Avoid excessive use of animations and transitions.
+  - Use lazy loading for images and other media.
+
+  Testing:
+  - Test HTML and CSS in multiple browsers and devices.
+  - Use tools like Lighthouse for performance and accessibility audits.
+  - Validate HTML and CSS using W3C validators.
+
+  Documentation:
+  - Comment complex CSS rules and HTML structures.
+  - Use consistent naming conventions for classes and IDs.
+  - Document responsive breakpoints and design decisions.
+
+  Refer to MDN Web Docs for HTML and CSS best practices and to the W3C guidelines for accessibility standards.

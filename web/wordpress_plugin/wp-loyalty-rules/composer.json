@@ -1,0 +1,32 @@
+{
+  "name": "flycartinc/wp-loyalty",
+  "description": "Loyalty Rules",
+  "type": "project",
+  "license": "GPL2 or Later",
+  "authors": [
+    {
+      "name": "Alagesan S",
+      "email": "alagesan@flycart.org"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": "7.0.*",
+    "parsecsv/php-parsecsv": "^1.3",
+    "ext-json": "*",
+    "vlucas/valitron": "^1.4.6"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:wployalty/notifications.git"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Wlr\\": "",
+      "Wll\\": "App\\Apps\\Launcher",
+      "Wlpe\\": "App\\Apps\\PointExpiry"
+    }
+  }
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparison Table</title>
+    <style>
+        .trial-pack-card,
+        .trial-pack-card * {
+            box-sizing: border-box;
+        }
+
+        .trial-pack-card {
+            background: #ffffff;
+            border-radius: 4px;
+            padding: 72px 200px;
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .product-image {
+            width: 379px;
+            overflow: hidden;
+        }
+
+        .product-img {
+            width: 379px;
+            height: 376px;
+            object-fit: cover;
+        }
+
+        .product-details {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            flex: 1;
+        }
+
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .product-title {
+            color: #212529;
+            text-align: center;
+            font-family: "EbGaramond-SemiBold", sans-serif;
+            font-size: 24px;
+            line-height: 120%;
+            font-weight: 600;
+        }
+
+        .product-description {
+            color: #212529;
+            font-family: "Helvetica-Regular", sans-serif;
+            font-size: 18px;
+            line-height: 150%;
+        }
+
+        .divider {
+            border-top: 1px solid #d6ad61;
+        }
+
+        .product-includes,
+        .product-perfumes {
+            color: #212529;
+            font-family: "Helvetica-Regular", sans-serif;
+            font-size: 16px;
+            line-height: 150%;
+        }
+
+        .product-includes .label,
+        .product-perfumes .label {
+            font-weight: 700;
+            font-family: "Helvetica-Bold", sans-serif;
+        }
+
+        .product-actions {
+            background: linear-gradient(270deg, #d6ad61 0%, #fcce4e 100%);
+            border-radius: 4px;
+            padding: 0 32px;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            height: 44px;
+        }
+
+        .add-to-cart,
+        .price {
+            color: #212529;
+            font-family: "Helvetica-Regular", sans-serif;
+            font-size: 16px;
+            line-height: 150%;
+            text-transform: uppercase;
+        }
+
+        .product-badge {
+            background: #fcce4e;
+            border-radius: 20px;
+            padding: 4px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 210px;
+            top: 82px;
+            box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .badge-text {
+            color: #212529;
+            font-family: "Helvetica-Bold", sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="trial-pack-card">
+        <div class="product-image">
+            <img class="product-img" src="image-2990.png" alt="Luxury Collection Trial Pack" />
+        </div>
+
+        <div class="product-details">
+            <div class="product-info">
+                <div class="product-title">Luxury Collection Trial Pack</div>
+                <div class="product-description">
+                    Looking for a little extra pampering? Try our newest collection
+                    featuring all of our new and most luxurious laundry perfumes.
+                </div>
+                <div class="divider"></div>
+                <div class="product-includes">
+                    <span class="label">Includes:</span>
+                    <span class="value">x5 10ml bottles</span>
+                </div>
+                <div class="product-perfumes">
+                    <span class="label">Perfumes:</span>
+                    <span class="value">• Sweet Fog • Lavender • Ylang • Evening Dew • White Musk</span>
+                </div>
+            </div>
+
+            <div class="product-actions">
+                <div class="add-to-cart">Add to Cart</div>
+                <div class="price">£15.95</div>
+            </div>
+        </div>
+
+        <div class="product-badge">
+            <div class="badge-text">New Perfumes</div>
+        </div>
+    </div>
+</body>
+
+</html>

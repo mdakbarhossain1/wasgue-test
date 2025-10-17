@@ -1,0 +1,37 @@
+/* Product Typography Styles */
+.product-title {
+  color: #333333;
+  font-family: 'Jost', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  vertical-align: middle;
+}
+
+.product-content {
+  color: #333333;
+  font-family: 'EB Garamond', serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 30px;
+  letter-spacing: 0px;
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  .product-title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16.8px;
+  }
+  
+  .product-content {
+    font-size: 24px;
+    line-height: 28.08px;
+    letter-spacing: -0.48px;
+    vertical-align: middle;
+  }
+}
+
+
