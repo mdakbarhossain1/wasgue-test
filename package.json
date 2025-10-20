@@ -5,9 +5,9 @@
     "web"
   ],
   "scripts": {
-    "dev": "npm --prefix web run dev",
-    "build": "npm --prefix web run build",
-    "start": "npm --prefix web run start",
+    "dev": "node init && npm --prefix web run dev",
+    "build": "node init && npm --prefix web run build",
+    "start": "node init && npm --prefix web run start",
     "lint": "npm --prefix web run lint"
   },
   "dependencies": {
