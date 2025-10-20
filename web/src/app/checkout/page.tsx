@@ -5536,7 +5536,7 @@ export default function CheckoutPage() {
             </div>
           </div>
         </div> */}
-        {/* <TestimonialsSection /> */}
+        <TestimonialsSection />
         {/* <div className="bg-gradient-to-br from-white via-[#FFFDF8] to-[#FFF7EC] py-16">
           <div className="container mx-auto p-4">
             <h2 className="text-3xl font-semibold text-center mb-10 text-gray-800">
