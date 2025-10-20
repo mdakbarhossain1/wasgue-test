@@ -12,6 +12,7 @@ import { Product, RelatedProduct } from "types/product";
 import { getProductBySlug } from "utils/woocommerce";
 import { notFound } from "next/navigation";
 import ProductInfo from "./sections/ProductInfo";
+import RunningUSPStrip from "./sections/RunningUSPStrip";
 
 interface ProductDetailsCustomProps {
   product: Product;
@@ -43,7 +44,8 @@ const ProductDetailsCustom: React.FC<ProductDetailsCustomProps> = async ({
       <HowItWorks />
       {/* Waarom kiezen  */}
       <ComparisonTable />
-      <Features />
+      <RunningUSPStrip />
+      {/* <Features /> */}
       {/* <Testimonials /> */}
       {/* <TrialPackCard TrialPackCardsData={TrialPackCardsData} /> */}
       {/* <Sustainability /> */}

@@ -10,9 +10,6 @@ import TrialPackFeature from "components/sections/TrialPackFeature";
 import RewardProgram from "components/sections/RewardProgram";
 import OurStory from "components/sections/OurStory";
 import ResponsiveInit from "components/ResponsiveInit";
-import "../app/globals.css";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import type { Metadata } from "next";
 import { fetchWpBySlug, yoastToNextMetadata } from "utils/wordpress-yoastseo";
 

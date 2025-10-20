@@ -35,7 +35,7 @@ export default function Categories() {
               src={imgMorningVapor}
               alt=""
               className={`w-auto ${
-                isTablet ? "h-[120px]" : isDesktop ? "h-[220px]" : "h-[100px]"
+                isTablet ? "h-[200px]" : isDesktop ? "h-[220px]" : "h-[100px]"
               }`}
               style={{ filter: "drop-shadow(0px 4px 10px rgba(0,0,0,0.25))" }}
             />
@@ -99,8 +99,7 @@ export default function Categories() {
         isTablet ? "py-12 px-6" : isDesktop ? "p-[72px]" : "py-10 px-4"
       } relative w-full`}
       data-name="Categories"
-      data-node-id="71:5058"
-    >
+      data-node-id="71:5058">
       {/* Grid container that changes from 4 columns to 2 columns to 1 column based on screen size */}
       <div
         className={`grid ${
@@ -110,8 +109,7 @@ export default function Categories() {
             ? "grid-cols-4 gap-8"
             : "grid-cols-2 gap-4"
         } w-full`}
-        data-node-id="71:5059"
-      >
+        data-node-id="71:5059">
         {categories.map((category, index) => (
           <div
             key={index}
@@ -123,17 +121,16 @@ export default function Categories() {
                 : "gap-2 flex-col-reverse"
             } items-center justify-center`}
             data-name={category.name}
-            data-node-id={`71:${5066 + index * 4}`}
-          >
+            data-node-id={`71:${5066 + index * 4}`}>
             <a
               href={category.url}
-              className={`overflow-hidden relative rounded-[8px] w-full ${
-                isTablet ? "h-[144px]" : isDesktop ? "h-[280px]" : "h-[120px]"
-              } cursor-pointer block`}
+              className={`overflow-hidden relative rounded-[8px] cursor-pointer block w-full`}
               data-name="Product images"
-              data-node-id={`71:${5068 + index * 4}`}
-            >
-              {category.imageComponent}
+              data-node-id={`71:${5068 + index * 4}`}>
+              <div className="relative w-full aspect-[4/3] bg-gray-50">
+                {/* Ensures consistent ratio (adjust 4/3 as needed) */}
+                {category.imageComponent}
+              </div>
             </a>
             <a
               href={category.url}
@@ -144,9 +141,10 @@ export default function Categories() {
                   ? "text-[24px]"
                   : "text-[18px]"
               } text-center block cursor-pointer`}
-              data-node-id={`71:${5067 + index * 4}`}
-            >
-              <p className="leading-[1.2] text-base">{category.name}</p>
+              data-node-id={`71:${5067 + index * 4}`}>
+              <p className="leading-[1.2] text-[13px] md:text-base">
+                {category.name}
+              </p>
             </a>
           </div>
         ))}
@@ -158,13 +156,11 @@ export default function Categories() {
           isTablet ? "mt-5" : isDesktop ? "mt-4" : "mt-6"
         }`}
         data-name="CTA"
-        data-node-id="71:5083"
-      >
+        data-node-id="71:5083">
         <span
           className={`text-center leading-[1.5] uppercase text-[#212529] font-[var(--font-helvetica)] ${
             isTablet ? "text-[16px]" : "text-[16px]"
-          }`}
-        >
+          }`}>
           Alle wasparfums bekijken
         </span>
       </a>

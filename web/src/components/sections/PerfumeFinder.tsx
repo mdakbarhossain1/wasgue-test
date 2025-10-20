@@ -54,11 +54,11 @@ const Tab = ({ label, value, isActive, onClick }: TabProps) => {
   return (
     <div className="content-stretch whitespace-nowrap flex flex-col items-start justify-center relative">
       <div
-        className="content-stretch flex gap-2 items-start justify-start cursor-pointer"
+        className="content-stretch flex md:gap-2 items-start justify-start cursor-pointer"
         onClick={() => onClick(value)}>
         <div
           className={`font-['Helvetica'] leading-[1.5] mb-2 ${
-            isMobile ? "text-[16px]" : isTablet ? "text-[17px]" : "text-[18px]"
+            isMobile ? "text-[14px]" : isTablet ? "text-[17px]" : "text-[18px]"
           } text-center ${
             isActive ? "font-bold text-[#814e1e]" : "text-[#212529]"
           }`}
@@ -425,7 +425,7 @@ export default function PerfumeFinder() {
         <div className="box-border content-stretch flex gap-4 items-center justify-center py-2 w-full  overflow-x-auto">
           <div
             className={`content-stretch flex ${
-              isMobile ? "gap-5" : isTablet ? "gap-7" : "gap-10"
+              isMobile ? "gap-0" : isTablet ? "gap-7" : "gap-10"
             } items-center justify-start border-b-[2px] border-[rgba(33,37,41,0.2)]`}>
             <Tab
               label="Best Verkocht"
@@ -500,7 +500,7 @@ export default function PerfumeFinder() {
           className={`bg-gradient-to-l from-[#d6ad61] to-[#fcce4e] h-11 px-8 rounded-[4px] flex items-center justify-center ${
             isTablet ? "mt-2" : ""
           }`}>
-          <div className="font-['Helvetica'] text-[16px] text-[#212529] text-center uppercase leading-[1.5]">
+          <div className="font-['Helvetica'] text-sm sm:text-[16px] text-[#212529] text-center uppercase leading-[1.5]">
             Alle wasparfums bekijken
           </div>
         </a>

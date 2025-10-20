@@ -14,7 +14,7 @@ export default function InfoboxSection({ section }: InfoboxSectionProps) {
   }
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-10 sm:py-20 relative overflow-hidden">
       {/* Modern Background Pattern */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-[#F8F6F0] via-white to-[#e9c356]/5"></div>
@@ -25,7 +25,7 @@ export default function InfoboxSection({ section }: InfoboxSectionProps) {
       <div className="container mx-auto px-4 relative z-10">
         {/* Modern Header with Animation */}
         {section_title && (
-          <div className="text-center mb-16 relative">
+          <div className="text-center mb-8 sm:mb-5 relative">
             <h2 className="text-[24px] md:text-[32px] font-medium text-[#212529] font-['classgarmnd_btroman',sans-serif] mb-4">
               {section_title}
             </h2>
@@ -40,7 +40,7 @@ export default function InfoboxSection({ section }: InfoboxSectionProps) {
 
         {/* Details Text */}
         {details && (
-          <div className="max-w-4xl mx-auto mb-16">
+          <div className="max-w-4xl mx-auto mb-8 md:mb-16">
             <p className="text-base md:text-xl text-gray-800 leading-relaxed text-center font-light">
               {details}
             </p>
@@ -53,8 +53,7 @@ export default function InfoboxSection({ section }: InfoboxSectionProps) {
             info_type === "number"
               ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
               : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-          }`}
-        >
+          }`}>
           {box.map((item, index) => (
             <div key={`infobox-${index}`} className="group relative">
               {/* Glass Morphism Card */}
@@ -63,16 +62,14 @@ export default function InfoboxSection({ section }: InfoboxSectionProps) {
                   info_type === "number"
                     ? ""
                     : "rounded-br-[50px] rounded-tl-[50px]"
-                } relative   h-full p-8  hover:shadow-2xl transition-all duration-500 border-2 border-[#d6ad61] hover:border-[#e9c356]/50 transform hover:-translate-y-3 hover:rotate-1`}
-              >
+                } relative h-full p-4 sm:p-8 hover:shadow-2xl transition-all duration-500 border-2 border-[#d6ad61] hover:border-[#e9c356]/50 transform hover:-translate-y-3 hover:rotate-1`}>
                 {/* Gradient Overlay on Hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#e9c356]/0 to-[#e9c356]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 {/* Content */}
                 <div
                   className={`${
                     info_type === "number" ? "text-center" : ""
-                  } relative z-10`}
-                >
+                  } relative z-10`}>
                   {/* Modern Number/Icon Display */}
                   {info_type === "number" ? (
                     <div className="mb-6 -mt-14 ">

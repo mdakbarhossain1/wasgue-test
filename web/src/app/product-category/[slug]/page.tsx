@@ -2,7 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Product } from "types/product";
-import { fetchWpTermBySlug, yoastToNextMetadata } from "utils/wordpress-yoastseo";
+import {
+  fetchWpTermBySlug,
+  yoastToNextMetadata,
+} from "utils/wordpress-yoastseo";
 
 const WOOCOMMERCE_API_URL =
   process.env.WOOCOMMERCE_API_URL || "https://wasgeurtje.nl/wp-json/wc/v3";
@@ -128,7 +131,7 @@ export async function generateMetadata({
   params: { slug: string };
 }) {
   try {
-    const term = await fetchWpTermBySlug('product_cat', params.slug);
+    const term = await fetchWpTermBySlug("product_cat", params.slug);
     const yoastMeta = yoastToNextMetadata(term?.yoast_head_json);
     if (yoastMeta && (yoastMeta.title || yoastMeta.description)) {
       return yoastMeta as any;
@@ -187,8 +190,7 @@ export default async function CategoryPage({
               <Link
                 key={product.id}
                 href={`/wasparfum/${product.slug}`}
-                className="group"
-              >
+                className="group">
                 <div className="bg-white border border-[#d6ad61] rounded-[4px] overflow-hidden">
                   <div className="relative h-[200px] bg-white flex items-center justify-center p-4">
                     <Image

@@ -1,5 +1,3 @@
-# Wasgeurtje.nl Clone V2 — Frontend (Next.js)
-
 ## Project omschrijving
 Dit project bouwt de storefront van wasgeurtje.nl na, sectie-voor-sectie op basis van Figma. We gebruiken de App Router van Next.js en TypeScript. Waar mogelijk hergebruiken we bestaande componenten. Ontwikkeling verloopt iteratief per Figma-sectie met focus op performance, accessibility, en SEO.
 
@@ -48,5 +46,6 @@ Dit project bouwt de storefront van wasgeurtje.nl na, sectie-voor-sectie op basi
 - Reuse-first: bestaande UI en patterns hergebruiken waar mogelijk.
 - Conventies: Conventional Commits, Prettier/ESLint.
 
-
-This text for deployment
+Deploy 003
+Deploy 004
+Deploy 005

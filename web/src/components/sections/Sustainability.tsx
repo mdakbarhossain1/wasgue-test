@@ -51,13 +51,13 @@ const FeatureCard = ({
     <div
       className={`content-stretch flex flex-col ${
         isMobile ? "gap-2 h-[140px]" : isTablet ? "gap-2 h-[150px]" : "gap-3"
-      } items-center justify-start ${isMobile || isTablet ? "w-full" : "w-60"}`}
-    >
+      } items-center justify-start ${
+        isMobile || isTablet ? "w-full" : "w-60"
+      }`}>
       <div
         className={`bg-white overflow-hidden relative rounded-[50px] shrink-0 ${
           isMobile ? "size-[60px]" : isTablet ? "size-[66px]" : "size-[72px]"
-        } flex items-center justify-center`}
-      >
+        } flex items-center justify-center`}>
         <img
           src={feature.icon}
           alt={feature.alt}
@@ -72,11 +72,14 @@ const FeatureCard = ({
       </div>
       <div
         className={`font-['Helvetica'] text-[#212529] ${
-          isMobile ? "text-[16px]" : isTablet ? "text-[17px]" : "text-[18px]"
+          isMobile
+            ? "text-sm sm:text-[16px]"
+            : isTablet
+            ? "text-[17px]"
+            : "text-[18px]"
         } text-center leading-[1.5] ${
           isMobile || isTablet ? "w-full" : "w-[155px]"
-        }`}
-      >
+        }`}>
         {feature.title}
       </div>
     </div>
@@ -97,15 +100,13 @@ export default function Sustainability() {
       } flex flex-col ${
         isMobile || isTablet ? "gap-8" : "gap-12"
       } items-center justify-start w-full`}
-      data-name="Sustainably Scented, Consciously Crafted"
-    >
+      data-name="Sustainably Scented, Consciously Crafted">
       {/* Heading and subheading */}
       <div className="flex flex-col gap-4 items-start justify-start w-full">
         <h2
           className={`font-['EB_Garamond'] font-semibold ${
             isMobile ? "text-[28px]" : isTablet ? "text-[32px]" : "text-[40px]"
-          } text-[#814e1e] text-center leading-[1.2] w-full`}
-        >
+          } text-[#814e1e] text-center leading-[1.2] w-full`}>
           Duurzaam geparfumeerd, bewust gemaakt
         </h2>
         <div className="w-full flex justify-center">
@@ -116,8 +117,7 @@ export default function Sustainability() {
                 : isTablet
                 ? "text-[17px]"
                 : "text-[18px]"
-            } text-center leading-[1.5]`}
-          >
+            } text-center leading-[1.5]`}>
             Veilig voor je huid, je kleding en de planeet
           </p>
         </div>
@@ -128,9 +128,8 @@ export default function Sustainability() {
         className={`${
           isMobile || isTablet ? "grid grid-cols-2" : "flex flex-wrap"
         } items-start justify-center ${
-          isMobile ? "gap-6" : isTablet ? "gap-8" : "gap-6"
-        } w-full`}
-      >
+          isMobile ? "gap-2 sm:gap-6" : isTablet ? "gap-8" : "gap-6"
+        } w-full`}>
         {sustainabilityFeatures.map((feature, index) => (
           <FeatureCard key={index} feature={feature} deviceType={deviceType} />
         ))}

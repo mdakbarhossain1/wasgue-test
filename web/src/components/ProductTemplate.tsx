@@ -85,11 +85,12 @@ const CollapsibleSection = ({
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
-    <div className="border-t border-b border-gray-300 overflow-hidden">
+    <div className="border rounded-lg border-gray-300 overflow-hidden">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full px-0 py-5 flex items-center justify-between bg-[#F4F2EB] transition-colors"
-        style={{ color: "#7B6C63" }}>
+        className="w-full px-3 py-5 flex items-center justify-between bg-[#F4F2EB] transition-colors"
+        style={{ color: "#7B6C63" }}
+      >
         <h3 className="text-base uppercase tracking-wider font-medium text-left">
           {title}
         </h3>
@@ -99,7 +100,8 @@ const CollapsibleSection = ({
           }`}
           fill="none"
           stroke="currentColor"
-          viewBox="0 0 24 24">
+          viewBox="0 0 24 24"
+        >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -111,7 +113,8 @@ const CollapsibleSection = ({
       <div
         className={`transition-all duration-300 overflow-hidden bg-[#F4F2EB] ${
           isOpen ? "max-h-[2000px] opacity-100 pb-5" : "max-h-0 opacity-0"
-        }`}>
+        }`}
+      >
         {children}
       </div>
     </div>
@@ -141,7 +144,8 @@ const TabsSection = ({
                 activeTab === index
                   ? "border-b-[#7B6C63] text-[#7B6C63]"
                   : "border-b-transparent text-[#7B6C63] opacity-60 hover:opacity-80"
-              }`}>
+              }`}
+            >
               {title}
             </button>
           ))}
@@ -191,7 +195,8 @@ const ProductDescription = ({
         <button
           onClick={() => setShowMore(!showMore)}
           className="mt-2 text-sm font-medium flex items-center"
-          style={{ color: "#D6AD61" }}>
+          style={{ color: "#D6AD61" }}
+        >
           {showMore ? (
             <>
               Minder weergeven
@@ -200,7 +205,8 @@ const ProductDescription = ({
                 className="h-4 w-4 ml-1"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor">
+                stroke="currentColor"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -217,7 +223,8 @@ const ProductDescription = ({
                 className="h-4 w-4 ml-1"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor">
+                stroke="currentColor"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -913,10 +920,11 @@ export default function ProductTemplate({
       className={`pt-body font-eb-garamond min-h-screen transition-all duration-300 ${
         cartCount > 0 ||
         (selectedBundle !== null && selectedBundle !== "single")
-          ? "pt-[110px]"
-          : "pt-[40px]"
+          ? "md:pt-[85px] pt-[80px]"
+          : "md:pt-[20px] pt-4"
       }`}
-      style={{ backgroundColor: "#F8F6F0" }}>
+      style={{ backgroundColor: "#F8F6F0" }}
+    >
       <style jsx>{`
         @keyframes pulse {
           0% {
@@ -1016,12 +1024,14 @@ export default function ProductTemplate({
             transform: showShippingBar ? "translateY(0)" : "translateY(-100%)",
             transition: "transform 0.3s ease",
             zIndex: 49 /* Make sure it's below the header z-index */,
-          }}>
+          }}
+        >
           <div className="max-w-7xl mx-auto">
             <div className="flex items-center justify-between mb-2">
               <span
                 className="text-sm font-medium"
-                style={{ color: "#814E1E" }}>
+                style={{ color: "#814E1E" }}
+              >
                 {selectedBundle === "trio" || hasReachedFreeShipping
                   ? "🎉 Gefeliciteerd! Je krijgt GRATIS verzending!"
                   : `💰 Nog €${remainingForFreeShipping
@@ -1036,7 +1046,8 @@ export default function ProductTemplate({
                 )}
                 <span
                   className="text-sm font-bold"
-                  style={{ color: "#D6AD61" }}>
+                  style={{ color: "#D6AD61" }}
+                >
                   Gratis vanaf €40
                 </span>
               </div>
@@ -1050,7 +1061,8 @@ export default function ProductTemplate({
                     hasReachedFreeShipping || selectedBundle === "trio"
                       ? "linear-gradient(90deg, #22C55E 0%, #16A34A 100%)"
                       : "linear-gradient(90deg, #814E1E 0%, #D6AD61 100%)",
-                }}>
+                }}
+              >
                 {selectedBundle === "trio" && (
                   <div className="absolute inset-0 bg-white opacity-30 animate-pulse"></div>
                 )}
@@ -1064,7 +1076,8 @@ export default function ProductTemplate({
       {showStickyCart && !cart.isOpen && (
         <div
           className="fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t z-[9999] py-3 px-4"
-          style={{ borderColor: "#D6AD61" }}>
+          style={{ borderColor: "#D6AD61" }}
+        >
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <Image
@@ -1088,14 +1101,15 @@ export default function ProductTemplate({
               className="text-black px-6 py-2 rounded-full font-medium hover:opacity-90 transition-opacity"
               style={{
                 background: "linear-gradient(90deg, #D6AD61 0%, #FCCE4E 100%)",
-              }}>
+              }}
+            >
               NU BESTELLEN
             </button>
           </div>
         </div>
       )}
 
-      <section className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+      <section className="max-w-7xl mx-auto px-4 py-1 sm:px-6 lg:px-8">
         {/* Mobile Product Rating & Title - Only shown on mobile screens */}
         <div className="block lg:hidden mb-6">
           {/* Stars first on mobile */}
@@ -1106,13 +1120,14 @@ export default function ProductTemplate({
                   key={star}
                   className="w-5 h-5 text-[#d6ad61]"
                   fill="currentColor"
-                  viewBox="0 0 20 20">
+                  viewBox="0 0 20 20"
+                >
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
                 </svg>
               ))}
             </div>
             <span className="text-sm text-black">9.8 uit 1400+ reviews</span>
-            <img src="/trustpilot-logo.svg" alt="Trustpilot" className="h-5" />
+            <img src="/trustpilot.png" alt="Trustpilot" className="h-5" />
           </div>
 
           <div className="text-sm uppercase tracking-wider mb-2 text-black">
@@ -1121,7 +1136,7 @@ export default function ProductTemplate({
               : "Premium Wasparfum"}
           </div>
           <h1 className="text-[22px] mb-2 text-black font-semibold tracking-normal leading-normal font-eb-garamond">
-            {product.title}
+            {product?.title}
           </h1>
           <p
             className="mb-3"
@@ -1132,26 +1147,29 @@ export default function ProductTemplate({
               fontWeight: 400,
               lineHeight: "100%",
               letterSpacing: "0%",
-            }}>
+            }}
+          >
             Speciaal ontwikkeld voor wie elke wasbeurt wil omtoveren tot een
             verfijnde geurervaring.
           </p>
         </div>
 
         {/* SECTION 01 START: Hero Section (Product Images & Main Info) */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-8 md:mb-8">
           {/* Left Column - Product Image Slider */}
           <div className="relative">
             {/* Main Image with Interactive CRO Effects */}
             <div
               className="relative aspect-square rounded-2xl overflow-hidden transition-all duration-500 cursor-pointer group"
-              style={{ backgroundColor: "#F8F6F0" }}>
+              style={{ backgroundColor: "#F8F6F0" }}
+            >
               {/* Removed Dynamic Background Gradient */}
 
               {/* Bestseller Badge with Pulse */}
               <div
                 className="absolute top-4 left-4 text-white px-3 py-1 rounded-full text-sm font-bold z-10 transition-all duration-300"
-                style={{ backgroundColor: "#814E1E" }}>
+                style={{ backgroundColor: "#814E1E" }}
+              >
                 BESTSELLER
               </div>
 
@@ -1187,13 +1205,15 @@ export default function ProductTemplate({
                   <button
                     onClick={prevImage}
                     className="absolute left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center text-white hover:opacity-80 transition-opacity z-10"
-                    style={{ backgroundColor: "#814E1E" }}>
+                    style={{ backgroundColor: "#814E1E" }}
+                  >
                     ←
                   </button>
                   <button
                     onClick={nextImage}
                     className="absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center text-white hover:opacity-80 transition-opacity z-10"
-                    style={{ backgroundColor: "#814E1E" }}>
+                    style={{ backgroundColor: "#814E1E" }}
+                  >
                     →
                   </button>
                 </>
@@ -1297,14 +1317,16 @@ export default function ProductTemplate({
                 <div>
                   <span
                     className="text-2xl font-bold"
-                    style={{ color: "#000000" }}>
+                    style={{ color: "#000000" }}
+                  >
                     {basePrice.toFixed(2).replace(".", ",")}
                   </span>
                 </div>
                 <div className="bg-[#F8F6F0] px-4 py-1.5 rounded-full border border-[#D6AD61] flex-grow text-center">
                   <span
                     className="text-sm font-medium"
-                    style={{ color: "#814E1E" }}>
+                    style={{ color: "#814E1E" }}
+                  >
                     Slechts {Math.round((basePrice / 40) * 100)} cent per
                     wasbeurt
                   </span>
@@ -1314,7 +1336,7 @@ export default function ProductTemplate({
           </div>
 
           {/* Right Column - Product Info with Bundle Builder */}
-          <div className="space-y-4">
+          <div className="md:space-y-4">
             {/* Product Title & Category - Only visible on desktop */}
             <div className="hidden lg:block">
               <div className="flex items-center mb-2">
@@ -1331,7 +1353,8 @@ export default function ProductTemplate({
                         key={star}
                         className="w-5 h-5 text-[#d6ad61]"
                         fill="currentColor"
-                        viewBox="0 0 20 20">
+                        viewBox="0 0 20 20"
+                      >
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
                       </svg>
                     ))}
@@ -1358,7 +1381,8 @@ export default function ProductTemplate({
                   fontWeight: 400,
                   lineHeight: "100%",
                   letterSpacing: "0%",
-                }}>
+                }}
+              >
                 Speciaal ontwikkeld voor wie elke wasbeurt wil omtoveren tot een
                 verfijnde geurervaring.
               </p>
@@ -1371,7 +1395,8 @@ export default function ProductTemplate({
                 <div className="flex items-center justify-between mb-2">
                   <span
                     className="font-bold text-base"
-                    style={{ color: "#814E1E" }}>
+                    style={{ color: "#814E1E" }}
+                  >
                     🔥 POPULAIR PRODUCT
                   </span>
                   <div className="flex items-center gap-2">
@@ -1382,7 +1407,8 @@ export default function ProductTemplate({
                       aria-label="Toelichting voorraad"
                       onClick={() => setShowScarcityTooltip((v) => !v)}
                       className="w-5 h-5 rounded-full text-xs font-bold flex items-center justify-center"
-                      style={{ color: "#814E1E", border: "1px solid #814E1E" }}>
+                      style={{ color: "#814E1E", border: "1px solid #814E1E" }}
+                    >
                       i
                     </button>
                   </div>
@@ -1391,7 +1417,8 @@ export default function ProductTemplate({
                   className="w-full rounded-full h-2 mb-2 overflow-hidden cursor-pointer"
                   style={{ backgroundColor: "rgba(129, 78, 30, 0.1)" }}
                   onMouseEnter={() => setShowScarcityTooltip(true)}
-                  onMouseLeave={() => setShowScarcityTooltip(false)}>
+                  onMouseLeave={() => setShowScarcityTooltip(false)}
+                >
                   <div
                     className="h-2 rounded-full transition-all duration-700"
                     style={{
@@ -1430,7 +1457,8 @@ export default function ProductTemplate({
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-3 w-3"
                       viewBox="0 0 20 20"
-                      fill="currentColor">
+                      fill="currentColor"
+                    >
                       <path
                         fillRule="evenodd"
                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -1446,7 +1474,8 @@ export default function ProductTemplate({
                 {showScarcityTooltip && (
                   <div
                     className="absolute z-20 -top-2 left-1/2 transform -translate-x-1/2 -translate-y-full bg-white border rounded-md shadow-md px-3 py-2 text-xs"
-                    style={{ borderColor: "#D6AD61", color: "#814E1E" }}>
+                    style={{ borderColor: "#D6AD61", color: "#814E1E" }}
+                  >
                     {isMounted && initialStockRef.current !== null ? (
                       <>
                         Populair product! Al {ordersToday} keer verkocht
@@ -1462,11 +1491,13 @@ export default function ProductTemplate({
               {/* Bundle Builder Section - Second on mobile, third on desktop */}
               <div
                 className="order-2 lg:order-3 bg-white rounded-xl p-4 shadow-sm border mb-4"
-                style={{ borderColor: "#D6AD61" }}>
+                style={{ borderColor: "#D6AD61" }}
+              >
                 <div className="flex justify-between items-center">
                   <h3
                     className="font-bold text-lg"
-                    style={{ color: "#814E1E" }}>
+                    style={{ color: "#814E1E" }}
+                  >
                     BUNDEL & BESPAAR
                   </h3>
                   {/* Toggle button for showing/hiding bundle options */}
@@ -1480,7 +1511,8 @@ export default function ProductTemplate({
                       }
                     }}
                     className="flex items-center text-sm font-medium py-2 px-3 rounded-full transition-all hover:bg-[#FFF9F0]"
-                    style={{ color: "#D6AD61", border: "1px solid #D6AD61" }}>
+                    style={{ color: "#D6AD61", border: "1px solid #D6AD61" }}
+                  >
                     {showBundleOptions ? "Verberg opties" : "Meer opties"}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -1489,7 +1521,8 @@ export default function ProductTemplate({
                       }`}
                       fill="none"
                       viewBox="0 0 24 24"
-                      stroke="currentColor">
+                      stroke="currentColor"
+                    >
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -1515,7 +1548,8 @@ export default function ProductTemplate({
                             selectedBundle === "single"
                               ? "border-[#D6AD61] bg-[#FFF9F0]"
                               : "border-gray-200 hover:border-[#D6AD61]"
-                          }`}>
+                          }`}
+                        >
                           <input
                             type="radio"
                             name="bundle"
@@ -1535,19 +1569,22 @@ export default function ProductTemplate({
                                   selectedBundle === "single"
                                     ? "border-[#814E1E]"
                                     : "border-gray-400"
-                                }`}>
+                                }`}
+                              >
                                 {selectedBundle === "single" && (
                                   <div
                                     className="w-3 h-3 rounded-full"
                                     style={{
                                       backgroundColor: "#814E1E",
-                                    }}></div>
+                                    }}
+                                  ></div>
                                 )}
                               </div>
                               <div>
                                 <span
                                   className="font-medium"
-                                  style={{ color: "#814E1E" }}>
+                                  style={{ color: "#814E1E" }}
+                                >
                                   Single
                                 </span>
                                 <span className="text-sm text-gray-500 ml-2">
@@ -1558,7 +1595,8 @@ export default function ProductTemplate({
                             <div className="text-right">
                               <span
                                 className="text-xl font-bold"
-                                style={{ color: "#814E1E" }}>
+                                style={{ color: "#814E1E" }}
+                              >
                                 €{basePrice.toFixed(2)}
                               </span>
                             </div>
@@ -1571,10 +1609,12 @@ export default function ProductTemplate({
                             selectedBundle === "duo"
                               ? "border-[#D6AD61] bg-[#FFF9F0]"
                               : "border-gray-200 hover:border-[#D6AD61]"
-                          }`}>
+                          }`}
+                        >
                           <div
                             className="absolute -top-3 left-4 px-3 py-1 text-xs font-bold text-white rounded-full"
-                            style={{ backgroundColor: "#D6AD61" }}>
+                            style={{ backgroundColor: "#D6AD61" }}
+                          >
                             POPULAIR
                           </div>
                           <input
@@ -1596,24 +1636,28 @@ export default function ProductTemplate({
                                   selectedBundle === "duo"
                                     ? "border-[#814E1E]"
                                     : "border-gray-400"
-                                }`}>
+                                }`}
+                              >
                                 {selectedBundle === "duo" && (
                                   <div
                                     className="w-3 h-3 rounded-full"
                                     style={{
                                       backgroundColor: "#814E1E",
-                                    }}></div>
+                                    }}
+                                  ></div>
                                 )}
                               </div>
                               <div>
                                 <span
                                   className="font-medium"
-                                  style={{ color: "#814E1E" }}>
+                                  style={{ color: "#814E1E" }}
+                                >
                                   Duo
                                 </span>
                                 <span
                                   className="text-sm ml-2"
-                                  style={{ color: "#D6AD61" }}>
+                                  style={{ color: "#D6AD61" }}
+                                >
                                   Bespaar €1,00
                                 </span>
                               </div>
@@ -1621,7 +1665,8 @@ export default function ProductTemplate({
                             <div className="text-right">
                               <span
                                 className="text-xl font-bold"
-                                style={{ color: "#814E1E" }}>
+                                style={{ color: "#814E1E" }}
+                              >
                                 €{bundles.duo.price.toFixed(2)}
                               </span>
                               <div className="text-sm text-gray-500 line-through">
@@ -1629,7 +1674,8 @@ export default function ProductTemplate({
                               </div>
                               <div
                                 className="text-xs"
-                                style={{ color: "#D6AD61" }}>
+                                style={{ color: "#D6AD61" }}
+                              >
                                 €{bundles.duo.perItem.toFixed(2)} per stuk
                               </div>
                             </div>
@@ -1642,11 +1688,13 @@ export default function ProductTemplate({
                             selectedBundle === "trio"
                               ? "border-[#814E1E] bg-gradient-to-r from-[#FFF9F0] to-[#FFFAF5] shadow-lg"
                               : "border-gray-200 hover:border-[#D6AD61]"
-                          }`}>
+                          }`}
+                        >
                           <div className="absolute -top-3 left-4 flex items-center space-x-2">
                             <span
                               className="px-3 py-1 text-xs font-bold text-white rounded-full"
-                              style={{ backgroundColor: "#814E1E" }}>
+                              style={{ backgroundColor: "#814E1E" }}
+                            >
                               BESTE WAARDE
                             </span>
                             <span
@@ -1654,7 +1702,8 @@ export default function ProductTemplate({
                               style={{
                                 backgroundColor: "#FCCE4E",
                                 color: "#814E1E",
-                              }}>
+                              }}
+                            >
                               🚚 GRATIS VERZENDING
                             </span>
                           </div>
@@ -1677,24 +1726,28 @@ export default function ProductTemplate({
                                   selectedBundle === "trio"
                                     ? "border-[#814E1E]"
                                     : "border-gray-400"
-                                }`}>
+                                }`}
+                              >
                                 {selectedBundle === "trio" && (
                                   <div
                                     className="w-3 h-3 rounded-full"
                                     style={{
                                       backgroundColor: "#814E1E",
-                                    }}></div>
+                                    }}
+                                  ></div>
                                 )}
                               </div>
                               <div>
                                 <span
                                   className="font-medium"
-                                  style={{ color: "#814E1E" }}>
+                                  style={{ color: "#814E1E" }}
+                                >
                                   Trio
                                 </span>
                                 <span
                                   className="text-sm ml-2 font-bold"
-                                  style={{ color: "#D6AD61" }}>
+                                  style={{ color: "#D6AD61" }}
+                                >
                                   Bespaar €{bundles.trio.savings.toFixed(2)}
                                 </span>
                               </div>
@@ -1702,7 +1755,8 @@ export default function ProductTemplate({
                             <div className="text-right">
                               <span
                                 className="text-2xl font-bold"
-                                style={{ color: "#814E1E" }}>
+                                style={{ color: "#814E1E" }}
+                              >
                                 €{bundles.trio.price.toFixed(2)}
                               </span>
                               <div className="text-sm text-gray-500 line-through">
@@ -1710,7 +1764,8 @@ export default function ProductTemplate({
                               </div>
                               <div
                                 className="text-sm font-medium"
-                                style={{ color: "#D6AD61" }}>
+                                style={{ color: "#D6AD61" }}
+                              >
                                 Slechts €{bundles.trio.perItem.toFixed(2)} per
                                 stuk!
                               </div>
@@ -1728,7 +1783,8 @@ export default function ProductTemplate({
                   <div className="flex items-center gap-3 mb-2">
                     <span
                       className="text-3xl font-bold"
-                      style={{ color: "#814E1E" }}>
+                      style={{ color: "#814E1E" }}
+                    >
                       €{getCurrentPrice().toFixed(2)}
                     </span>
                     {getCurrentSavings() > 0 && (
@@ -1738,7 +1794,8 @@ export default function ProductTemplate({
                         </span>
                         <span
                           className="text-white px-3 py-1 rounded-full text-sm font-bold"
-                          style={{ backgroundColor: "#814E1E" }}>
+                          style={{ backgroundColor: "#814E1E" }}
+                        >
                           BESPAAR €{getCurrentSavings().toFixed(2)}
                         </span>
                       </>
@@ -1749,7 +1806,8 @@ export default function ProductTemplate({
                   <div className="bg-[#F8F6F0] px-4 py-2 rounded-lg inline-block mb-2">
                     <span
                       className="text-sm font-medium"
-                      style={{ color: "#814E1E" }}>
+                      style={{ color: "#814E1E" }}
+                    >
                       Slechts {Math.round((basePrice / 40) * 100)} cent per
                       wasbeurt
                     </span>
@@ -1774,11 +1832,13 @@ export default function ProductTemplate({
                       selectedBundle === "trio"
                         ? "linear-gradient(90deg, #814E1E 0%, #D6AD61 100%)"
                         : "linear-gradient(90deg, #D6AD61 0%, #FCCE4E 100%)",
-                  }}>
+                  }}
+                >
                   <span
                     className={
                       selectedBundle === "trio" ? "text-white" : "text-black"
-                    }>
+                    }
+                  >
                     🛒 NU BESTELLEN{" "}
                     {selectedBundle === "trio" ? "- GRATIS VERZENDING!" : ""}
                   </span>
@@ -1787,7 +1847,8 @@ export default function ProductTemplate({
                 <div className="text-center">
                   <div
                     className="flex items-center justify-center space-x-4 text-sm mb-3"
-                    style={{ color: "#814E1E" }}>
+                    style={{ color: "#814E1E" }}
+                  >
                     <span>🔒 Veilig betalen</span>
                     <span>📦 30 dagen retour</span>
                     <span>⭐ 9.8/10 tevredenheid</span>
@@ -1842,12 +1903,12 @@ export default function ProductTemplate({
         {((product.product_info && product.product_info.length > 0) ||
           (product.details && product.details.length > 0) ||
           ingredients.length > 0) && (
-          <div className="mb-20">
+          <div className="mb-5 md:mb-10">
             {/* Mobile Accordion View */}
             <div className="md:hidden max-w-4xl mx-auto space-y-4">
               {/* 1. Beschrijving Accordion Item */}
               <CollapsibleSection title="BESCHRIJVING" defaultOpen={false}>
-                <div className="px-0 pt-2">
+                <div className="px-2 pt-2">
                   <div className="accordion-content">
                     <ProductDescription
                       description={
@@ -1864,8 +1925,9 @@ export default function ProductTemplate({
               {/* 2. Gebruiksaanwijzing Accordion Item */}
               <CollapsibleSection
                 title="GEBRUIKSAANWIJZING"
-                defaultOpen={false}>
-                <div className="px-0 pt-2">
+                defaultOpen={false}
+              >
+                <div className="px-2 pt-2">
                   <div className="accordion-content">
                     <div className="space-y-4">
                       <p>
@@ -1894,8 +1956,9 @@ export default function ProductTemplate({
               {/* 3. Verzending en Retour Accordion Item */}
               <CollapsibleSection
                 title="VERZENDING EN RETOUR"
-                defaultOpen={false}>
-                <div className="px-0 pt-2">
+                defaultOpen={false}
+              >
+                <div className="px-2 pt-2">
                   <div className="accordion-content">
                     <div className="space-y-4">
                       <div>
@@ -1940,7 +2003,8 @@ export default function ProductTemplate({
                           <div
                             dangerouslySetInnerHTML={{
                               __html: detail.content,
-                            }}></div>
+                            }}
+                          ></div>
                         </div>
                       ))}
                     </div>
@@ -1962,7 +2026,8 @@ export default function ProductTemplate({
                   // Tab 1: Beschrijving
                   <div
                     key="beschrijving"
-                    className="py-10 text-center max-w-3xl mx-auto">
+                    className=" text-center max-w-3xl mx-auto"
+                  >
                     <div className="accordion-content prose prose-lg max-w-none mx-auto">
                       <div
                         style={{ color: "#814E1E" }}
@@ -1979,7 +2044,8 @@ export default function ProductTemplate({
                   // Tab 2: Gebruiksaanwijzing
                   <div
                     key="gebruiksaanwijzing"
-                    className="py-10 max-w-3xl mx-auto">
+                    className="py-10 max-w-3xl mx-auto"
+                  >
                     <div className="accordion-content">
                       <div className="space-y-4">
                         <p>
@@ -2045,14 +2111,16 @@ export default function ProductTemplate({
                           <div key={index} className="mb-6">
                             <h2
                               className="text-xl font-semibold mb-3"
-                              style={{ color: "#814E1E" }}>
+                              style={{ color: "#814E1E" }}
+                            >
                               {detail.title}
                             </h2>
                             <div
                               style={{ color: "#814E1E" }}
                               dangerouslySetInnerHTML={{
                                 __html: detail.content,
-                              }}></div>
+                              }}
+                            ></div>
                           </div>
                         ))
                       ) : (
@@ -2072,61 +2140,69 @@ export default function ProductTemplate({
         {/* SECTION 02 END: Product Information Tabs/Accordion */}
 
         {/* SECTION 03 START: USP Features (4 Grid Items) */}
-        <div className="mb-16">
+        <div className="mb-5 ">
           <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 md:gap-8">
               {/* USP Item 1 */}
-              <div className="bg-[#F4F2EB] p-8 flex flex-col items-center">
+              <div className="bg-[#F4F2EB] my-4 p-4 rounded-md md:p-8 flex flex-col items-center font-eb-garamond">
                 <h3
-                  className="font-bold text-lg uppercase tracking-wider text-center mb-1"
-                  style={{ color: "#454545" }}>
+                  className="font-bold text-base md:text-lg uppercase tracking-wider text-center mb-1"
+                  style={{ color: "#454545" }}
+                >
                   LIEF VOOR MENS & DIER
                 </h3>
                 <p
-                  className="text-lg text-center font-bold"
-                  style={{ color: "#D6AD61" }}>
+                  className="text-base md:text-lg text-center font-bold"
+                  style={{ color: "#D6AD61" }}
+                >
                   100% DIERPROEFVRIJ ONTWIKKELD
                 </p>
               </div>
 
               {/* USP Item 2 */}
-              <div className="bg-[#F4F2EB] p-8 flex flex-col items-center">
+              <div className="bg-[#F4F2EB] my-4 p-4 rounded-md md:p-8 flex flex-col items-center font-eb-garamond">
                 <h3
-                  className="font-bold text-lg uppercase tracking-wider text-center mb-1"
-                  style={{ color: "#D6AD61" }}>
+                  className="font-bold text-base md:text-lg uppercase tracking-wider text-center mb-1"
+                  style={{ color: "#D6AD61" }}
+                >
                   DUURZAAM GEPRODUCEERD
                 </h3>
                 <p
-                  className="text-lg text-center font-bold"
-                  style={{ color: "#454545" }}>
+                  className="text-base md:text-lg text-center font-bold"
+                  style={{ color: "#454545" }}
+                >
                   VRIJ VAN MICROPLASTICS & RECYCLEBAAR
                 </p>
               </div>
 
               {/* USP Item 3 */}
-              <div className="bg-[#F4F2EB] p-8 flex flex-col items-center">
+              <div className="bg-[#F4F2EB] my-4 p-4 rounded-md md:p-8 flex flex-col items-center font-eb-garamond">
                 <h3
-                  className="font-bold text-lg uppercase tracking-wider text-center mb-1"
-                  style={{ color: "#454545" }}>
+                  className="font-bold text-base mnd:text-lg uppercase tracking-wider text-center mb-1"
+                  style={{ color: "#454545" }}
+                >
                   GEUREXPLOSIE IN JE KAST
                 </h3>
                 <p
-                  className="text-lg text-center font-bold"
-                  style={{ color: "#D6AD61" }}>
+                  className="text-base md:text-lg text-center font-bold"
+                  style={{ color: "#D6AD61" }}
+                >
                   TOT WEL WEKEN LANG EEN HEERLIJKE GEUR
                 </p>
               </div>
 
               {/* USP Item 4 */}
-              <div className="bg-[#F4F2EB] p-8 flex flex-col items-center">
+              <div className="bg-[#F4F2EB] my-4 p-4 rounded-md md:p-8 flex flex-col items-center font-eb-garamond">
                 <h3
-                  className="font-bold text-lg uppercase tracking-wider text-center mb-1"
-                  style={{ color: "#D6AD61" }}>
+                  className="font-bold text-base md:text-lg uppercase tracking-wider text-center mb-1"
+                  style={{ color: "#D6AD61" }}
+                >
                   WASPARFUM VOOR ALLE KLEDING
                 </h3>
                 <p
-                  className="text-lg text-center font-bold"
-                  style={{ color: "#454545" }}>
+                  className="text-base md:text-lg text-center font-bold"
+                  style={{ color: "#454545" }}
+                >
                   GESCHIKT VOOR ALLE TEXTIELSOORTEN
                 </p>
               </div>
@@ -2136,14 +2212,15 @@ export default function ProductTemplate({
         {/* SECTION 03 END: USP Features */}
 
         {/* SECTION 05 START: Bekend van en verkrijgbaar bij */}
-        <div className="mb-16">
+        <div className="mb-5">
           <div className="text-center mb-8">
             <h2
-              className="text-3xl font-bold mb-12"
-              style={{ color: "#333333" }}>
+              className="text-3xl font-bold my-4 md:mb-12"
+              style={{ color: "#333333" }}
+            >
               Bekend van en verkrijgbaar bij
             </h2>
-            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+            <div className="flex flex-wrap justify-center mt-4 items-center gap-6 md:gap-16">
               {/* De Telegraaf */}
               <div className="w-32 md:w-40 h-16 relative flex items-center">
                 <Image
@@ -2194,7 +2271,8 @@ export default function ProductTemplate({
           <div className="text-center">
             <Link
               href="/wasparfum"
-              className="inline-block border-2 border-[#333333] text-[#333333] rounded-full px-12 py-4 font-medium hover:bg-[#F8F6F0] transition-colors">
+              className="inline-block border-2 border-[#333333] text-[#333333] rounded-full px-12 py-4 font-medium hover:bg-[#F8F6F0] transition-colors"
+            >
               <div className="flex items-center justify-center">
                 <span className="mr-2">Bekijk alle wasgeuren</span>
                 <svg
@@ -2202,7 +2280,8 @@ export default function ProductTemplate({
                   height="20"
                   viewBox="0 0 24 24"
                   fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     d="M5 12H19M19 12L12 5M19 12L12 19"
                     stroke="currentColor"
@@ -2218,7 +2297,7 @@ export default function ProductTemplate({
         {/* SECTION 05 END: Bekend van en verkrijgbaar bij */}
 
         {/* SECTION 07 START: Brand Story Section with Image */}
-        <div className="mb-16">
+        <div className="mb-5">
           {/* Image Section */}
           <div className="relative h-[300px] md:h-[400px] overflow-hidden rounded-t-xl">
             <Image
@@ -2231,7 +2310,7 @@ export default function ProductTemplate({
           </div>
 
           {/* Text Section */}
-          <div className="bg-[#F8F6F0] p-8 rounded-b-xl">
+          <div className="bg-[#F8F6F0] p-2 md:p-8 rounded-b-xl">
             <div className="max-w-3xl mx-auto">
               <p className="font-eb-garamond text-[18px] md:text-[20px] leading-relaxed text-[#333333]">
                 Verwen je zintuigen met wasgeurtje's luxe wasparfums. Geniet van
@@ -2239,10 +2318,11 @@ export default function ProductTemplate({
                 Wasgeurtje, rechtstreeks geïmporteerd uit Italië, staat voor
                 milieubewustzijn en pure verfrissing
               </p>
-              <div className="mt-8 text-center">
+              <div className="mt-5 md:mt-8 text-center">
                 <Link
                   href="/wasparfum"
-                  className="inline-block border-2 border-[#333333] text-[#333333] rounded-full px-8 py-3 font-medium hover:bg-[#F8F6F0] transition-colors">
+                  className="inline-block border-2 border-[#333333] text-[#333333] rounded-full px-4 py-2 md:px-8 md:py-3 font-medium hover:bg-[#F8F6F0] transition-colors"
+                >
                   <div className="flex items-center">
                     <span className="mr-2">Ontdek de wereld van wasparfum</span>
                     <svg
@@ -2250,7 +2330,8 @@ export default function ProductTemplate({
                       height="16"
                       viewBox="0 0 24 24"
                       fill="none"
-                      xmlns="http://www.w3.org/2000/svg">
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
                       <path
                         d="M5 12H19M19 12L12 5M19 12L12 19"
                         stroke="currentColor"
@@ -2269,17 +2350,19 @@ export default function ProductTemplate({
 
         {/* SECTION 08 START: Ingredients Section */}
         {ingredients && ingredients.length > 0 && (
-          <div className="mb-16 py-12 bg-[#F8F6F0] rounded-3xl overflow-hidden">
+          <div className="mb-8 md:mb-16 py-12 bg-[#F8F6F0] rounded-3xl overflow-hidden">
             <div className="max-w-7xl mx-auto px-4">
               <div>
                 <h3
                   className="text-3xl font-bold text-center mb-8"
-                  style={{ color: "#333333" }}>
+                  style={{ color: "#333333" }}
+                >
                   Ingrediënten
                 </h3>
                 <p
                   className="text-center max-w-3xl mx-auto mb-8"
-                  style={{ color: "#814E1E" }}>
+                  style={{ color: "#814E1E" }}
+                >
                   Ontdek de zorgvuldig geselecteerde ingrediënten die ons{" "}
                   {product.title} zijn unieke en langdurige geur geven. Alle
                   ingrediënten zijn van hoge kwaliteit en met zorg samengesteld
@@ -2310,13 +2393,15 @@ export default function ProductTemplate({
                       return (
                         <div
                           key={index}
-                          className="text-center transform transition-transform hover:scale-105">
+                          className="text-center transform transition-transform hover:scale-105"
+                        >
                           <div
                             className="w-32 h-32 mx-auto mb-4 rounded-full shadow-md flex items-center justify-center"
                             style={{
                               backgroundColor: "rgba(214, 173, 97, 0.1)",
                               boxShadow: "0 4px 20px rgba(214, 173, 97, 0.2)",
-                            }}>
+                            }}
+                          >
                             <Image
                               src={imgSrc}
                               alt={ingredient.name}
@@ -2328,12 +2413,14 @@ export default function ProductTemplate({
                           </div>
                           <h5
                             className="font-medium text-lg"
-                            style={{ color: "#814E1E" }}>
+                            style={{ color: "#814E1E" }}
+                          >
                             {ingredient.name}
                           </h5>
                           <p
                             className="text-sm mt-1"
-                            style={{ color: "#814E1E", opacity: 0.7 }}>
+                            style={{ color: "#814E1E", opacity: 0.7 }}
+                          >
                             Natuurlijk & puur
                           </p>
                         </div>
@@ -2348,11 +2435,12 @@ export default function ProductTemplate({
         {/* SECTION 08 END: Ingredients Section */}
 
         {/* SECTION 10 START: Social Proof (Testimonials) */}
-        <div className="mb-20">
-          <div className="text-center mb-12">
+        <div className="mb-5 md:mb-10">
+          <div className="text-center mb-5 md:mb-12">
             <h2
-              className="text-3xl font-bold mb-8"
-              style={{ color: "#333333" }}>
+              className="text-3xl font-bold mb-4 "
+              style={{ color: "#333333" }}
+            >
               Wat Nederlandse vrouwen zeggen
             </h2>
             <p className="text-xl" style={{ color: "#814E1E", opacity: 0.8 }}>
@@ -2364,35 +2452,41 @@ export default function ProductTemplate({
             {/* Scrollable container */}
             <div
               className="overflow-x-auto pb-4 hide-scrollbar"
-              id="testimonial-container">
+              id="testimonial-container"
+            >
               <div
                 className="flex space-x-6"
                 style={{ width: "max-content", minWidth: "100%" }}
-                id="testimonial-slider">
+                id="testimonial-slider"
+              >
                 {testimonials.map((testimonial, index) => (
                   <div
                     key={index}
                     className="bg-white rounded-2xl p-6 shadow-sm flex-shrink-0"
-                    style={{ width: "clamp(280px, 30vw, 400px)" }}>
+                    style={{ width: "clamp(280px, 30vw, 400px)" }}
+                  >
                     <div className="flex items-center mb-4">
                       {[1, 2, 3, 4, 5].map((star) => (
                         <svg
                           key={star}
                           className="w-5 h-5 text-[#D6AD61]"
                           fill="currentColor"
-                          viewBox="0 0 20 20">
+                          viewBox="0 0 20 20"
+                        >
                           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
                         </svg>
                       ))}
                     </div>
                     <p
                       className="mb-4 italic text-lg"
-                      style={{ color: "#814E1E" }}>
+                      style={{ color: "#814E1E" }}
+                    >
                       "{testimonial.text}"
                     </p>
                     <div
                       className="text-sm font-medium"
-                      style={{ color: "#814E1E" }}>
+                      style={{ color: "#814E1E" }}
+                    >
                       {testimonial.name} - {testimonial.location}
                     </div>
                   </div>
@@ -2404,8 +2498,8 @@ export default function ProductTemplate({
         {/* SECTION 10 END: Social Proof */}
 
         {/* SECTION 11 START: Trust Badges (4 Icons) */}
-        <div className="mb-20">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div className="mb-5 md:mb-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-8 text-center">
             <div className="py-6">
               <div className="flex justify-center mb-4">
                 <div className="w-16 h-12 overflow-hidden rounded-sm shadow-md relative">
@@ -2419,7 +2513,8 @@ export default function ProductTemplate({
               </h4>
               <p
                 className="text-sm mt-2"
-                style={{ color: "#814E1E", opacity: 0.7 }}>
+                style={{ color: "#814E1E", opacity: 0.7 }}
+              >
                 Lokaal geproduceerd
               </p>
             </div>
@@ -2430,7 +2525,8 @@ export default function ProductTemplate({
               </h4>
               <p
                 className="text-sm mt-2"
-                style={{ color: "#814E1E", opacity: 0.7 }}>
+                style={{ color: "#814E1E", opacity: 0.7 }}
+              >
                 Geen schadelijke stoffen
               </p>
             </div>
@@ -2441,7 +2537,8 @@ export default function ProductTemplate({
               </h4>
               <p
                 className="text-sm mt-2"
-                style={{ color: "#814E1E", opacity: 0.7 }}>
+                style={{ color: "#814E1E", opacity: 0.7 }}
+              >
                 Duurzaam & biologisch
               </p>
             </div>
@@ -2452,7 +2549,8 @@ export default function ProductTemplate({
               </h4>
               <p
                 className="text-sm mt-2"
-                style={{ color: "#814E1E", opacity: 0.7 }}>
+                style={{ color: "#814E1E", opacity: 0.7 }}
+              >
                 Veilig voor het hele gezin
               </p>
             </div>
@@ -2462,11 +2560,12 @@ export default function ProductTemplate({
 
         {/* SECTION 04 START: Related Products (Meest verkochte) */}
         {relatedProducts.length > 0 && (
-          <div className="mb-16">
+          <div className="mb-8 md:mb-16">
             <div className="text-center mb-8">
               <h2
                 className="text-3xl font-bold mb-2"
-                style={{ color: "#333333" }}>
+                style={{ color: "#333333" }}
+              >
                 Meest verkochte producten
               </h2>
             </div>
@@ -2476,15 +2575,18 @@ export default function ProductTemplate({
                 <div key={relProduct.id} className="flex flex-col">
                   <Link
                     href={`/wasparfum/${relProduct.slug}`}
-                    className="group">
+                    className="group"
+                  >
                     <div
                       className="bg-white border-2 rounded-xl overflow-hidden transition-all hover:shadow-lg hover:border-[#D6AD61]"
-                      style={{ borderColor: "#E5E5E5" }}>
+                      style={{ borderColor: "#E5E5E5" }}
+                    >
                       <div className="relative h-[180px] md:h-[250px] bg-[#F8F6F0] flex items-center justify-center p-3 md:p-6">
                         {relProduct.sale && (
                           <span
                             className="absolute top-3 left-3 px-3 py-1 rounded-full text-white text-xs font-bold"
-                            style={{ backgroundColor: "#814E1E" }}>
+                            style={{ backgroundColor: "#814E1E" }}
+                          >
                             SALE
                           </span>
                         )}
@@ -2499,13 +2601,15 @@ export default function ProductTemplate({
                       <div className="p-3 md:p-4">
                         <h3
                           className="text-center font-medium mb-1 text-sm md:text-base"
-                          style={{ color: "#333333" }}>
+                          style={{ color: "#333333" }}
+                        >
                           {relProduct.title}
                         </h3>
                         <div className="text-center">
                           <p
                             className="text-base md:text-xl font-bold"
-                            style={{ color: "#D6AD61" }}>
+                            style={{ color: "#D6AD61" }}
+                          >
                             {relProduct.price}
                           </p>
                         </div>
@@ -2528,10 +2632,11 @@ export default function ProductTemplate({
                     style={{
                       background: "#D6AD61",
                       color: "#FFFFFF",
-                    }}>
+                    }}
+                  >
                     Toevoegen aan winkelwagen
                   </button>
-                  <div className="mt-1 text-xs text-center relative">
+                  <div className="mt-2 text-xs text-center relative">
                     <div
                       className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium transition-all cursor-pointer group hover:scale-105"
                       style={{
@@ -2547,11 +2652,13 @@ export default function ProductTemplate({
                           setShowShippingTooltip(false);
                           setShippingTooltipProduct(null);
                         }, 4000);
-                      }}>
+                      }}
+                    >
                       <svg
                         className="w-3 h-3 mr-1 group-hover:animate-bounce"
                         fill="currentColor"
-                        viewBox="0 0 20 20">
+                        viewBox="0 0 20 20"
+                      >
                         <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
                         <path d="M3 4a1 1 0 00-1 1v1a1 1 0 001 1h1l1.68 5.39A3 3 0 008.62 15h5.76a3 3 0 002.94-2.61L18 7H6.41l-.77-3H3z" />
                       </svg>
@@ -2560,7 +2667,8 @@ export default function ProductTemplate({
                         className="w-3 h-3 ml-1 transition-transform group-hover:translate-x-0.5"
                         fill="none"
                         stroke="currentColor"
-                        viewBox="0 0 24 24">
+                        viewBox="0 0 24 24"
+                      >
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
@@ -2580,13 +2688,15 @@ export default function ProductTemplate({
                                 <span className="text-2xl mr-2">🎯</span>
                                 <h4
                                   className="font-bold text-sm"
-                                  style={{ color: "#814E1E" }}>
+                                  style={{ color: "#814E1E" }}
+                                >
                                   Slim bestellen!
                                 </h4>
                               </div>
                               <p
                                 className="text-xs mb-3"
-                                style={{ color: "#333333" }}>
+                                style={{ color: "#333333" }}
+                              >
                                 {(() => {
                                   const productPrice = parseFloat(
                                     relProduct.price
@@ -2615,7 +2725,8 @@ export default function ProductTemplate({
                                         Voeg nog{" "}
                                         <span
                                           className="font-bold"
-                                          style={{ color: "#814E1E" }}>
+                                          style={{ color: "#814E1E" }}
+                                        >
                                           €
                                           {remaining
                                             .toFixed(2)
@@ -2667,7 +2778,8 @@ export default function ProductTemplate({
                                 </span>
                                 <span
                                   className="font-bold"
-                                  style={{ color: "#D6AD61" }}>
+                                  style={{ color: "#D6AD61" }}
+                                >
                                   Met dit: €
                                   {(
                                     subtotal +
@@ -2704,7 +2816,8 @@ export default function ProductTemplate({
                                   style={{
                                     background:
                                       "linear-gradient(90deg, #814E1E 0%, #D6AD61 100%)",
-                                  }}>
+                                  }}
+                                >
                                   🛒 Voeg toe + bekijk meer
                                 </button>
                                 <button
@@ -2723,7 +2836,8 @@ export default function ProductTemplate({
                                     }
                                   }}
                                   className="w-full py-1 px-3 text-xs font-medium border border-[#D6AD61] rounded-md transition-all hover:bg-[#FFF9F0]"
-                                  style={{ color: "#814E1E" }}>
+                                  style={{ color: "#814E1E" }}
+                                >
                                   💡 Bekijk andere producten
                                 </button>
                               </div>
@@ -2745,10 +2859,11 @@ export default function ProductTemplate({
         {/* SECTION 04 END: Related Products */}
 
         {/* SECTION 12 START: FAQ Section */}
-        <div className="mb-20">
+        <div className="mb-5 md:mb-10">
           <h2
-            className="text-3xl font-bold text-center mb-8"
-            style={{ color: "#333333" }}>
+            className="text-3xl font-bold text-center mb-4 md:mb-8"
+            style={{ color: "#333333" }}
+          >
             Veelgestelde vragen
           </h2>
           <div className="space-y-6 max-w-4xl mx-auto">
@@ -2773,12 +2888,14 @@ export default function ProductTemplate({
               <div key={index} className="bg-white rounded-2xl p-6 shadow-sm">
                 <h4
                   className="font-bold text-lg mb-3"
-                  style={{ color: "#814E1E" }}>
+                  style={{ color: "#814E1E" }}
+                >
                   {faq.q}
                 </h4>
                 <p
                   className="text-base"
-                  style={{ color: "#814E1E", opacity: 0.8 }}>
+                  style={{ color: "#814E1E", opacity: 0.8 }}
+                >
                   {faq.a}
                 </p>
               </div>
@@ -2789,10 +2906,11 @@ export default function ProductTemplate({
 
         {/* SECTION 13 START: Final CTA (Call to Action) */}
         <div
-          className="rounded-3xl p-12 text-center text-white mb-16 shadow-2xl"
+          className="rounded-3xl p-4 md:p-12 text-center text-white mb-8 md:mb-16 shadow-2xl"
           style={{
             background: "linear-gradient(135deg, #814E1E 0%, #D6AD61 100%)",
-          }}>
+          }}
+        >
           <h2 className="text-3xl font-bold mb-6">
             Klaar voor de perfecte wasgeur?
           </h2>
@@ -2802,7 +2920,8 @@ export default function ProductTemplate({
           <button
             onClick={handleAddToCart}
             className="bg-white px-16 py-5 rounded-2xl text-xl font-bold hover:opacity-90 transition-all transform hover:scale-105 shadow-xl"
-            style={{ color: "#814E1E" }}>
+            style={{ color: "#814E1E" }}
+          >
             JA, IK WIL {product.title.toUpperCase()} PROBEREN!
           </button>
           <p className="text-lg mt-6 opacity-90">

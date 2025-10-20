@@ -73,7 +73,7 @@ export default function ImageTextBlock({
               className={`relative flex items-start pl-6 pb-5 ${
                 index === list.length - 1
                   ? ""
-                  : "after:content-[''] after:absolute after:left-[7%] after:top-10 after:w-[2px] after:bg-[#e9c356] after:h-[calc(100%_-_2.5rem)]"
+                  : "after:content-[''] after:absolute after:left-[43px] after:top-10 after:w-[2px] after:bg-[#e9c356] after:h-[calc(100%_-_2.5rem)]"
               }`}>
               <div className="w-10 h-10 bg-[#e9c356] text-white flex items-center justify-center rounded-full font-semibold flex-shrink-0">
                 {index + 1}
@@ -94,7 +94,7 @@ export default function ImageTextBlock({
   );
 
   return (
-    <section className="py-16 md:py-24" style={sectionStyle}>
+    <section className="py-16 md:py-24 md:pb-0" style={sectionStyle}>
       <div className="container mx-auto px-4 max-w-7xl">
         <div
           className={`flex flex-col md:flex-row gap-8 md:gap-12 ${

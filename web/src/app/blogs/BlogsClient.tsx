@@ -224,7 +224,7 @@ export default function BlogsClient() {
 
   return (
     <main className="min-h-screen bg-white">
-      <header className="mb-8 bg-[#eee] py-10 md:py-20">
+      <header className="mb-8 bg-[#eee] py-5 md:py-20">
         <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
           <h1 className="md:text-5xl text-3xl font-['EB_Garamond'] font-semibold text-[#212529]">
             Blog

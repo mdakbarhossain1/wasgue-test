@@ -25,11 +25,11 @@ export default function Testimonials() {
       data-name="Testimonials"
       id="testimonials-section">
       {/* Section heading for mobile */}
-      {isMobile && (
+      {/* {isMobile && (
         <h2 className="text-[24px] font-[var(--font-eb-garamond)] text-center mb-2">
           What Our Customers Say
         </h2>
-      )}
+      )} */}
 
       {/* TrustIndex widget container - using iframe for better isolation */}
       <div

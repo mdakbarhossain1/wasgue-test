@@ -292,7 +292,7 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F6F0] py-12">
+    <div className="min-h-screen bg-[#F8F6F0] py-6 sm:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
@@ -334,26 +334,22 @@ export default function ProfilePage() {
               <nav className="space-y-2">
                 <Link
                   href="/account"
-                  className="block px-4 py-2 text-gray-700 hover:bg-[#F8F6F0] rounded-lg transition-colors"
-                >
+                  className="block px-4 py-2 text-gray-700 hover:bg-[#F8F6F0] rounded-lg transition-colors">
                   Dashboard
                 </Link>
                 <Link
                   href="/account/profile"
-                  className="block px-4 py-2 bg-[#814E1E] text-white rounded-lg"
-                >
+                  className="block px-4 py-2 bg-[#814E1E] text-white rounded-lg">
                   Profiel
                 </Link>
                 <Link
                   href="/account/orders"
-                  className="block px-4 py-2 text-gray-700 hover:bg-[#F8F6F0] rounded-lg transition-colors"
-                >
+                  className="block px-4 py-2 text-gray-700 hover:bg-[#F8F6F0] rounded-lg transition-colors">
                   Bestellingen
                 </Link>
                 <Link
                   href="/account/loyalty"
-                  className="block px-4 py-2 text-gray-700 hover:bg-[#F8F6F0] rounded-lg transition-colors"
-                >
+                  className="block px-4 py-2 text-gray-700 hover:bg-[#F8F6F0] rounded-lg transition-colors">
                   Loyalty Punten
                 </Link>
               </nav>
@@ -385,8 +381,7 @@ export default function ProfilePage() {
                   <div>
                     <label
                       htmlFor="firstName"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
+                      className="block text-sm font-medium text-gray-700 mb-1">
                       Voornaam
                     </label>
                     <input
@@ -403,8 +398,7 @@ export default function ProfilePage() {
                   <div>
                     <label
                       htmlFor="lastName"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
+                      className="block text-sm font-medium text-gray-700 mb-1">
                       Achternaam
                     </label>
                     <input
@@ -422,8 +416,7 @@ export default function ProfilePage() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
+                    className="block text-sm font-medium text-gray-700 mb-1">
                     E-mailadres
                   </label>
                   <input
@@ -440,8 +433,7 @@ export default function ProfilePage() {
                 <div>
                   <label
                     htmlFor="phone"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
+                    className="block text-sm font-medium text-gray-700 mb-1">
                     Telefoonnummer
                   </label>
                   <input
@@ -490,8 +482,7 @@ export default function ProfilePage() {
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full md:w-auto px-6 py-3 bg-[#814E1E] text-white font-medium rounded-lg hover:bg-[#6B3E18] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
+                    className="w-full md:w-auto px-6 py-3 bg-[#814E1E] text-white font-medium rounded-lg hover:bg-[#6B3E18] transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
                     {isLoading ? "Bezig met opslaan..." : "Wijzigingen opslaan"}
                   </button>
                 </div>
@@ -506,8 +497,7 @@ export default function ProfilePage() {
                 </h2>
                 <button
                   onClick={() => setIsAddingAddress(true)}
-                  className="flex items-center space-x-2 px-4 py-2 bg-[#814E1E] text-white text-sm font-medium rounded-lg hover:bg-[#6B3E18] transition-colors"
-                >
+                  className="flex items-center space-x-2 px-4 py-2 bg-[#814E1E] text-white text-sm font-medium rounded-lg hover:bg-[#6B3E18] transition-colors">
                   <Plus className="w-4 h-4" />
                   <span>Nieuw Adres</span>
                 </button>
@@ -523,8 +513,7 @@ export default function ProfilePage() {
                         address.isDefault
                           ? "border-[#D6AD61] bg-[#FFF9F0]"
                           : "border-gray-200"
-                      }`}
-                    >
+                      }`}>
                       {editingAddressId === address.id ? (
                         // Edit Mode
                         <div className="space-y-6">
@@ -540,8 +529,7 @@ export default function ProfilePage() {
                               <svg
                                 className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2"
                                 fill="currentColor"
-                                viewBox="0 0 20 20"
-                              >
+                                viewBox="0 0 20 20">
                                 <path
                                   fillRule="evenodd"
                                   d="M3 6a3 3 0 013-3h10a1 1 0 01.8 1.6L14.25 8l2.55 3.4A1 1 0 0116 13H6a1 1 0 00-1 1v3a1 1 0 11-2 0V6z"
@@ -552,8 +540,7 @@ export default function ProfilePage() {
                                 name="country"
                                 value={newAddress.country}
                                 onChange={handleAddressChange}
-                                className="w-full pl-10 pr-4 py-3 border-2 border-[#D6AD61]/50 rounded-lg focus:ring-2 focus:ring-[#D6AD61] focus:border-[#D6AD61] appearance-none bg-white text-gray-900 font-medium"
-                              >
+                                className="w-full pl-10 pr-4 py-3 border-2 border-[#D6AD61]/50 rounded-lg focus:ring-2 focus:ring-[#D6AD61] focus:border-[#D6AD61] appearance-none bg-white text-gray-900 font-medium">
                                 <option value="NL">🇳🇱 Nederland</option>
                                 <option value="BE">🇧🇪 België</option>
                                 <option value="DE">🇩🇪 Duitsland</option>
@@ -561,8 +548,7 @@ export default function ProfilePage() {
                               <svg
                                 className="w-5 h-5 text-gray-400 absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none"
                                 fill="currentColor"
-                                viewBox="0 0 20 20"
-                              >
+                                viewBox="0 0 20 20">
                                 <path
                                   fillRule="evenodd"
                                   d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
@@ -579,8 +565,7 @@ export default function ProfilePage() {
                                     className="w-4 h-4 mr-2"
                                     fill="none"
                                     stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                  >
+                                    viewBox="0 0 24 24">
                                     <path
                                       strokeLinecap="round"
                                       strokeLinejoin="round"
@@ -601,8 +586,7 @@ export default function ProfilePage() {
                                     className="w-4 h-4 mr-2"
                                     fill="none"
                                     stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                  >
+                                    viewBox="0 0 24 24">
                                     <path
                                       strokeLinecap="round"
                                       strokeLinejoin="round"
@@ -623,8 +607,7 @@ export default function ProfilePage() {
                                     className="w-4 h-4 mr-2"
                                     fill="none"
                                     stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                  >
+                                    viewBox="0 0 24 24">
                                     <path
                                       strokeLinecap="round"
                                       strokeLinejoin="round"
@@ -801,14 +784,12 @@ export default function ProfilePage() {
                                   country: "NL",
                                 });
                               }}
-                              className="px-4 py-2 text-gray-700 hover:text-gray-900"
-                            >
+                              className="px-4 py-2 text-gray-700 hover:text-gray-900">
                               Annuleren
                             </button>
                             <button
                               onClick={handleUpdateAddress}
-                              className="px-4 py-2 bg-[#814E1E] text-white rounded-lg hover:bg-[#6B3E18] transition-colors"
-                            >
+                              className="px-4 py-2 bg-[#814E1E] text-white rounded-lg hover:bg-[#6B3E18] transition-colors">
                               Opslaan
                             </button>
                           </div>
@@ -860,21 +841,18 @@ export default function ProfilePage() {
                                   handleSetDefaultAddress(address.id)
                                 }
                                 className="p-2 text-gray-400 hover:text-[#D6AD61] transition-colors"
-                                title="Instellen als standaard"
-                              >
+                                title="Instellen als standaard">
                                 <MapPin className="w-4 h-4" />
                               </button>
                             )}
                             <button
                               onClick={() => startEditAddress(address)}
-                              className="p-2 text-gray-400 hover:text-[#814E1E] transition-colors"
-                            >
+                              className="p-2 text-gray-400 hover:text-[#814E1E] transition-colors">
                               <Pencil className="w-4 h-4" />
                             </button>
                             <button
                               onClick={() => handleDeleteAddress(address.id)}
-                              className="p-2 text-gray-400 hover:text-red-600 transition-colors"
-                            >
+                              className="p-2 text-gray-400 hover:text-red-600 transition-colors">
                               <Trash2 className="w-4 h-4" />
                             </button>
                           </div>
@@ -908,8 +886,7 @@ export default function ProfilePage() {
                           <svg
                             className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2"
                             fill="currentColor"
-                            viewBox="0 0 20 20"
-                          >
+                            viewBox="0 0 20 20">
                             <path
                               fillRule="evenodd"
                               d="M3 6a3 3 0 013-3h10a1 1 0 01.8 1.6L14.25 8l2.55 3.4A1 1 0 0116 13H6a1 1 0 00-1 1v3a1 1 0 11-2 0V6z"
@@ -920,8 +897,7 @@ export default function ProfilePage() {
                             name="country"
                             value={newAddress.country}
                             onChange={handleAddressChange}
-                            className="w-full pl-10 pr-4 py-3 border-2 border-[#D6AD61]/50 rounded-lg focus:ring-2 focus:ring-[#D6AD61] focus:border-[#D6AD61] appearance-none bg-white text-gray-900 font-medium"
-                          >
+                            className="w-full pl-10 pr-4 py-3 border-2 border-[#D6AD61]/50 rounded-lg focus:ring-2 focus:ring-[#D6AD61] focus:border-[#D6AD61] appearance-none bg-white text-gray-900 font-medium">
                             <option value="">-- Kies je land --</option>
                             <option value="NL">🇳🇱 Nederland</option>
                             <option value="BE">🇧🇪 België</option>
@@ -930,8 +906,7 @@ export default function ProfilePage() {
                           <svg
                             className="w-5 h-5 text-gray-400 absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none"
                             fill="currentColor"
-                            viewBox="0 0 20 20"
-                          >
+                            viewBox="0 0 20 20">
                             <path
                               fillRule="evenodd"
                               d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
@@ -948,8 +923,7 @@ export default function ProfilePage() {
                                 className="w-4 h-4 mr-2"
                                 fill="none"
                                 stroke="currentColor"
-                                viewBox="0 0 24 24"
-                              >
+                                viewBox="0 0 24 24">
                                 <path
                                   strokeLinecap="round"
                                   strokeLinejoin="round"
@@ -970,8 +944,7 @@ export default function ProfilePage() {
                                 className="w-4 h-4 mr-2"
                                 fill="none"
                                 stroke="currentColor"
-                                viewBox="0 0 24 24"
-                              >
+                                viewBox="0 0 24 24">
                                 <path
                                   strokeLinecap="round"
                                   strokeLinejoin="round"
@@ -992,8 +965,7 @@ export default function ProfilePage() {
                                 className="w-4 h-4 mr-2"
                                 fill="none"
                                 stroke="currentColor"
-                                viewBox="0 0 24 24"
-                              >
+                                viewBox="0 0 24 24">
                                 <path
                                   strokeLinecap="round"
                                   strokeLinejoin="round"
@@ -1163,15 +1135,13 @@ export default function ProfilePage() {
                                 });
                                 setPostcodeError("");
                               }}
-                              className="px-4 py-2 text-gray-700 hover:text-gray-900"
-                            >
+                              className="px-4 py-2 text-gray-700 hover:text-gray-900">
                               Annuleren
                             </button>
                             <button
                               onClick={handleAddAddress}
                               disabled={!newAddress.country}
-                              className="px-4 py-2 bg-[#814E1E] text-white rounded-lg hover:bg-[#6B3E18] transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
-                            >
+                              className="px-4 py-2 bg-[#814E1E] text-white rounded-lg hover:bg-[#6B3E18] transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed">
                               Toevoegen
                             </button>
                           </div>
@@ -1193,8 +1163,7 @@ export default function ProfilePage() {
                 <div>
                   <label
                     htmlFor="currentPassword"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
+                    className="block text-sm font-medium text-gray-700 mb-1">
                     Huidig Wachtwoord
                   </label>
                   <input
@@ -1208,8 +1177,7 @@ export default function ProfilePage() {
                 <div>
                   <label
                     htmlFor="newPassword"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
+                    className="block text-sm font-medium text-gray-700 mb-1">
                     Nieuw Wachtwoord
                   </label>
                   <input
@@ -1223,8 +1191,7 @@ export default function ProfilePage() {
                 <div>
                   <label
                     htmlFor="confirmPassword"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
+                    className="block text-sm font-medium text-gray-700 mb-1">
                     Bevestig Nieuw Wachtwoord
                   </label>
                   <input
@@ -1238,8 +1205,7 @@ export default function ProfilePage() {
                 <div className="pt-4">
                   <button
                     type="submit"
-                    className="w-full md:w-auto px-6 py-3 bg-[#814E1E] text-white font-medium rounded-lg hover:bg-[#6B3E18] transition-colors"
-                  >
+                    className="w-full md:w-auto px-6 py-3 bg-[#814E1E] text-white font-medium rounded-lg hover:bg-[#6B3E18] transition-colors">
                     Wachtwoord Wijzigen
                   </button>
                 </div>

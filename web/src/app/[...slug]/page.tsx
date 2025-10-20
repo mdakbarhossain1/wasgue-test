@@ -91,6 +91,30 @@ export async function generateMetadata({
   }
 }
 
+const cleanHTMLContent = (html: any) => {
+  if (!html) return "";
+  return (
+    html
+      // Remove style tags and their content
+      .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, "")
+      // Remove inline style attributes
+      .replace(/ style="[^"]*"/g, "")
+      // Remove class attributes that might conflict
+      .replace(/ class="[^"]*"/g, "")
+      // Remove any remaining CSS text that might be in paragraphs
+      .replace(/<p>style&gt;[\s\S]*?<\/p>/gi, "")
+      // Remove any body, style tag remnants
+      .replace(/body\s*{[\s\S]*?}/g, "")
+      .replace(/\.container[\s\S]*?}/g, "")
+      .replace(/h1[\s\S]*?}/g, "")
+      .replace(/h2[\s\S]*?}/g, "")
+      .replace(/p[\s\S]*?}/g, "")
+      .replace(/\.artikel[\s\S]*?}/g, "")
+      .replace(/\.clausule[\s\S]*?}/g, "")
+      .replace(/\.definitie[\s\S]*?}/g, "")
+  );
+};
+
 export default async function DynamicPage({ params }: PageProps) {
   try {
     const { slug } = await params;
@@ -98,9 +122,7 @@ export default async function DynamicPage({ params }: PageProps) {
 
     // Fetch page directly from API
     const response = await fetch(
-      `${
-        process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
-      }/api/wordpress/pages?slug=${slugPath}`,
+      `${process.env.NEXT_PUBLIC_SITE_URL}/api/wordpress/pages?slug=${slugPath}`,
       {
         next: { revalidate: 3600 },
       }
@@ -111,7 +133,6 @@ export default async function DynamicPage({ params }: PageProps) {
     }
 
     const page = await response.json();
-    console.log("page_content: ", page);
 
     if (!page) {
       notFound();
@@ -122,7 +143,6 @@ export default async function DynamicPage({ params }: PageProps) {
     const components = page.acf?.page_builder
       ? transformFlexibleContent(page.acf.page_builder)
       : [];
-    console.log("components_page_acf: ", components);
 
     // If no ACF content, render the standard content
     const hasACFContent = components.length > 0;
@@ -178,7 +198,7 @@ export default async function DynamicPage({ params }: PageProps) {
               <div className="container mx-auto px-4">
                 <div className="max-w-4xl mx-auto">
                   <h1
-                    className="text-4xl md:text-5xl mb-6 text-[#333333]"
+                    className="text-4xl md:text-5xl mb-6 text-[#333333] text-center md:text-left"
                     dangerouslySetInnerHTML={{ __html: page.title }}
                   />
                   {/* {page.title} */}
@@ -286,7 +306,9 @@ export default async function DynamicPage({ params }: PageProps) {
                       text-black
                       custom-prose
                       "
-                      dangerouslySetInnerHTML={{ __html: page.content }}
+                      dangerouslySetInnerHTML={{
+                        __html: cleanHTMLContent(page.content),
+                      }}
                     />
                   </div>
                 </div>

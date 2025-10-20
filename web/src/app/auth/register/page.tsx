@@ -170,7 +170,7 @@ function RegisterForm() {
                       required
                       value={formData.firstName}
                       onChange={handleInputChange}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#D6AD61] focus:border-[#D6AD61] transition-colors ${
+                      className={`w-full px-4 py-3 text-black border rounded-lg focus:ring-2 focus:ring-[#D6AD61] focus:border-[#D6AD61] transition-colors ${
                         validationErrors.firstName
                           ? "border-red-300"
                           : "border-gray-300"
@@ -198,7 +198,7 @@ function RegisterForm() {
                       required
                       value={formData.lastName}
                       onChange={handleInputChange}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#D6AD61] focus:border-[#D6AD61] transition-colors ${
+                      className={`w-full px-4 py-3 text-black border rounded-lg focus:ring-2 focus:ring-[#D6AD61] focus:border-[#D6AD61] transition-colors ${
                         validationErrors.lastName
                           ? "border-red-300"
                           : "border-gray-300"
@@ -228,7 +228,7 @@ function RegisterForm() {
                     required
                     value={formData.email}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#D6AD61] focus:border-[#D6AD61] transition-colors ${
+                    className={`w-full px-4 py-3 text-black border rounded-lg focus:ring-2 focus:ring-[#D6AD61] focus:border-[#D6AD61] transition-colors ${
                       validationErrors.email
                         ? "border-red-300"
                         : "border-gray-300"
@@ -256,7 +256,7 @@ function RegisterForm() {
                     autoComplete="tel"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D6AD61] focus:border-[#D6AD61] transition-colors"
+                    className="w-full px-4 py-3 text-black border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D6AD61] focus:border-[#D6AD61] transition-colors"
                     placeholder="06 12345678"
                   />
                 </div>
@@ -277,7 +277,7 @@ function RegisterForm() {
                       required
                       value={formData.password}
                       onChange={handleInputChange}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#D6AD61] focus:border-[#D6AD61] transition-colors pr-12 ${
+                      className={`w-full px-4 py-3 text-black border rounded-lg focus:ring-2 focus:ring-[#D6AD61] focus:border-[#D6AD61] transition-colors pr-12 ${
                         validationErrors.password
                           ? "border-red-300"
                           : "border-gray-300"
@@ -349,7 +349,7 @@ function RegisterForm() {
                       required
                       value={formData.confirmPassword}
                       onChange={handleInputChange}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#D6AD61] focus:border-[#D6AD61] transition-colors pr-12 ${
+                      className={`w-full px-4 py-3 text-black border rounded-lg focus:ring-2 focus:ring-[#D6AD61] focus:border-[#D6AD61] transition-colors pr-12 ${
                         validationErrors.confirmPassword
                           ? "border-red-300"
                           : "border-gray-300"

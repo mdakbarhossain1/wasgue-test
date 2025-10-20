@@ -47,12 +47,12 @@ export default function ImageTextBlockSection({
 
   const sectionClasses =
     title === "Wat is wasparfum?"
-      ? "py-16 bg-no-repeat bg-cover bg-center"
-      : "py-16  bg-gradient-to-br from-white to-[#F8F6F0]";
+      ? "py-8 sm:py-16 bg-no-repeat bg-cover bg-center"
+      : "py-10 sm:py-16  bg-gradient-to-br from-white to-[#F8F6F0]";
   return (
     <section style={sectionStyle} className={sectionClasses}>
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 items-center lg:items-start max-w-7xl mx-auto">
           {/* Image */}
           <div className="relative">
             <div className="relative aspect-[4/3] rounded-xl overflow-hidden ">
@@ -69,10 +69,10 @@ export default function ImageTextBlockSection({
           </div>
 
           {/* Content */}
-          <div className="space-y-8">
+          <div className="">
             {/* Title */}
             {title && (
-              <h2 className="text-[32px] font-medium font-['classgarmnd_btroman',sans-serif] mb-6">
+              <h2 className="text-2xl sm:text-[32px] font-medium font-['classgarmnd_btroman',sans-serif] mb-2 sm:mb-6">
                 {title}
               </h2>
             )}
@@ -81,22 +81,21 @@ export default function ImageTextBlockSection({
             {content && (
               <div
                 style={{ color: "white !important" }}
-                className="prose prose-lg max-w-none  prose-p:leading-relaxed prose-p:text-lg"
+                className="prose prose-lg max-w-none prose-p:leading-relaxed prose-p:text-lg was-text-size"
                 dangerouslySetInnerHTML={{ __html: content }}
               />
             )}
 
             {/* List Items */}
             {list && list.length > 0 && (
-              <div className="gap-4 grid grid-cols-2 ">
+              <div className="sm:gap-4 gap-3 grid grid-cols-2 mt-5">
                 {list.map((item, index) => (
                   <div
                     key={`list-item-${index}`}
-                    className="flex items-start space-x-4"
-                  >
+                    className="flex items-start space-x-2 sm:space-x-4">
                     {getListIcon(index)}
                     <div className="flex-1">
-                      <p className="text-gray-800 font-medium leading-relaxed">
+                      <p className="text-gray-800 text-sm font-medium leading-relaxed">
                         {item.text}
                       </p>
                     </div>
@@ -108,7 +107,7 @@ export default function ImageTextBlockSection({
             {/* Extra Content */}
             {extra_content && (
               <div
-                className="prose prose-lg max-w-none prose-p:text-gray-800 prose-p:leading-relaxed prose-p:text-lg prose-strong:text-[#1d1d1d] mt-8 pt-8 "
+                className="prose prose-lg max-w-none prose-p:text-gray-800 prose-p:leading-relaxed prose-p:text-lg prose-strong:text-[#1d1d1d] mt-8 lg:mt-0 sm:pt-4"
                 dangerouslySetInnerHTML={{ __html: extra_content }}
               />
             )}

@@ -42,7 +42,7 @@ export default function ComparisonTable() {
 
   return (
     <div className="px-4 py-3 max-w-7xl mx-auto sm:px-6 lg:px-8 my-12">
-      <h2 className="font-['EB_Garamond'] font-semibold text-[40px] my-6 text-[#814e1e] text-center leading-[1.2]">
+      <h2 className="font-['EB_Garamond'] font-semibold  text-[28px] md:text-[40px] mb-6 mt-2  text-[#814e1e] text-center leading-[1.2]">
         Beyond Fabric Softener
       </h2>
 
@@ -65,15 +65,15 @@ export default function ComparisonTable() {
           <tbody>
             {features.map((feature, index) => (
               <tr key={index}>
-                <td className="p-4 text-gray-800 font-medium bg-white text-left border border-[#D6AD6166]">
+                <td className="md:p-4 p-2 text-gray-800 font-medium bg-white text-left border border-[#D6AD6166]">
                   {feature}
                 </td>
-                <td className="p-4 bg-[#FCCE4E33] h-20 border border-[#D6AD6166]">
+                <td className="md:p-4 p-2 bg-[#FCCE4E33] h-20 border border-[#D6AD6166]">
                   <div className="flex justify-center items-center h-full">
                     <CheckIcon />
                   </div>
                 </td>
-                <td className="p-4 bg-[#D6AD611A] h-20 border border-[#D6AD6166]">
+                <td className="md:p-4 p-2 bg-[#D6AD611A] h-20 border border-[#D6AD6166]">
                   <div className="flex justify-center items-center h-full">
                     <CrossIcon />
                   </div>

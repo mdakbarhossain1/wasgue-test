@@ -18,9 +18,11 @@ import {
   fetchCustomerAddress,
 } from "utils/auth-api";
 
+const WORDPRESS_API_BASE = process.env.NEXT_PUBLIC_WORDPRESS_API_URL || "";
+
 export interface Address {
   id: string;
-  label?: string; // e.g. "Thuis", "Werk", "Ouders"
+  label?: string;
   firstName?: string;
   lastName?: string;
   street: string;
@@ -124,6 +126,13 @@ interface AuthContextType {
   ) => Promise<boolean>;
   deleteAddress: (addressId: string) => Promise<boolean>;
   setDefaultAddress: (addressId: string) => Promise<boolean>;
+  forgotPassword: (
+    email: string
+  ) => Promise<{ success: boolean; message: string }>;
+  resetPassword: (
+    token: string,
+    password: string
+  ) => Promise<{ success: boolean; message: string }>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -1075,6 +1084,80 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };
 
+  const forgotPassword = async (email: string) => {
+    try {
+      const response = await fetch(
+        `https://wasgeurtje.nl/wp-json/wasgeurtje/v1/resetpassword`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (response.ok && data?.success) {
+        return {
+          success: true,
+          message:
+            data.message || "Password reset link has been sent to your email.",
+        };
+      } else {
+        return {
+          success: false,
+          message:
+            data?.message ||
+            data?.error ||
+            "Failed to send password reset email.",
+        };
+      }
+    } catch (error: any) {
+      console.error("Forgot password error:", error);
+      return {
+        success: false,
+        message: "An error occurred. Please try again.",
+      };
+    }
+  };
+
+  const resetPassword = async (token: string, password: string) => {
+    try {
+      const response = await fetch(
+        `https://wasgeurtje.nl/wp-json/wasgeurtje/v1/resetpassword`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ token, password }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (response.ok && data?.success) {
+        return {
+          success: true,
+          message: data.message || "Password has been reset successfully.",
+        };
+      } else {
+        return {
+          success: false,
+          message: data?.message || data?.error || "Failed to reset password.",
+        };
+      }
+    } catch (error: any) {
+      console.error("Reset password error:", error);
+      return {
+        success: false,
+        message: "An error occurred. Please try again.",
+      };
+    }
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -1101,8 +1184,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         updateAddress,
         deleteAddress,
         setDefaultAddress,
-      }}
-    >
+        forgotPassword,
+        resetPassword,
+      }}>
       {children}
     </AuthContext.Provider>
   );

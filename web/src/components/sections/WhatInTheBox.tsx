@@ -51,18 +51,21 @@ const WhatInTheBox: React.FC<ProductRelatedProps> = ({
 
     return (
       <div
-        className={`bg-white relative rounded-[4px] w-full h-full border border-[#d6ad61] overflow-hidden`}>
+        className={`bg-white relative rounded-[4px] w-full h-full border border-[#d6ad61] overflow-hidden`}
+      >
         <div className="content-stretch flex flex-col gap-2 items-start justify-between h-full">
           {/* Product Image - Klikbaar */}
           <a href={productUrl} className="block w-full">
             <div
               className={`content-stretch flex ${
                 isMobile ? "h-[140px]" : isTablet ? "h-[170px]" : "h-[200px]"
-              } items-center justify-center overflow-clip w-full cursor-pointer`}>
+              } items-center justify-center overflow-clip w-full cursor-pointer`}
+            >
               <div
                 className={`bg-center bg-contain bg-no-repeat ${
                   isMobile ? "h-[140px]" : isTablet ? "h-[170px]" : "h-[200px]"
-                } w-full`}>
+                } w-full`}
+              >
                 <Image
                   src={product?.image || fallbackProductImage}
                   alt={product?.title}
@@ -95,7 +98,8 @@ const WhatInTheBox: React.FC<ProductRelatedProps> = ({
                           : isTablet
                           ? "text-[16px]"
                           : "text-[18px]"
-                      } leading-[1.5] font-['Helvetica'] text-center hover:underline`}>
+                      } leading-[1.5] font-['Helvetica'] text-center hover:underline`}
+                    >
                       {product.title}
                     </div>
                   </div>
@@ -130,7 +134,8 @@ const WhatInTheBox: React.FC<ProductRelatedProps> = ({
                       : isTablet
                       ? "text-[13px]"
                       : "text-[14px]"
-                  } text-[rgba(33,37,41,0.8)] leading-[1.5] hidden md:block`}>
+                  } text-[rgba(33,37,41,0.8)] leading-[1.5] hidden md:block`}
+                >
                   Parfum profiel
                 </div>
 
@@ -144,7 +149,8 @@ const WhatInTheBox: React.FC<ProductRelatedProps> = ({
                           : isTablet
                           ? "px-3 py-0.5"
                           : "px-4 py-0.5"
-                      }`}>
+                      }`}
+                    >
                       <div
                         className={`font-['Helvetica'] ${
                           isMobile
@@ -152,7 +158,8 @@ const WhatInTheBox: React.FC<ProductRelatedProps> = ({
                             : isTablet
                             ? "text-[13px]"
                             : "text-[14px]"
-                        } text-[#814e1e] leading-[1.5] whitespace-pre`}>
+                        } text-[#814e1e] leading-[1.5] whitespace-pre`}
+                      >
                         {scent}
                       </div>
                     </div>
@@ -168,7 +175,8 @@ const WhatInTheBox: React.FC<ProductRelatedProps> = ({
                       : isTablet
                       ? "text-[15px]"
                       : "text-[16px]"
-                  } leading-[1.5] font-medium`}>
+                  } leading-[1.5] font-medium`}
+                >
                   {product.price}
                 </div>
 
@@ -189,7 +197,8 @@ const WhatInTheBox: React.FC<ProductRelatedProps> = ({
                       ),
                       image: product.image || fallbackProductImage,
                     });
-                  }}>
+                  }}
+                >
                   <img
                     src={plusIcon}
                     alt="Add to cart"
@@ -204,12 +213,12 @@ const WhatInTheBox: React.FC<ProductRelatedProps> = ({
     );
   };
   return (
-    <div className="px-4 py-3 max-w-7xl mx-auto sm:px-6 lg:px-8 my-12 bg-white rounded-md p-6 md:p-12 lg:p-20">
-      <div className="my-6">
-        <h2 className="font-['EB_Garamond'] font-semibold text-[40px] text-[#814e1e] text-center leading-[1.2] w-full">
+    <div className="md:px-3 py-2 max-w-7xl mx-auto px-3  lg:px-3 my-12 bg-white rounded-md p-6">
+      <div className="mb-6 mt-2">
+        <h2 className="font-['EB_Garamond'] font-semibold text-[28px] md:text-[40px] text-[#814e1e] text-center leading-[1.2] w-full">
           Wat zit er in de doos?
         </h2>
-        <p className="font-['Helvetica'] text-[#212529] text-[18px] text-center leading-[1.5]">
+        <p className="font-['Helvetica'] text-[#212529] text-[16px] md:text-[18px] text-center leading-[1.5]">
           Vijf signatuurgeuren, één luxe ervaring
         </p>
       </div>
@@ -217,17 +226,20 @@ const WhatInTheBox: React.FC<ProductRelatedProps> = ({
         <div
           className={`content-stretch ${
             isMobile || isTablet ? "grid grid-cols-2" : "grid grid-cols-4"
-          } ${isTablet ? "gap-4" : "gap-2"} items-stretch w-full`}>
+          } ${isTablet ? "gap-4" : "gap-2"} items-stretch w-full`}
+        >
           {relatedProducts?.map((product) => (
             <div key={product.id} className="w-full">
               {/* <ProductCard product={product} /> */}
               <div
-                className={`bg-white relative rounded-[4px] w-full h-full border border-[#d6ad61] overflow-hidden`}>
+                className={`bg-white relative rounded-[4px] w-full h-full border border-[#d6ad61] overflow-hidden`}
+              >
                 <div className="content-stretch flex flex-col gap-2 items-start justify-between h-full">
                   {/* Product Image - Klikbaar */}
                   <a
                     href={`/wasparfum/${product.slug}`}
-                    className="block w-full">
+                    className="block w-full"
+                  >
                     <div
                       className={`content-stretch flex ${
                         isMobile
@@ -235,7 +247,8 @@ const WhatInTheBox: React.FC<ProductRelatedProps> = ({
                           : isTablet
                           ? "h-[170px]"
                           : "h-[200px]"
-                      } items-center justify-center overflow-clip w-full cursor-pointer`}>
+                      } items-center justify-center overflow-clip w-full cursor-pointer`}
+                    >
                       <div
                         className={`bg-center bg-contain bg-no-repeat ${
                           isMobile
@@ -243,7 +256,8 @@ const WhatInTheBox: React.FC<ProductRelatedProps> = ({
                             : isTablet
                             ? "h-[170px]"
                             : "h-[200px]"
-                        } w-full`}>
+                        } w-full`}
+                      >
                         <Image
                           src={product?.image || fallbackProductImage}
                           alt={product?.title}
@@ -269,7 +283,8 @@ const WhatInTheBox: React.FC<ProductRelatedProps> = ({
                         {/* Product Title - Klikbaar */}
                         <a
                           href={`/wasparfum/${product.slug}`}
-                          className="block w-full">
+                          className="block w-full"
+                        >
                           <div className="content-stretch flex flex-col items-center justify-start cursor-pointer">
                             <div
                               className={`text-[#814e1e] ${
@@ -278,7 +293,8 @@ const WhatInTheBox: React.FC<ProductRelatedProps> = ({
                                   : isTablet
                                   ? "text-[16px]"
                                   : "text-[18px]"
-                              } leading-[1.5] font-['Helvetica'] text-center hover:underline`}>
+                              } leading-[1.5] font-['Helvetica'] text-center hover:underline`}
+                            >
                               {product.title}
                             </div>
                           </div>
@@ -315,7 +331,8 @@ const WhatInTheBox: React.FC<ProductRelatedProps> = ({
                               : isTablet
                               ? "text-[13px]"
                               : "text-[14px]"
-                          } text-[rgba(33,37,41,0.8)] leading-[1.5] hidden md:block`}>
+                          } text-[rgba(33,37,41,0.8)] leading-[1.5] hidden md:block`}
+                        >
                           Parfum profiel
                         </div>
 
@@ -329,7 +346,8 @@ const WhatInTheBox: React.FC<ProductRelatedProps> = ({
                                   : isTablet
                                   ? "px-3 py-0.5"
                                   : "px-4 py-0.5"
-                              }`}>
+                              }`}
+                            >
                               <div
                                 className={`font-['Helvetica'] ${
                                   isMobile
@@ -337,7 +355,8 @@ const WhatInTheBox: React.FC<ProductRelatedProps> = ({
                                     : isTablet
                                     ? "text-[13px]"
                                     : "text-[14px]"
-                                } text-[#814e1e] leading-[1.5] whitespace-pre`}>
+                                } text-[#814e1e] leading-[1.5] whitespace-pre`}
+                              >
                                 {scent}
                               </div>
                             </div>
@@ -353,7 +372,8 @@ const WhatInTheBox: React.FC<ProductRelatedProps> = ({
                               : isTablet
                               ? "text-[15px]"
                               : "text-[16px]"
-                          } leading-[1.5] font-medium`}>
+                          } leading-[1.5] font-medium`}
+                        >
                           {product.price}
                         </div>
 
@@ -378,7 +398,8 @@ const WhatInTheBox: React.FC<ProductRelatedProps> = ({
                               ),
                               image: product.image || fallbackProductImage,
                             });
-                          }}>
+                          }}
+                        >
                           <img
                             src={plusIcon}
                             alt="Add to cart"

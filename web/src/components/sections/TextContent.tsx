@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 interface TextContentProps {
   title?: string;
@@ -25,6 +28,9 @@ export default function TextContent({
   maxWidth = "4xl",
   padding = "py-16",
 }: TextContentProps) {
+  const route = usePathname();
+  console.log(route, "route");
+
   const alignmentClasses = {
     left: "text-left",
     center: "text-center mx-auto",

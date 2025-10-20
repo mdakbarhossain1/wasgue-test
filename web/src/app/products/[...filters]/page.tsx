@@ -256,8 +256,7 @@ export default async function FilteredProductsPage({
               <Link
                 key={product.id}
                 href={`/wasparfum/${product.slug}`}
-                className="group"
-              >
+                className="group">
                 <div className="bg-white border border-[#d6ad61] rounded-[4px] overflow-hidden">
                   <div className="relative h-[200px] bg-white flex items-center justify-center p-4">
                     <Image

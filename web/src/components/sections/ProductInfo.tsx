@@ -46,7 +46,8 @@ const ProductInfo: React.FC<ProductDetailsCustomProps> = ({ productInfo }) => {
             height="16"
             viewBox="0 0 19 18"
             fill="none"
-            xmlns="http://www.w3.org/2000/svg">
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <path
               d="M4.56385 17.3731C4.1291 17.5965 3.63684 17.206 3.72436 16.7071L4.65781 11.3864L0.695183 7.6102C0.324855 7.25729 0.516555 6.61204 1.01267 6.54156L6.52345 5.7587L8.98059 0.891343C9.20193 0.452886 9.80152 0.452886 10.0229 0.891343L12.48 5.7587L17.9908 6.54156C18.4869 6.61204 18.6786 7.25729 18.3083 7.6102L14.3456 11.3864L15.2791 16.7071C15.3666 17.206 14.8743 17.5965 14.4396 17.3731L9.50172 14.8351L4.56385 17.3731Z"
               fill="#FCCE4E"
@@ -57,7 +58,8 @@ const ProductInfo: React.FC<ProductDetailsCustomProps> = ({ productInfo }) => {
             height="16"
             viewBox="0 0 19 18"
             fill="none"
-            xmlns="http://www.w3.org/2000/svg">
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <path
               d="M4.56385 17.3731C4.1291 17.5965 3.63684 17.206 3.72436 16.7071L4.65781 11.3864L0.695183 7.6102C0.324855 7.25729 0.516555 6.61204 1.01267 6.54156L6.52345 5.7587L8.98059 0.891343C9.20193 0.452886 9.80152 0.452886 10.0229 0.891343L12.48 5.7587L17.9908 6.54156C18.4869 6.61204 18.6786 7.25729 18.3083 7.6102L14.3456 11.3864L15.2791 16.7071C15.3666 17.206 14.8743 17.5965 14.4396 17.3731L9.50172 14.8351L4.56385 17.3731Z"
               fill="#FCCE4E"
@@ -68,7 +70,8 @@ const ProductInfo: React.FC<ProductDetailsCustomProps> = ({ productInfo }) => {
             height="16"
             viewBox="0 0 19 18"
             fill="none"
-            xmlns="http://www.w3.org/2000/svg">
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <path
               d="M4.56385 17.3731C4.1291 17.5965 3.63684 17.206 3.72436 16.7071L4.65781 11.3864L0.695183 7.6102C0.324855 7.25729 0.516555 6.61204 1.01267 6.54156L6.52345 5.7587L8.98059 0.891343C9.20193 0.452886 9.80152 0.452886 10.0229 0.891343L12.48 5.7587L17.9908 6.54156C18.4869 6.61204 18.6786 7.25729 18.3083 7.6102L14.3456 11.3864L15.2791 16.7071C15.3666 17.206 14.8743 17.5965 14.4396 17.3731L9.50172 14.8351L4.56385 17.3731Z"
               fill="#FCCE4E"
@@ -79,7 +82,8 @@ const ProductInfo: React.FC<ProductDetailsCustomProps> = ({ productInfo }) => {
             height="16"
             viewBox="0 0 19 18"
             fill="none"
-            xmlns="http://www.w3.org/2000/svg">
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <path
               d="M4.56385 17.3731C4.1291 17.5965 3.63684 17.206 3.72436 16.7071L4.65781 11.3864L0.695183 7.6102C0.324855 7.25729 0.516555 6.61204 1.01267 6.54156L6.52345 5.7587L8.98059 0.891343C9.20193 0.452886 9.80152 0.452886 10.0229 0.891343L12.48 5.7587L17.9908 6.54156C18.4869 6.61204 18.6786 7.25729 18.3083 7.6102L14.3456 11.3864L15.2791 16.7071C15.3666 17.206 14.8743 17.5965 14.4396 17.3731L9.50172 14.8351L4.56385 17.3731Z"
               fill="#FCCE4E"
@@ -90,7 +94,8 @@ const ProductInfo: React.FC<ProductDetailsCustomProps> = ({ productInfo }) => {
             height="16"
             viewBox="0 0 19 18"
             fill="none"
-            xmlns="http://www.w3.org/2000/svg">
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <path
               d="M4.56385 17.3731C4.1291 17.5965 3.63684 17.206 3.72436 16.7071L4.65781 11.3864L0.695183 7.6102C0.324855 7.25729 0.516555 6.61204 1.01267 6.54156L6.52345 5.7587L8.98059 0.891343C9.20193 0.452886 9.80152 0.452886 10.0229 0.891343L12.48 5.7587L17.9908 6.54156C18.4869 6.61204 18.6786 7.25729 18.3083 7.6102L14.3456 11.3864L15.2791 16.7071C15.3666 17.206 14.8743 17.5965 14.4396 17.3731L9.50172 14.8351L4.56385 17.3731Z"
               fill="#FCCE4E"
@@ -122,17 +127,17 @@ const ProductInfo: React.FC<ProductDetailsCustomProps> = ({ productInfo }) => {
                 <h2 className="text-[#212529] text-[24px] lg:text-[32px] leading-[1.2] font-semibold">
                   {productInfo?.title}
                 </h2>
-                <div className="price-right hidden">
+                {/* <div className="price-right hidden">
                   <p className="text-[#814E1E] font-normal text-[12px] lg:text-[14px] leading-[1.5]">
                     {productInfo?.price}
                   </p>
                   <p className="text-[#814E1E] font-normal text-[12px] lg:text-[14px] leading-[1.5]">
                     /wash
                   </p>
-                </div>
+                </div> */}
               </div>
 
-              <p className="text-[#212529] font-normal text-[14px] lg:text-[16px] leading-[1.5] mb-6">
+              <p className="text-[#212529] font-normal text-[14px] text-[16px] leading-[1.5] mb-6">
                 Categorie wasparfum proefpakket
               </p>
             </div>
@@ -148,22 +153,26 @@ const ProductInfo: React.FC<ProductDetailsCustomProps> = ({ productInfo }) => {
                 {bottomCheck?.map((item: any, index: number) => (
                   <li
                     key={index}
-                    className="text-black flex items-center gap-2 mb-2">
+                    className="text-black flex  gap-2 mb-2 items-start"
+                  >
                     <span>
                       <svg
                         width="20"
                         height="21"
                         viewBox="0 0 20 21"
                         fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
                         <path
                           d="M10 20.79C15.5228 20.79 20 16.3129 20 10.79C20 5.26719 15.5228 0.790039 10 0.790039C4.47715 0.790039 0 5.26719 0 10.79C0 16.3129 4.47715 20.79 10 20.79Z"
-                          fill="#D6AD61"></path>
+                          fill="#D6AD61"
+                        ></path>
                         <path
                           fillRule="evenodd"
                           clipRule="evenodd"
                           d="M13.9224 9.15697C14.2478 8.83153 14.2478 8.30388 13.9224 7.97845C13.5969 7.65302 13.0693 7.65302 12.7439 7.97845L9.44423 11.2781L7.81126 9.64511C7.48582 9.31968 6.95819 9.31968 6.63275 9.64511C6.30731 9.97055 6.30731 10.4982 6.63275 10.8236L8.85497 13.0458C9.18041 13.3713 9.70805 13.3713 10.0335 13.0458L13.9224 9.15697Z"
-                          fill="white"></path>
+                          fill="white"
+                        ></path>
                       </svg>
                     </span>
                     {item.item}
@@ -182,7 +191,8 @@ const ProductInfo: React.FC<ProductDetailsCustomProps> = ({ productInfo }) => {
                   height="16"
                   viewBox="0 0 19 18"
                   fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     d="M4.56385 17.3731C4.1291 17.5965 3.63684 17.206 3.72436 16.7071L4.65781 11.3864L0.695183 7.6102C0.324855 7.25729 0.516555 6.61204 1.01267 6.54156L6.52345 5.7587L8.98059 0.891343C9.20193 0.452886 9.80152 0.452886 10.0229 0.891343L12.48 5.7587L17.9908 6.54156C18.4869 6.61204 18.6786 7.25729 18.3083 7.6102L14.3456 11.3864L15.2791 16.7071C15.3666 17.206 14.8743 17.5965 14.4396 17.3731L9.50172 14.8351L4.56385 17.3731Z"
                     fill="#FCCE4E"
@@ -193,7 +203,8 @@ const ProductInfo: React.FC<ProductDetailsCustomProps> = ({ productInfo }) => {
                   height="16"
                   viewBox="0 0 19 18"
                   fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     d="M4.56385 17.3731C4.1291 17.5965 3.63684 17.206 3.72436 16.7071L4.65781 11.3864L0.695183 7.6102C0.324855 7.25729 0.516555 6.61204 1.01267 6.54156L6.52345 5.7587L8.98059 0.891343C9.20193 0.452886 9.80152 0.452886 10.0229 0.891343L12.48 5.7587L17.9908 6.54156C18.4869 6.61204 18.6786 7.25729 18.3083 7.6102L14.3456 11.3864L15.2791 16.7071C15.3666 17.206 14.8743 17.5965 14.4396 17.3731L9.50172 14.8351L4.56385 17.3731Z"
                     fill="#FCCE4E"
@@ -204,7 +215,8 @@ const ProductInfo: React.FC<ProductDetailsCustomProps> = ({ productInfo }) => {
                   height="16"
                   viewBox="0 0 19 18"
                   fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     d="M4.56385 17.3731C4.1291 17.5965 3.63684 17.206 3.72436 16.7071L4.65781 11.3864L0.695183 7.6102C0.324855 7.25729 0.516555 6.61204 1.01267 6.54156L6.52345 5.7587L8.98059 0.891343C9.20193 0.452886 9.80152 0.452886 10.0229 0.891343L12.48 5.7587L17.9908 6.54156C18.4869 6.61204 18.6786 7.25729 18.3083 7.6102L14.3456 11.3864L15.2791 16.7071C15.3666 17.206 14.8743 17.5965 14.4396 17.3731L9.50172 14.8351L4.56385 17.3731Z"
                     fill="#FCCE4E"
@@ -215,7 +227,8 @@ const ProductInfo: React.FC<ProductDetailsCustomProps> = ({ productInfo }) => {
                   height="16"
                   viewBox="0 0 19 18"
                   fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     d="M4.56385 17.3731C4.1291 17.5965 3.63684 17.206 3.72436 16.7071L4.65781 11.3864L0.695183 7.6102C0.324855 7.25729 0.516555 6.61204 1.01267 6.54156L6.52345 5.7587L8.98059 0.891343C9.20193 0.452886 9.80152 0.452886 10.0229 0.891343L12.48 5.7587L17.9908 6.54156C18.4869 6.61204 18.6786 7.25729 18.3083 7.6102L14.3456 11.3864L15.2791 16.7071C15.3666 17.206 14.8743 17.5965 14.4396 17.3731L9.50172 14.8351L4.56385 17.3731Z"
                     fill="#FCCE4E"
@@ -226,7 +239,8 @@ const ProductInfo: React.FC<ProductDetailsCustomProps> = ({ productInfo }) => {
                   height="16"
                   viewBox="0 0 19 18"
                   fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     d="M4.56385 17.3731C4.1291 17.5965 3.63684 17.206 3.72436 16.7071L4.65781 11.3864L0.695183 7.6102C0.324855 7.25729 0.516555 6.61204 1.01267 6.54156L6.52345 5.7587L8.98059 0.891343C9.20193 0.452886 9.80152 0.452886 10.0229 0.891343L12.48 5.7587L17.9908 6.54156C18.4869 6.61204 18.6786 7.25729 18.3083 7.6102L14.3456 11.3864L15.2791 16.7071C15.3666 17.206 14.8743 17.5965 14.4396 17.3731L9.50172 14.8351L4.56385 17.3731Z"
                     fill="#FCCE4E"
@@ -248,17 +262,17 @@ const ProductInfo: React.FC<ProductDetailsCustomProps> = ({ productInfo }) => {
                 <h2 className="text-[#212529] text-[24px] lg:text-[32px] leading-[1.2] font-semibold">
                   {productInfo?.title}
                 </h2>
-                <div className="price-right">
+                {/* <div className="price-right">
                   <p className="text-[#814E1E] font-normal text-[12px] lg:text-[14px] leading-[1.5]">
                     {productInfo?.price}
                   </p>
                   <p className="text-[#814E1E] font-normal text-[12px] lg:text-[14px] leading-[1.5]">
                     /wash
                   </p>
-                </div>
+                </div> */}
               </div>
 
-              <p className="text-[#212529] font-normal text-[14px] lg:text-[16px] leading-[1.5] mb-6">
+              <p className="text-[#212529] font-normal text-[16px] leading-[1.5] mb-6">
                 Categorie wasparfum proefpakket
               </p>
             </div>
@@ -267,7 +281,7 @@ const ProductInfo: React.FC<ProductDetailsCustomProps> = ({ productInfo }) => {
               Ontdek waarom het Wasgeurtje Proefpakket een luxeproduct is:
             </h3>
 
-            {/* <p className="text-[#212529] font-normal text-[14px] lg:text-[16px] leading-[1.5] mb-8">
+            {/* <p className="text-[#212529] font-normal text-[14px] text-[16px] leading-[1.5] mb-8">
               <span
                 dangerouslySetInnerHTML={{ __html: productDescription }}></span>
             </p> */}
@@ -281,7 +295,8 @@ const ProductInfo: React.FC<ProductDetailsCustomProps> = ({ productInfo }) => {
                       height="24"
                       viewBox="0 0 24 24"
                       fill="none"
-                      xmlns="http://www.w3.org/2000/svg">
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
                       <g clipPath="url(#clip0_166_3922)">
                         <path
                           fillRule="evenodd"
@@ -333,7 +348,7 @@ const ProductInfo: React.FC<ProductDetailsCustomProps> = ({ productInfo }) => {
                       </g>
                     </svg>
                   </div>
-                  <p className="text-[#212529] font-normal text-[12px] lg:text-[14px] leading-[1.5]">
+                  <p className="text-[#212529] font-normal text-[16px] leading-[1.5]">
                     Probeer voordat je koopt: Test verschillende geuren voordat
                     je een grotere aankoop doet.
                   </p>
@@ -345,7 +360,8 @@ const ProductInfo: React.FC<ProductDetailsCustomProps> = ({ productInfo }) => {
                       height="24"
                       viewBox="0 0 24 24"
                       fill="none"
-                      xmlns="http://www.w3.org/2000/svg">
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
                       <g clipPath="url(#clip0_166_3925)">
                         <path
                           fillRule="evenodd"
@@ -373,7 +389,7 @@ const ProductInfo: React.FC<ProductDetailsCustomProps> = ({ productInfo }) => {
                       </g>
                     </svg>
                   </div>
-                  <p className="text-[#212529] font-normal text-[12px] lg:text-[14px] leading-[1.5]">
+                  <p className="text-[#212529] font-normal text-[16px] leading-[1.5]">
                     Geconcentreerde formule: Langdurige geur met slechts een
                     kleine hoeveelheid.
                   </p>
@@ -385,7 +401,8 @@ const ProductInfo: React.FC<ProductDetailsCustomProps> = ({ productInfo }) => {
                       height="24"
                       viewBox="0 0 24 24"
                       fill="none"
-                      xmlns="http://www.w3.org/2000/svg">
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
                       <path
                         fillRule="evenodd"
                         clipRule="evenodd"
@@ -453,7 +470,7 @@ const ProductInfo: React.FC<ProductDetailsCustomProps> = ({ productInfo }) => {
                       />
                     </svg>
                   </div>
-                  <p className="text-[#212529] font-normal text-[12px] lg:text-[14px] leading-[1.5]">
+                  <p className="text-[#212529] font-normal text-[16px] leading-[1.5]">
                     Veelzijdig in gebruik: Geschikt voor alle textielsoorten,
                     van beddengoed tot sportkleding.
                   </p>
@@ -465,7 +482,8 @@ const ProductInfo: React.FC<ProductDetailsCustomProps> = ({ productInfo }) => {
                       height="24"
                       viewBox="0 0 24 24"
                       fill="none"
-                      xmlns="http://www.w3.org/2000/svg">
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
                       <g clipPath="url(#clip0_166_3932)">
                         <path
                           fillRule="evenodd"
@@ -505,7 +523,7 @@ const ProductInfo: React.FC<ProductDetailsCustomProps> = ({ productInfo }) => {
                       </g>
                     </svg>
                   </div>
-                  <p className="text-[#212529] font-normal text-[12px] lg:text-[14px] leading-[1.5]">
+                  <p className="text-[#212529] font-normal text-[16px] leading-[1.5]">
                     Slechts 0,40 cent per wasbeurt
                   </p>
                 </div>
@@ -519,7 +537,8 @@ const ProductInfo: React.FC<ProductDetailsCustomProps> = ({ productInfo }) => {
                   height="20"
                   viewBox="0 0 20 20"
                   fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <g clipPath="url(#clip0_486_1321)">
                     <path
                       d="M10 20C15.5228 20 20 15.5228 20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20Z"
@@ -544,7 +563,8 @@ const ProductInfo: React.FC<ProductDetailsCustomProps> = ({ productInfo }) => {
                 <div className="flex items-center gap-6">
                   <button
                     onClick={decrement}
-                    className="text-[24px] text-[#212529] font-normal">
+                    className="text-[24px] text-[#212529] font-normal"
+                  >
                     −
                   </button>
 
@@ -554,7 +574,8 @@ const ProductInfo: React.FC<ProductDetailsCustomProps> = ({ productInfo }) => {
 
                   <button
                     onClick={increment}
-                    className="text-[24px] text-[#212529] font-normal">
+                    className="text-[24px] text-[#212529] font-normal"
+                  >
                     +
                   </button>
                 </div>
@@ -571,13 +592,15 @@ const ProductInfo: React.FC<ProductDetailsCustomProps> = ({ productInfo }) => {
                     });
                   }
                 }}
-                className="btn-cart flex gap-3 items-center justify-center bg-[#D6AD61] px-5 py-3 rounded-[4px] pointer">
+                className="btn-cart flex gap-3 items-center justify-center bg-[#D6AD61] px-5 py-3 rounded-[4px] pointer"
+              >
                 <svg
-                  width="16"
-                  height="16"
+                  width="20"
+                  height="20"
                   viewBox="0 0 16 16"
                   fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     d="M9 5.5C9 5.22386 8.77614 5 8.5 5C8.22386 5 8 5.22386 8 5.5V7H6.5C6.22386 7 6 7.22386 6 7.5C6 7.77614 6.22386 8 6.5 8H8V9.5C8 9.77614 8.22386 10 8.5 10C8.77614 10 9 9.77614 9 9.5V8H10.5C10.7761 8 11 7.77614 11 7.5C11 7.22386 10.7761 7 10.5 7H9V5.5Z"
                     fill="#212529"
@@ -588,11 +611,11 @@ const ProductInfo: React.FC<ProductDetailsCustomProps> = ({ productInfo }) => {
                   />
                 </svg>
 
-                <span className="text-[14px] lg:text-[16px] text-[#212529] font-normal leanding-[1.5] uppercase">
+                <span className="text-[14px] lg:text-[16px] text-[#212529] font-medium leanding-[1.5] uppercase">
                   Toevoegen aan winkelwagen
                 </span>
                 <span className="text-[14px] lg:text-[16px] text-[#212529] leading-[1.5]">
-                  <span className="text-[14px] lg:text-[16px] text-[#212529] font-normal leading-[1.5]">
+                  <span className="text-[14px] lg:text-[16px] text-[#212529] font-medium leading-[1.5]">
                     €{totalPrice.toFixed(2)}
                   </span>
                 </span>
@@ -661,7 +684,7 @@ const ProductInfo: React.FC<ProductDetailsCustomProps> = ({ productInfo }) => {
             <div className="text-black">
               {productInfo.product_info?.map((items: any, index: number) => (
                 <ul key={index}>
-                  <li className="flex items-center gap-2">
+                  <li className="flex items-start gap-2">
                     <p className="font-semibold">{items.title}</p>
                     <p className="text-[14px]">{items.info}</p>
                   </li>

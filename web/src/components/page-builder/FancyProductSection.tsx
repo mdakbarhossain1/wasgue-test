@@ -54,8 +54,7 @@ export default function FancyProductSection({
   return (
     <section
       id="fancy_product--section"
-      className="woocommerce relative py-12 md:py-16 overflow-hidden"
-    >
+      className="woocommerce relative py-12 md:py-16 overflow-hidden">
       {/* Background Image */}
       {background && background.url && (
         <div className="absolute inset-0 z-0">
@@ -81,16 +80,15 @@ export default function FancyProductSection({
         <div className="text-center mb-8">
           {section_title && (
             <h2
-              className="text-2xl md:text-[32px] font-medium !text-[#d7aa43] font-['classgarmnd_btroman',sans-serif]"
+              className="text-xl md:text-[32px] font-medium !text-[#d7aa43] font-['classgarmnd_btroman',sans-serif]"
               style={{
                 color: "#d7aa43 !important",
-              }}
-            >
+              }}>
               {section_title}
             </h2>
           )}
           {sub_title && (
-            <p className="text-base md:text-lg text-gray-200 max-w-2xl mx-auto mt-2">
+            <p className="text-sm md:text-lg text-gray-200 max-w-2xl mx-auto mt-2">
               {sub_title}
             </p>
           )}
@@ -101,13 +99,11 @@ export default function FancyProductSection({
           {products.map((product: WordPressProduct, index: number) => (
             <li
               key={`fancy-product-${product.id || index}`}
-              className="product type-product text-center relative border border-[#e9c356] bg-[#0e1528] mt-[100px]  pb-10"
-            >
+              className="product type-product text-center relative border border-[#e9c356] bg-[#0e1528] mt-[100px]  pb-10">
               {/* Product Image */}
               <Link
                 href={product.permalink || `/product/${product.slug}` || "#"}
-                className="woocommerce-LoopProduct-link block"
-              >
+                className="woocommerce-LoopProduct-link block">
                 <div className="relative mt-[-100px] overflow-hidden  rounded text-center">
                   {product.images && product.images[0] && (
                     <div>
@@ -131,7 +127,7 @@ export default function FancyProductSection({
                 <div></div>
 
                 {/* Product Title */}
-                <h3 className="woocommerce-loop-product__title text-white text-[15px] font-['classgarmnd_btroman',sans-serif] font-medium mt-2 mb-1">
+                <h3 className="woocommerce-loop-product__title text-white text-[15px] font-['classgarmnd_btroman',sans-serif] font-medium mt-2 mb-1 text-wrap px-1">
                   {product.name}
                 </h3>
 
@@ -191,8 +187,7 @@ export default function FancyProductSection({
                 className={`button product_type_simple inline-block px-4 py-2 bg-[#e9c356] text-[#1d1d1d] text-xs font-bold text-center rounded-[50px] md:rounded   ${
                   !mounted || !addToCart ? "opacity-50 cursor-not-allowed" : ""
                 }`}
-                aria-label={`"${product.name}" toevoegen aan je winkelwagen`}
-              >
+                aria-label={`"${product.name}" toevoegen aan je winkelwagen`}>
                 <label className="md:hidden">Voeg toe</label>
                 <label className="hidden md:block">
                   Toevoegen aan winkelwagen
@@ -205,7 +200,7 @@ export default function FancyProductSection({
         {/* Product Note */}
         {product_note && (
           <div className="text-center">
-            <div className="inline-flex items-center bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 border border-white/30">
+            <div className="inline-flex gap-2 items-center bg-white/20 backdrop-blur-sm rounded-full md:px-6 px-3 md:py-3 py-2 border border-white/30">
               <div className="w-3 h-3 bg-[#e9c356] rounded-full mr-3 animate-pulse"></div>
               <span className="text-white font-semibold">{product_note}</span>
             </div>

@@ -39,14 +39,14 @@ export default function ProductSection({ section }: ProductSectionProps) {
       <div className="container mx-auto px-4">
         {/* Section Header with 2025 Design */}
         {section_title && (
-          <div className="text-center mb-12 relative">
+          <div className="text-center mb-6 sm:mb-12 relative">
             {/* Background Glow Effect */}
             <div className="absolute inset-0 flex justify-center items-center">
               <div className="w-96 h-32 bg-gradient-to-r from-[#e9c356]/20 via-[#e9c356]/30 to-[#e9c356]/20 blur-3xl"></div>
             </div>
 
             {/* Title with Modern Typography */}
-            <h2 className="relative md:text-[32px] text-[26px] text-transparent bg-clip-text bg-gradient-to-r from-[#1d1d1d] via-[#e9c356] to-[#1d1d1d] font-['classgarmnd_btroman',sans-serif] mb-3 mx-auto tracking-tight max-w-[550px]">
+            <h2 className="relative md:text-[32px] text-xl text-transparent bg-clip-text bg-gradient-to-r from-[#1d1d1d] via-[#e9c356] to-[#1d1d1d] font-['classgarmnd_btroman',sans-serif] mb-3 mx-auto tracking-tight max-w-[550px]">
               {section_title}
             </h2>
 
@@ -66,7 +66,7 @@ export default function ProductSection({ section }: ProductSectionProps) {
         )}
 
         {/* Products Grid - WooCommerce Style */}
-        <ul className="products columns-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 list-none">
+        <ul className="products columns-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 list-none">
           {products.map((product, index) => (
             <li
               key={`product-${product.id || index}`}

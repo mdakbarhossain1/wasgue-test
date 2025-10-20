@@ -26,7 +26,7 @@ export default function FAQSection({ section }: FAQSectionProps) {
   }
 
   return (
-    <section className="py-24 relative overflow-hidden bg-white">
+    <section className="py-7 sm:py-16 relative overflow-hidden bg-white">
       {/* Modern Gradient Background */}
       {/* <div className="absolute inset-0">
         <div className="absolute inset-0 "></div>
@@ -36,11 +36,11 @@ export default function FAQSection({ section }: FAQSectionProps) {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Modern Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-[36px] md:text-[46px] font-medium text-[#212529] mb-4 font-['classgarmnd_btroman',sans-serif]">
+        <div className="text-center mb-8 sm:mb-16">
+          <h2 className="text-2xl md:text-[46px] font-medium text-[#212529] mb-4 font-['classgarmnd_btroman',sans-serif]">
             {section_title || "Veelgestelde Vragen"}
           </h2>
-          <p className="text-lg text-gray-800 font-light max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-800 font-light max-w-2xl mx-auto">
             Alles wat je wilt weten over onze wasparfums
           </p>
         </div>
@@ -53,23 +53,19 @@ export default function FAQSection({ section }: FAQSectionProps) {
             return (
               <div
                 key={`faq-${index}`}
-                className="group border border-[#e9c356]"
-              >
+                className="group border border-[#e9c356]">
                 {/* Modern Glass Card */}
                 <div
                   className={`relative  shadow-lg hover:shadow-2xl transition-all duration-500 border ${
                     isOpen ? "border-[#e9c356]/50" : "border-white/50"
-                  } overflow-hidden`}
-                >
+                  } overflow-hidden`}>
                   {/* Question Button */}
                   <button
                     onClick={() => toggleItem(index)}
                     className="w-full p-4 text-left flex items-center justify-between group relative overflow-hidden"
-                    aria-expanded={isOpen}
-                  >
+                    aria-expanded={isOpen}>
                     {/* Hover Background Effect */}
                     <div className="absolute inset-0 bg-gradient-to-r from-[#e9c356]/0 via-[#e9c356]/5 to-[#e9c356]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
                     <div className="flex items-center space-x-5 relative z-10">
                       {/* Modern Number Display */}
                       {/* <div
@@ -90,10 +86,9 @@ export default function FAQSection({ section }: FAQSectionProps) {
 
                       {/* Question Text */}
                       <h3
-                        className={`text-[24px] font-medium font-['classgarmnd_btroman',sans-serif] transition-colors duration-300 ${
+                        className={`text-base sm:text-[24px] font-medium font-['classgarmnd_btroman',sans-serif] transition-colors duration-300 ${
                           isOpen ? "text-[#e9c356]" : "text-[#212529]"
-                        }`}
-                      >
+                        }`}>
                         {item.question}
                       </h3>
                     </div>
@@ -102,8 +97,7 @@ export default function FAQSection({ section }: FAQSectionProps) {
                     <div
                       className={`relative z-10 transform transition-all text-2xl duration-300  ${
                         isOpen ? "rotate-180" : ""
-                      }`}
-                    >
+                      }`}>
                       <div
                         style={{ color: "#e9c356 !important" }}
 
@@ -135,11 +129,10 @@ export default function FAQSection({ section }: FAQSectionProps) {
                   <div
                     className={`overflow-hidden transition-all duration-500 ${
                       isOpen ? "max-h-[500px]" : "max-h-0"
-                    }`}
-                  >
-                    <div className="px-8 pb-8">
+                    }`}>
+                    <div className="p-4 pt-0 sm:px-8 sm:pb-8">
                       <div className="relative">
-                        <p className="text-gray-800 leading-relaxed text-[17px] font-light">
+                        <p className="text-gray-800 leading-relaxed text-sm font-light">
                           {item.answer}
                         </p>
                       </div>
@@ -152,13 +145,13 @@ export default function FAQSection({ section }: FAQSectionProps) {
         </div>
 
         {/* Modern Contact CTA */}
-        <div className="mt-20 text-center">
+        <div className="mt-10 sm:mt-20 text-center">
           {/* Glass Card CTA */}
           <div className="inline-block bg-white/80 backdrop-blur-sm rounded-3xl p-10 shadow-xl border border-white/50">
             <h3 className="text-[24px] font-medium text-[#212529] mb-3 font-['classgarmnd_btroman',sans-serif]">
               Staat jouw vraag er niet tussen?
             </h3>
-            <p className="text-lg text-gray-800 mb-8 font-light max-w-lg">
+            <p className="text-sm sm:text-lg text-gray-800 mb-8 font-light max-w-lg">
               Geen probleem! We staan altijd klaar om je te helpen met al je
               vragen over onze wasparfums.
             </p>
@@ -166,8 +159,7 @@ export default function FAQSection({ section }: FAQSectionProps) {
             {/* Modern Button */}
             <a
               href="/contact"
-              className="group inline-flex items-center px-10 py-5 bg-gradient-to-r from-[#e9c356] to-[#d4a843] text-white font-medium rounded-2xl hover:from-[#d4a843] hover:to-[#e9c356] transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl relative overflow-hidden"
-            >
+              className="group inline-flex items-center px-10 py-5 bg-gradient-to-r from-[#e9c356] to-[#d4a843] text-white font-medium rounded-2xl hover:from-[#d4a843] hover:to-[#e9c356] transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl relative overflow-hidden">
               {/* Button Shine Effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
 
@@ -176,8 +168,7 @@ export default function FAQSection({ section }: FAQSectionProps) {
                   className="w-5 h-5 mr-3"
                   fill="none"
                   stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
+                  viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"

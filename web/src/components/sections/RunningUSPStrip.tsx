@@ -65,10 +65,10 @@ export default function RunningUSPStrip() {
               <div
                 key={index}
                 className="inline-flex items-center mx-4 text-white font-[var(--font-helvetica)]">
-                <div className="overflow-clip relative shrink-0 size-10 mr-2">
+                <div className="overflow-clip relative shrink-0 size-5 mr-2">
                   <img alt="" src={item.icon} className="block size-full" />
                 </div>
-                <p className="text-lg font-semibold">{item.text}</p>
+                <p className="text-base font-semibold">{item.text}</p>
               </div>
             ))}
           </div>

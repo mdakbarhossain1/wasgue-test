@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import ReadingProgressBar from "components/blog/ReadingProgressBar";
 import FloatingShareButtons from "components/blog/FloatingShareButtons";
-import "../blog-styling.css";
 
 interface BlogPost {
   id: number;

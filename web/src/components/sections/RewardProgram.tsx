@@ -56,8 +56,7 @@ const FeatureCard = ({
           : isTablet
           ? "h-auto min-h-[90px]"
           : "h-[105px]"
-      } w-full`}
-    >
+      } w-full`}>
       <div className="shrink-0 size-6">
         <img
           src="/figma/checkmark-icon.svg"
@@ -69,15 +68,13 @@ const FeatureCard = ({
         <p
           className={`font-['Helvetica'] font-bold ${
             isMobile ? "text-[16px]" : isTablet ? "text-[17px]" : "text-[18px]"
-          } leading-[1.5] mb-0`}
-        >
+          } leading-[1.5] mb-0`}>
           {feature.title}
         </p>
         <p
           className={`font-['Helvetica'] ${
             isMobile ? "text-[16px]" : isTablet ? "text-[17px]" : "text-[18px]"
-          } leading-[1.5]`}
-        >
+          } leading-[1.5]`}>
           {feature.description}
         </p>
       </div>
@@ -96,8 +93,7 @@ export default function RewardProgram() {
     <section
       className={`bg-[rgba(252,206,78,0.3)] ${
         isMobile ? "px-4 py-10" : isTablet ? "px-6 py-10" : "px-[72px] py-0"
-      } flex flex-col gap-4 items-start justify-center w-full`}
-    >
+      } flex flex-col gap-4 items-start justify-center w-full`}>
       <div
         className={`flex flex-col max-w-[660px] mx-auto gap-8 items-center justify-center ${
           isMobile
@@ -105,16 +101,14 @@ export default function RewardProgram() {
             : isTablet
             ? "px-4 py-4"
             : "px-5 pt-16 pb-[72px] "
-        } w-full`}
-      >
+        } w-full`}>
         {/* Header with icon and text */}
         <div
           className={`flex ${
             isMobile || isTablet ? "flex-row-reverse" : "flex-col"
           } ${
             isMobile ? "gap-6" : isTablet ? "gap-6 " : "gap-[23px] "
-          } items-center  w-full justify-between lg:justify-center`}
-        >
+          } items-center  w-full justify-between lg:justify-center`}>
           <div
             className={`${
               isMobile
@@ -122,8 +116,7 @@ export default function RewardProgram() {
                 : isTablet
                 ? "h-[90px] w-[113px]"
                 : "h-[100px] w-[126.582px]"
-            } relative shrink-0`}
-          >
+            } relative shrink-0`}>
             <img
               src="/figma/reward-icon.svg"
               alt="Reward Program"
@@ -133,11 +126,8 @@ export default function RewardProgram() {
 
           <div
             className={`flex flex-col gap-4 items-center  ${
-              isMobile || isTablet
-                ? "flex-1 max-w-[180px]"
-                : "w-full justify-center"
-            }`}
-          >
+              isMobile || isTablet ? "flex-1" : "w-full justify-center"
+            }`}>
             <h2
               className={`font-['EB_Garamond'] font-semibold ${
                 isMobile
@@ -145,8 +135,7 @@ export default function RewardProgram() {
                   : isTablet
                   ? "text-[32px]"
                   : "text-[40px]"
-              } text-[#814e1e] leading-[1.2] lg:text-center w-full`}
-            >
+              } text-[#814e1e] leading-[1.2] lg:text-center w-full`}>
               Beloon uw Liefde voor de was
             </h2>
             <p
@@ -156,8 +145,7 @@ export default function RewardProgram() {
                   : isTablet
                   ? "text-[17px]"
                   : "text-[18px]"
-              } text-[#212529] leading-[1.5] lg:text-center w-full`}
-            >
+              } text-[#212529] leading-[1.5] lg:text-center w-full`}>
               Wasgeurtje spaarprogramma
             </p>
           </div>

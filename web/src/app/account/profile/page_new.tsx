@@ -139,7 +139,7 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F6F0] py-12">
+    <div className="min-h-screen bg-[#F8F6F0] py-6 sm:py-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
@@ -310,7 +310,7 @@ export default function ProfilePage() {
               </h2>
               <button
                 onClick={() => setIsAddingAddress(true)}
-                className="flex items-center px-4 py-2 bg-[#814E1E] text-white rounded-lg hover:bg-[#D6AD61] transition-colors">
+                className="sm:flex items-center px-4 py-2 bg-[#814E1E] text-white rounded-lg hover:bg-[#D6AD61] transition-colors">
                 <Plus className="w-4 h-4 mr-2" />
                 Nieuw adres
               </button>

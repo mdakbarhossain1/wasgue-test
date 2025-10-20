@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface Product {
   id: number;
@@ -10,11 +11,10 @@ interface Product {
   slug: string;
   price: string;
   regular_price?: string;
-  // images?: Array<{
-  //   src: string;
-  //   alt?: string;
-  // }>;
-  images: any;
+  images?: Array<{
+    src: string;
+    alt?: string;
+  }>;
   short_description?: string;
 }
 
@@ -31,8 +31,9 @@ export default function ProductShowcase({
   backgroundColor = "#F8F6F0",
   textColor = "#333333",
 }: ProductShowcaseProps) {
+  const route = usePathname();
+
   const [productData, setProductData] = useState<Product[]>([]);
-  console.log("productData: ", productData);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -46,7 +47,7 @@ export default function ProductShowcase({
           slug: p.post_name,
           price: "14.95", // Default price for now
           regular_price: "14.95",
-          images: [], // Would need to fetch featured media
+          // images: [], // Would need to fetch featured media
           short_description: p.post_excerpt,
         }));
         setProductData(transformedProducts);
@@ -113,7 +114,13 @@ export default function ProductShowcase({
   }
 
   return (
-    <section className="py-16 md:py-24" style={sectionStyle}>
+    <section
+      className={`py-16 md:py-24 ${
+        (route === "/wasparfum-doseren-idos-wasmachine" ||
+          route === "/groene-missie") &&
+        "!pt-0"
+      }`}
+      style={sectionStyle}>
       <div className="container mx-auto px-4 max-w-7xl">
         {sectionTitle && (
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">

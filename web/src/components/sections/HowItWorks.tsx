@@ -45,13 +45,11 @@ const StepCard = ({
           : isTablet
           ? "flex-col gap-4 w-[220px]"
           : "flex-col gap-6 w-[400px]"
-      } md:items-center justify-center`}
-    >
+      } md:items-center justify-center`}>
       <div
         className={`rounded-[8px] shrink-0 ${
           isMobile ? "size-[100px]" : isTablet ? "size-[140px]" : "size-[180px]"
-        } bg-cover bg-center overflow-hidden`}
-      >
+        } bg-cover bg-center overflow-hidden`}>
         <Image
           src={image}
           alt={title}
@@ -64,11 +62,11 @@ const StepCard = ({
       <div
         className={`flex flex-col gap-1 ${
           isMobile ? "items-start" : "items-center"
-        } justify-center p-[4px] w-full`}
-      >
+        } justify-center p-[4px] w-full`}>
         <div
-          className={`text-[#814e1e] ${isMobile ? "text-left" : "text-center"}`}
-        >
+          className={`text-[#814e1e] ${
+            isMobile ? "text-left" : "text-center"
+          }`}>
           <ol className="list-decimal font-bold list-inside" start={stepNumber}>
             <li className="ml-0">
               <span
@@ -78,8 +76,7 @@ const StepCard = ({
                     : isTablet
                     ? "text-[17px]"
                     : "text-[18px]"
-                } leading-[1.5]`}
-              >
+                } leading-[1.5]`}>
                 {title}
               </span>
             </li>
@@ -93,8 +90,7 @@ const StepCard = ({
                 : isTablet
                 ? "text-[15px] text-center"
                 : "text-[16px] text-center"
-            } text-[#212529] leading-[1.5]`}
-          >
+            } text-[#212529] leading-[1.5]`}>
             {description}
           </div>
         </div>
@@ -125,15 +121,13 @@ const FeatureIcon = ({
             ? "size-9 flex items-center justify-center"
             : "size-10 flex items-center justify-center"
         }
-        aria-hidden="true"
-      >
+        aria-hidden="true">
         {children}
       </div>
       <div
         className={`font-['Helvetica'] ${
           isMobile ? "text-[12px]" : isTablet ? "text-[14px]" : "text-[16px]"
-        } text-[#212529] text-center whitespace-pre leading-[1.5]`}
-      >
+        } text-[#212529] text-center whitespace-pre leading-[1.5]`}>
         {label}
       </div>
     </div>
@@ -144,8 +138,7 @@ const ArrowDivider = ({ isTablet = false }: { isTablet?: boolean }) => (
   <div
     className={`flex items-center justify-center ${
       isTablet ? "pb-[90px]" : "pb-[120px]"
-    } w-[33px]`}
-  >
+    } w-[33px]`}>
     <img
       src={arrowRight}
       alt="Next step"
@@ -183,8 +176,7 @@ export default function HowItWorks() {
       } flex flex-col ${
         isTablet ? "gap-6" : "gap-8"
       } items-start justify-start`}
-      data-name="How it works"
-    >
+      data-name="How it works">
       <div className="w-full flex flex-col gap-8 items-center justify-center">
         {/* Header */}
         <div className="w-full flex flex-col gap-2 md:gap-4 items-start justify-start">
@@ -196,8 +188,7 @@ export default function HowItWorks() {
                   : isTablet
                   ? "text-[28px]"
                   : "text-[32px]"
-              } text-[#212529] text-center leading-[1.2]`}
-            >
+              } text-[#212529] text-center leading-[1.2]`}>
               Hoe werkt het
             </h2>
           </div>
@@ -209,15 +200,15 @@ export default function HowItWorks() {
                   : isTablet
                   ? "text-[17px]"
                   : "text-[18px]"
-              } text-[#212529] text-center leading-[1.5] w-full`}
-            >
+              } text-[#212529] text-center leading-[1.5] w-full`}>
               Eenvoudige luxe voor jouw wasgoed
             </p>
           </div>
         </div>
 
         {/* Features - moved to top, right after header */}
-        <div className="lg:hidden w-full grid  rounded-lg grid-cols-3 gap-4 items-center justify-items-center px-2 py-2">
+        {/* grid rounded-lg grid-cols-3 gap-4 items-center justify-items-center py-2 */}
+        <div className="lg:hidden w-full flex gap-2">
           <div className="w-full flex justify-center relative after:absolute after:h-1/2 after:border-r after:border-[#d6ad614d] after:top-1/2 after:translate-y-[-50%] after:right-0 ">
             <FeatureIcon
               label={
@@ -225,8 +216,7 @@ export default function HowItWorks() {
                   ? "Veilig voor alle\ntextiel"
                   : "Veilig voor alle textiel"
               }
-              deviceType={deviceType}
-            >
+              deviceType={deviceType}>
               <img
                 src={iconSafeFabrics}
                 alt="Veilig voor alle textiel"
@@ -238,15 +228,14 @@ export default function HowItWorks() {
             </FeatureIcon>
           </div>
 
-          <div className="w-full flex justify-center relative after:absolute after:h-1/2 after:border-r after:border-[#d6ad614d] after:top-1/2 after:translate-y-[-50%] after:right-0 ">
+          <div className="w-full flex justify-center relative after:absolute after:h-1/2 after:border-r after:border-[#d6ad614d] after:top-1/2 after:translate-y-[-50%] after:right-0">
             <FeatureIcon
               label={
                 !isDesktop
                   ? "Werkt met elke\nwasmachine"
                   : "Werkt met elke wasmachine"
               }
-              deviceType={deviceType}
-            >
+              deviceType={deviceType}>
               <img
                 src={iconWashingMachines}
                 alt="Werkt met elke wasmachine"
@@ -265,8 +254,7 @@ export default function HowItWorks() {
                   ? "Geformuleerd voor\nde gevoelige huid"
                   : "Geformuleerd voor de gevoelige huid"
               }
-              deviceType={deviceType}
-            >
+              deviceType={deviceType}>
               <img
                 src={iconSensitiveSkin}
                 alt="Geformuleerd voor de gevoelige huid"
@@ -349,8 +337,7 @@ export default function HowItWorks() {
                   ? "Veilig voor alle\ntextiel"
                   : "Veilig voor alle textiel"
               }
-              deviceType={deviceType}
-            >
+              deviceType={deviceType}>
               <img
                 src={iconSafeFabrics}
                 alt="Veilig voor alle textiel"
@@ -369,8 +356,7 @@ export default function HowItWorks() {
                   ? "Werkt met elke\nwasmachine"
                   : "Werkt met elke wasmachine"
               }
-              deviceType={deviceType}
-            >
+              deviceType={deviceType}>
               <img
                 src={iconWashingMachines}
                 alt="Werkt met elke wasmachine"
@@ -389,8 +375,7 @@ export default function HowItWorks() {
                   ? "Geformuleerd voor\nde gevoelige huid"
                   : "Geformuleerd voor de gevoelige huid"
               }
-              deviceType={deviceType}
-            >
+              deviceType={deviceType}>
               <img
                 src={iconSensitiveSkin}
                 alt="Geformuleerd voor de gevoelige huid"

@@ -197,7 +197,7 @@ export default function CartSidebar() {
                 "1893":
                   "https://wasgeurtje.nl/wp-content/uploads/2023/11/wasparfum-proefpakket-e1705177381815.jpg", // Proefpakket
                 "334999":
-                  "https://wasgeurtje.nl/wp-content/uploads/2023/10/wasparfum-morning-vapor.jpg", // Morning Vapor
+                  "https://wasgeurtje.nl/wp-content/uploads/2023/11/wasparfum-proefpakket-e1705177381815.jpg", // Luxe Aroma
                 "335706":
                   "https://wasgeurtje.nl/wp-content/uploads/2025/04/ChatGPT-Image-18-apr-2025-16_48_05.webp", // Combideal
                 "44876":
@@ -260,8 +260,7 @@ export default function CartSidebar() {
       <div
         className={`fixed top-0 right-0 h-full w-full md:w-[440px] bg-white/95 backdrop-blur-md shadow-2xl z-[1000] transition-all duration-300 cart-sidebar ${
           isOpen && !isClosing ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
+        }`}>
         <div className="h-full flex flex-col bg-gradient-to-br from-white via-white to-[#FFF9F0]">
           {/* Header - Compact */}
           <div className="relative px-4 py-3 bg-gradient-to-r from-[#814E1E] to-[#A66835] shadow-lg">
@@ -278,14 +277,12 @@ export default function CartSidebar() {
               </div>
               <button
                 onClick={handleClose}
-                className="group p-2 hover:bg-white/10 rounded-lg transition-all duration-200 text-white backdrop-blur-sm"
-              >
+                className="group p-2 hover:bg-white/10 rounded-lg transition-all duration-200 text-white backdrop-blur-sm">
                 <svg
                   className="w-5 h-5 group-hover:rotate-90 transition-transform duration-300"
                   fill="none"
                   stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
+                  viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -309,8 +306,7 @@ export default function CartSidebar() {
                         className="w-4 h-4 mr-2"
                         fill="none"
                         stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
+                        viewBox="0 0 24 24">
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
@@ -341,8 +337,7 @@ export default function CartSidebar() {
                         style={{
                           width: `${shippingProgress}%`,
                           boxShadow: "0 1px 4px rgba(252, 206, 78, 0.4)",
-                        }}
-                      >
+                        }}>
                         <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full shadow-sm border border-[#D6AD61] flex items-center justify-center">
                           <div className="w-1 h-1 bg-[#D6AD61] rounded-full animate-pulse"></div>
                         </div>
@@ -363,8 +358,7 @@ export default function CartSidebar() {
                       className="relative w-20 h-20 mx-auto text-gray-300 mb-6"
                       fill="none"
                       stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
+                      viewBox="0 0 24 24">
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -381,8 +375,7 @@ export default function CartSidebar() {
                   </p>
                   <button
                     onClick={handleClose}
-                    className="group relative bg-gradient-to-r from-[#814e1e] to-[#A66835] text-white px-8 py-4 rounded-2xl hover:shadow-xl transition-all duration-300 font-semibold overflow-hidden"
-                  >
+                    className="group relative bg-gradient-to-r from-[#814e1e] to-[#A66835] text-white px-8 py-4 rounded-2xl hover:shadow-xl transition-all duration-300 font-semibold overflow-hidden">
                     <span className="relative z-10">Verder winkelen</span>
                     <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                   </button>
@@ -409,8 +402,7 @@ export default function CartSidebar() {
                               : ""
                           } ${isHovered ? "shadow-lg scale-[1.02]" : ""}`}
                           onMouseEnter={() => setHoveredItem(itemKey)}
-                          onMouseLeave={() => setHoveredItem(null)}
-                        >
+                          onMouseLeave={() => setHoveredItem(null)}>
                           <div className="relative w-16 h-16 bg-gradient-to-br from-[#F8F6F0] to-[#FFF9F0] rounded-lg overflow-hidden shadow-sm">
                             <Image
                               src={getProductImageSrc(item.image)}
@@ -440,8 +432,7 @@ export default function CartSidebar() {
                                       Math.max(0, item.quantity - 1)
                                     )
                                   }
-                                  className="px-3 py-1.5 hover:bg-white transition-all duration-200 text-[#814E1E] font-bold text-base group"
-                                >
+                                  className="px-3 py-1.5 hover:bg-white transition-all duration-200 text-[#814E1E] font-bold text-base group">
                                   <span className="group-hover:scale-110 inline-block transition-transform">
                                     -
                                   </span>
@@ -457,8 +448,7 @@ export default function CartSidebar() {
                                       item.quantity + 1
                                     )
                                   }
-                                  className="px-3 py-1.5 hover:bg-white transition-all duration-200 text-[#814E1E] font-bold text-base group"
-                                >
+                                  className="px-3 py-1.5 hover:bg-white transition-all duration-200 text-[#814E1E] font-bold text-base group">
                                   <span className="group-hover:scale-110 inline-block transition-transform">
                                     +
                                   </span>
@@ -484,14 +474,12 @@ export default function CartSidebar() {
                               removeFromCart(item.id, item.variant)
                             }
                             className="absolute top-2 right-2 text-gray-400 hover:text-red-500 hover:bg-red-50 p-1.5 rounded-lg transition-all duration-200"
-                            aria-label="Verwijder uit winkelwagen"
-                          >
+                            aria-label="Verwijder uit winkelwagen">
                             <svg
                               className="w-4 h-4"
                               fill="none"
                               stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
+                              viewBox="0 0 24 24">
                               <path
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
@@ -519,8 +507,7 @@ export default function CartSidebar() {
                       {upsellProducts.map((product) => (
                         <div
                           key={product.id}
-                          className="group relative flex items-center gap-2 p-2 bg-gradient-to-r from-[#FFF9F0] to-[#FFFCF5] border border-[#D6AD61]/30 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 mb-1.5"
-                        >
+                          className="group relative flex items-center gap-2 p-2 bg-gradient-to-r from-[#FFF9F0] to-[#FFFCF5] border border-[#D6AD61]/30 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 mb-1.5">
                           <div className="absolute inset-0 bg-gradient-to-r from-[#814E1E]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
                           <div className="relative w-10 h-10 bg-white rounded-md overflow-hidden shadow-sm">
                             <Image
@@ -528,7 +515,7 @@ export default function CartSidebar() {
                               alt={product.title}
                               fill
                               className="object-contain p-1 group-hover:scale-105 transition-transform duration-300"
-                              unoptimized={product.image?.startsWith("http")}
+                              unoptimized={product.image?.startsWith("https")}
                             />
                           </div>
                           <div className="relative flex-1">
@@ -559,9 +546,10 @@ export default function CartSidebar() {
                                   };
                                   addToCart(crossSellItem);
                                 }}
-                                className="group/btn relative text-white bg-gradient-to-r from-[#814E1E] to-[#A66835] hover:shadow-lg px-3 py-1.5 rounded-md transition-all duration-300 text-xs font-bold overflow-hidden"
-                              >
-                                <span className="relative z-10">+ Add</span>
+                                className="group/btn relative text-white bg-gradient-to-r from-[#814E1E] to-[#A66835] hover:shadow-lg px-3 py-1.5 rounded-md transition-all duration-300 text-xs font-bold overflow-hidden">
+                                <span className="relative z-10 text-nowrap">
+                                  + Add
+                                </span>
                                 <div className="absolute inset-0 bg-white/20 translate-x-full group-hover/btn:translate-x-0 transition-transform duration-300"></div>
                               </button>
                             </div>
@@ -582,8 +570,7 @@ export default function CartSidebar() {
               <div className="overflow-hidden relative">
                 <div
                   className="flex animate-infinity-scroll gap-3"
-                  style={{ animationPlayState: "running !important" }}
-                >
+                  style={{ animationPlayState: "running !important" }}>
                   {/* Create 4 identical sets for perfect seamless scrolling */}
                   {Array.from({ length: 4 }, (_, setIndex) =>
                     [
@@ -597,8 +584,7 @@ export default function CartSidebar() {
                       <div
                         key={`set-${setIndex}-badge-${badgeIndex}`}
                         className="flex items-center text-xs text-gray-600 bg-gray-50 rounded-lg p-2 whitespace-nowrap flex-shrink-0 hover:bg-gray-100 transition-colors duration-200"
-                        style={{ animationPlayState: "running" }}
-                      >
+                        style={{ animationPlayState: "running" }}>
                         <span className="text-sm mr-2">{badge.icon}</span>
                         <span className="font-medium">{badge.text}</span>
                       </div>
@@ -626,8 +612,7 @@ export default function CartSidebar() {
             {/* Accordion Toggle - Compact */}
             <button
               onClick={() => setIsAccordionOpen(!isAccordionOpen)}
-              className="w-full flex items-center justify-between p-2 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200 mb-3"
-            >
+              className="w-full flex items-center justify-between p-2 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200 mb-3">
               <span className="text-xs font-medium text-gray-700">
                 Details bekijken
               </span>
@@ -637,8 +622,7 @@ export default function CartSidebar() {
                 }`}
                 fill="none"
                 stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
+                viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -652,8 +636,7 @@ export default function CartSidebar() {
             <div
               className={`overflow-hidden transition-all duration-300 ${
                 isAccordionOpen ? "max-h-96 mb-3" : "max-h-0"
-              }`}
-            >
+              }`}>
               <div className="space-y-4">
                 {/* Promo Code */}
                 <div>
@@ -669,8 +652,7 @@ export default function CartSidebar() {
                       onClick={() => {
                         if (promoCode) setIsPromoApplied(true);
                       }}
-                      className="px-4 py-2 bg-white border-2 border-[#814e1e] text-[#814e1e] rounded-lg hover:bg-[#814e1e] hover:text-white transition-all duration-200 text-sm font-semibold"
-                    >
+                      className="px-4 py-2 bg-white border-2 border-[#814e1e] text-[#814e1e] rounded-lg hover:bg-[#814e1e] hover:text-white transition-all duration-200 text-sm font-semibold">
                       Apply
                     </button>
                   </div>
@@ -680,8 +662,7 @@ export default function CartSidebar() {
                         className="w-3 h-3"
                         fill="none"
                         stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
+                        viewBox="0 0 24 24">
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
@@ -726,16 +707,14 @@ export default function CartSidebar() {
                 className="group relative w-full bg-gradient-to-r from-[#814e1e] to-[#A66835] text-white py-3 rounded-lg hover:shadow-xl transition-all duration-300 font-semibold text-base overflow-hidden"
                 onClick={() => {
                   handleClose();
-                }}
-              >
+                }}>
                 <span className="relative z-10 flex items-center justify-center gap-2">
                   Afrekenen
                   <svg
                     className="w-4 h-4 group-hover:translate-x-1 transition-transform"
                     fill="none"
                     stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
+                    viewBox="0 0 24 24">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -755,8 +734,7 @@ export default function CartSidebar() {
                   className="w-3 h-3 mr-1 text-green-500"
                   fill="none"
                   stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
+                  viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"

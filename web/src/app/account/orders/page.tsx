@@ -65,20 +65,18 @@ export default function OrdersPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F6F0] py-12">
+    <div className="min-h-screen bg-[#F8F6F0] py-6 sm:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
           <Link
             href="/account"
-            className="flex items-center text-[#814E1E] hover:text-[#D6AD61] transition-colors mb-4"
-          >
+            className="flex items-center text-[#814E1E] hover:text-[#D6AD61] transition-colors mb-4">
             <svg
               className="w-5 h-5 mr-2"
               fill="none"
               stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+              viewBox="0 0 24 24">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -103,13 +101,11 @@ export default function OrdersPage() {
               {orders.map((order) => (
                 <div
                   key={order.id}
-                  className="border border-gray-200 rounded-lg p-4 hover:border-[#D6AD61] transition-colors"
-                >
+                  className="border border-gray-200 rounded-lg p-4 hover:border-[#D6AD61] transition-colors">
                   {/* Order Header */}
                   <button
                     className="w-full"
-                    onClick={() => toggleOrderDetails(order.id)}
-                  >
+                    onClick={() => toggleOrderDetails(order.id)}>
                     <div className="flex items-center justify-between mb-3">
                       <div>
                         <h3 className="font-medium text-lg text-[#814E1E]">
@@ -123,8 +119,7 @@ export default function OrdersPage() {
                         <span
                           className={`inline-flex px-2 py-1 text-xs font-medium rounded-full ${getStatusColor(
                             order.status
-                          )}`}
-                        >
+                          )}`}>
                           {getStatusText(order.status)}
                         </span>
                         <p className="text-sm font-bold text-[#814E1E] mt-1">
@@ -137,8 +132,7 @@ export default function OrdersPage() {
                       {order.items.slice(0, 4).map((item, index) => (
                         <div
                           key={`${order.id}-${item.id}-${index}`}
-                          className="flex items-center space-x-2"
-                        >
+                          className="flex items-center space-x-2">
                           <Image
                             src={item.image}
                             alt={item.name}
@@ -211,8 +205,7 @@ export default function OrdersPage() {
                             {order.items.map((item, index) => (
                               <tr
                                 key={`${order.id}-${item.id}-${index}`}
-                                className="border-b"
-                              >
+                                className="border-b">
                                 <td className="px-4 py-3">
                                   <div className="flex items-center space-x-3">
                                     <Image
@@ -246,8 +239,7 @@ export default function OrdersPage() {
                             <tr>
                               <td
                                 colSpan={3}
-                                className="px-4 py-2 text-right font-medium"
-                              >
+                                className="px-4 py-2 text-right font-medium">
                                 Subtotaal
                               </td>
                               <td className="px-4 py-2 text-right font-medium">
@@ -265,8 +257,7 @@ export default function OrdersPage() {
                             <tr>
                               <td
                                 colSpan={3}
-                                className="px-4 py-2 text-right font-medium"
-                              >
+                                className="px-4 py-2 text-right font-medium">
                                 Verzendkosten
                               </td>
                               <td className="px-4 py-2 text-right font-medium">
@@ -286,8 +277,7 @@ export default function OrdersPage() {
                             <tr>
                               <td
                                 colSpan={3}
-                                className="px-4 py-2 text-right font-medium text-lg"
-                              >
+                                className="px-4 py-2 text-right font-medium text-lg">
                                 Totaal
                               </td>
                               <td className="px-4 py-2 text-right font-bold text-[#814E1E] text-lg">
@@ -312,8 +302,7 @@ export default function OrdersPage() {
                               href={`https://www.postnl.nl/tracktrace/?lang=nl&B=${order.trackingCode}`}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="px-4 py-2 text-sm font-medium bg-[#D6AD61] text-white rounded-md hover:bg-[#814E1E] transition-colors"
-                            >
+                              className="px-4 py-2 text-sm font-medium bg-[#D6AD61] text-white rounded-md hover:bg-[#814E1E] transition-colors">
                               Volg pakket
                             </a>
                           )}
@@ -332,8 +321,7 @@ export default function OrdersPage() {
                 className="w-16 h-16 text-gray-300 mx-auto mb-4"
                 fill="none"
                 stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
+                viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -349,8 +337,7 @@ export default function OrdersPage() {
               </p>
               <Link
                 href="/wasparfum"
-                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-[#814E1E] hover:bg-[#D6AD61] transition-colors"
-              >
+                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-[#814E1E] hover:bg-[#D6AD61] transition-colors">
                 Bekijk wasparfums
               </Link>
             </div>

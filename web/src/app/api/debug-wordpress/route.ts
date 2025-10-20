@@ -1,22 +1,24 @@
-import { NextResponse } from 'next/server';
+import { NextResponse } from "next/server";
 
-const WORDPRESS_API_URL = process.env.WORDPRESS_API_URL || 'https://wasgeurtje.nl/wp-json';
+const WORDPRESS_API_URL =
+  process.env.WORDPRESS_API_URL || "https://wasgeurtje.nl/wp-json";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
-  const slug = searchParams.get('slug') || 'wasparfum';
-  
+  const slug = searchParams.get("slug") || "wasparfum";
+
   try {
     // 1. Get page data
-    const pageResponse = await fetch(`${WORDPRESS_API_URL}/wp/v2/pages?slug=${slug}&acf_format=standard`);
+    const pageResponse = await fetch(
+      `${WORDPRESS_API_URL}/wp/v2/pages?slug=${slug}&acf_format=standard`
+    );
     const pageData = await pageResponse.json();
-    
+
     if (!pageData[0]) {
-      return NextResponse.json({ error: 'Page not found' }, { status: 404 });
+      return NextResponse.json({ error: "Page not found" }, { status: 404 });
     }
-    
+
     const page = pageData[0];
-    
     // 2. Get all product IDs from ACF data
     const productIds = new Set<number>();
     if (page.acf?.page_builder) {
@@ -28,29 +30,33 @@ export async function GET(request: Request) {
         }
       });
     }
-    
+
     // 3. Try to fetch each product individually
     const productDetails: any[] = [];
     for (const id of productIds) {
       try {
         // Try wp/v2/product endpoint
-        const wpResponse = await fetch(`${WORDPRESS_API_URL}/wp/v2/product/${id}?_embed=true`);
+        const wpResponse = await fetch(
+          `${WORDPRESS_API_URL}/wp/v2/product/${id}?_embed=true`
+        );
         if (wpResponse.ok) {
           const data = await wpResponse.json();
-          productDetails.push({ source: 'wp/v2/product', id, data });
+          productDetails.push({ source: "wp/v2/product", id, data });
         }
-        
+
         // Try wc/v3/products endpoint (without auth for now)
-        const wcResponse = await fetch(`${WORDPRESS_API_URL}/wc/v3/products/${id}`);
+        const wcResponse = await fetch(
+          `${WORDPRESS_API_URL}/wc/v3/products/${id}`
+        );
         if (wcResponse.ok) {
           const data = await wcResponse.json();
-          productDetails.push({ source: 'wc/v3/products', id, data });
+          productDetails.push({ source: "wc/v3/products", id, data });
         }
       } catch (error) {
         console.error(`Error fetching product ${id}:`, error);
       }
     }
-    
+
     // 4. Get featured media for products
     const mediaIds = new Set<number>();
     page.acf?.page_builder.forEach((section: any) => {
@@ -60,7 +66,7 @@ export async function GET(request: Request) {
         });
       }
     });
-    
+
     const mediaDetails: any[] = [];
     for (const id of mediaIds) {
       try {
@@ -73,25 +79,27 @@ export async function GET(request: Request) {
         console.error(`Error fetching media ${id}:`, error);
       }
     }
-    
+
     return NextResponse.json({
       page: {
         id: page.id,
         slug: page.slug,
         title: page.title?.rendered,
-        sectionsCount: page.acf?.page_builder?.length || 0
+        sectionsCount: page.acf?.page_builder?.length || 0,
       },
       productIds: Array.from(productIds),
       productDetails,
       mediaIds: Array.from(mediaIds),
       mediaDetails,
-      rawPageData: page
+      rawPageData: page,
     });
-    
   } catch (error) {
-    return NextResponse.json({ 
-      error: 'API Error', 
-      message: error instanceof Error ? error.message : 'Unknown error' 
-    }, { status: 500 });
+    return NextResponse.json(
+      {
+        error: "API Error",
+        message: error instanceof Error ? error.message : "Unknown error",
+      },
+      { status: 500 }
+    );
   }
 }

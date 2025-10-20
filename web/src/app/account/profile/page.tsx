@@ -236,7 +236,7 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F6F0] py-12">
+    <div className="min-h-screen bg-[#F8F6F0] py-6 sm:py-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
@@ -400,7 +400,7 @@ export default function ProfilePage() {
 
           {/* Address Management Section */}
           <div className="bg-white rounded-xl shadow-sm p-6">
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex flex-wrap gap-3 items-center justify-between mb-6">
               <h2 className="text-xl font-bold text-[#814E1E] flex items-center">
                 <MapPin className="w-5 h-5 mr-2" />
                 Mijn adressen

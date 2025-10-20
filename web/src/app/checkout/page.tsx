@@ -11,6 +11,7 @@ import CheckoutAuthPopup from "components/CheckoutAuthPopup";
 import { z } from "zod";
 import emailSpellChecker from "@zootools/email-spell-checker";
 import PaymentPage from "./payment/page";
+import TestimonialsSection from "components/sections/TestimonialsSection";
 
 // Email validation schema
 const emailSchema = z.string().email("Voer een geldig e-mailadres in");
@@ -1324,14 +1325,15 @@ export default function CheckoutPage() {
     <Suspense fallback={<div>Loading...</div>}>
       <div className="min-h-screen bg-[#F4F2EB]">
         {/* Trust Banner */}
-        <div className="bg-[#814e1e] text-white py-2">
+        <div className="bg-[#814e1e] py-2">
           <div className="container mx-auto px-4">
-            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm">
+            {/* <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm">
               <div className="flex items-center gap-2">
                 <svg
                   className="w-4 h-4"
                   fill="currentColor"
-                  viewBox="0 0 20 20">
+                  viewBox="0 0 20 20"
+                >
                   <path
                     fillRule="evenodd"
                     d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
@@ -1344,7 +1346,8 @@ export default function CheckoutPage() {
                 <svg
                   className="w-4 h-4"
                   fill="currentColor"
-                  viewBox="0 0 24 24">
+                  viewBox="0 0 24 24"
+                >
                   <path d="M19.5 12.5l-1.5-3h-3v-2c0-1.1-.9-2-2-2h-9c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h.76c.55 1.19 1.74 2 3.24 2s2.69-.81 3.24-2h3.52c.55 1.19 1.74 2 3.24 2s2.69-.81 3.24-2h.76c.55 0 1-.45 1-1v-3.5c0-.83-.67-1.5-1.5-1.5zm-11.5 4c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm8 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm3-3h-3v-2.5h2.5l.5 1v1.5z" />
                 </svg>
                 <span>Gratis verzending vanaf €40</span>
@@ -1353,7 +1356,8 @@ export default function CheckoutPage() {
                 <svg
                   className="w-4 h-4"
                   fill="currentColor"
-                  viewBox="0 0 20 20">
+                  viewBox="0 0 20 20"
+                >
                   <path
                     fillRule="evenodd"
                     d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
@@ -1361,6 +1365,33 @@ export default function CheckoutPage() {
                   />
                 </svg>
                 <span>30 dagen bedenktijd</span>
+              </div>
+            </div> */}
+            {/* Trust Badges - horizontal auto-scroll */}
+            <div className="my-2">
+              <div className="overflow-hidden relative">
+                <div
+                  className="flex animate-infinity-scroll gap-3"
+                  style={{ animationPlayState: "running !important" }}
+                >
+                  {/* Create 4 identical sets for perfect seamless scrolling */}
+                  {Array.from({ length: 4 }, (_, setIndex) =>
+                    [
+                      { icon: "🔒", text: "Veilig betalen" },
+                      { icon: "🚚", text: "Gratis verzending vanaf €40" },
+                      { icon: "♻️", text: "30 dagen bedenktijd" },
+                    ].map((badge, badgeIndex) => (
+                      <div
+                        key={`set-${setIndex}-badge-${badgeIndex}`}
+                        className="flex items-center text-xs text-gray-600 bg-[#814e1e] rounded-lg p-2 whitespace-nowrap flex-shrink-0 hover:bg-gray-100 transition-colors duration-200"
+                        style={{ animationPlayState: "running" }}
+                      >
+                        <span className="text-sm mr-2">{badge.icon}</span>
+                        <span className="font-medium">{badge.text}</span>
+                      </div>
+                    ))
+                  ).flat()}
+                </div>
               </div>
             </div>
           </div>
@@ -1387,18 +1418,21 @@ export default function CheckoutPage() {
                       index + 1 <= maxStepReached
                         ? `Ga naar ${step}`
                         : `${step} - Nog niet beschikbaar`
-                    }>
+                    }
+                  >
                     <div
                       className={`w-8 h-8 rounded-full flex items-center justify-center border-2 ${
                         index + 1 <= currentStep
                           ? "border-[#814e1e] bg-[#814e1e] text-white"
                           : "border-gray-300"
-                      }`}>
+                      }`}
+                    >
                       {index + 1 < currentStep ? (
                         <svg
                           className="w-5 h-5"
                           fill="currentColor"
-                          viewBox="0 0 20 20">
+                          viewBox="0 0 20 20"
+                        >
                           <path
                             fillRule="evenodd"
                             d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -1430,10 +1464,11 @@ export default function CheckoutPage() {
         <div className="container mx-auto px-4 py-8">
           {/* Product Upsell Banner - Hide on Gegevens step (step 2) */}
           <div
-            className={`mb-6 bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-lg relative overflow-hidden ${
+            className={` bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-lg relative overflow-hidden ${
               subtotal >= 40 ? "p-4" : "p-6"
             }`}
-            style={{ display: currentStep === 2 ? "none" : "block" }}>
+            style={{ display: currentStep === 2 ? "none" : "block" }}
+          >
             <div className="absolute top-0 right-0 transform translate-x-8 -translate-y-8">
               <div className="w-32 h-32 bg-green-100 rounded-full opacity-50"></div>
             </div>
@@ -1446,7 +1481,8 @@ export default function CheckoutPage() {
                       <svg
                         className="w-5 h-5 text-white"
                         fill="currentColor"
-                        viewBox="0 0 20 20">
+                        viewBox="0 0 20 20"
+                      >
                         <path
                           fillRule="evenodd"
                           d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -1477,7 +1513,8 @@ export default function CheckoutPage() {
                       <svg
                         className="w-6 h-6 text-white"
                         fill="currentColor"
-                        viewBox="0 0 24 24">
+                        viewBox="0 0 24 24"
+                      >
                         <path d="M19.5 12.5l-1.5-3h-3v-2c0-1.1-.9-2-2-2h-9c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h.76c.55 1.19 1.74 2 3.24 2s2.69-.81 3.24-2h3.52c.55 1.19 1.74 2 3.24 2s2.69-.81 3.24-2h.76c.55 0 1-.45 1-1v-3.5c0-.83-.67-1.5-1.5-1.5zm-11.5 4c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm8 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm3-3h-3v-2.5h2.5l.5 1v1.5z" />
                       </svg>
                     </div>
@@ -1505,7 +1542,8 @@ export default function CheckoutPage() {
                           className="bg-gradient-to-r from-green-400 to-green-500 h-3 rounded-full transition-all duration-300 flex items-center justify-end pr-1"
                           style={{
                             width: `${Math.min((subtotal / 40) * 100, 100)}%`,
-                          }}>
+                          }}
+                        >
                           <div className="w-5 h-5 bg-white rounded-full shadow-md border-2 border-green-500"></div>
                         </div>
                       </div>
@@ -1518,13 +1556,15 @@ export default function CheckoutPage() {
               <div
                 className={`grid grid-cols-1 sm:grid-cols-2 gap-3 ${
                   subtotal >= 40 ? "mt-3" : "mt-0"
-                }`}>
+                }`}
+              >
                 {isLoadingProducts
                   ? // Loading skeleton
                     Array.from({ length: 2 }).map((_, index) => (
                       <div
                         key={`loading-${index}`}
-                        className="bg-white rounded-lg p-3 border border-gray-200 animate-pulse">
+                        className="bg-white rounded-lg p-3 border border-gray-200 animate-pulse"
+                      >
                         <div className="flex items-center gap-3">
                           <div className="w-12 h-12 bg-gray-200 rounded-lg"></div>
                           <div className="flex-1">
@@ -1539,7 +1579,8 @@ export default function CheckoutPage() {
                   : suggestedProducts.map((product) => (
                       <div
                         key={product.id}
-                        className="bg-white rounded-lg p-3 border border-gray-200 hover:border-green-400 transition-colors">
+                        className="bg-white rounded-lg p-3 border border-gray-200 hover:border-green-400 transition-colors"
+                      >
                         <div className="flex flex-wrap items-center gap-3">
                           <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center overflow-hidden">
                             <img
@@ -1572,7 +1613,8 @@ export default function CheckoutPage() {
                                       : product.badge.includes("Premium")
                                       ? "bg-purple-500"
                                       : "bg-green-500"
-                                  }`}>
+                                  }`}
+                                >
                                   {product.badge}
                                 </span>
                               )}
@@ -1591,7 +1633,8 @@ export default function CheckoutPage() {
                               <svg
                                 className="w-3 h-3"
                                 fill="currentColor"
-                                viewBox="0 0 20 20">
+                                viewBox="0 0 20 20"
+                              >
                                 <path
                                   fillRule="evenodd"
                                   d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -1611,7 +1654,8 @@ export default function CheckoutPage() {
                                   image: product.image,
                                 });
                               }}
-                              className="px-3 py-1 bg-green-500 text-white text-sm rounded-full hover:bg-green-600 transition-colors">
+                              className="px-3 py-1 bg-green-500 text-white text-sm rounded-full hover:bg-green-600 transition-colors"
+                            >
                               + Toevoegen
                             </button>
                           )}
@@ -1635,13 +1679,15 @@ export default function CheckoutPage() {
               <div className="mt-4 text-center">
                 <button
                   onClick={openProductsPopup}
-                  className="text-sm text-[#814e1e] underline hover:no-underline inline-flex items-center gap-1 cursor-pointer">
+                  className="text-sm text-[#814e1e] underline hover:no-underline inline-flex items-center gap-1 cursor-pointer"
+                >
                   Bekijk alle producten
                   <svg
                     className="w-4 h-4"
                     fill="none"
                     stroke="currentColor"
-                    viewBox="0 0 24 24">
+                    viewBox="0 0 24 24"
+                  >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -1677,7 +1723,7 @@ export default function CheckoutPage() {
 
         {/* upsell */}
         <div className="upsell">
-          <div className="container mx-auto px-4 py-8">
+          <div className="container mx-auto px-4 md:py-8 pt-0 pb-8">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* Left Column */}
               <div className="lg:col-span-2 space-y-6">
@@ -1695,7 +1741,8 @@ export default function CheckoutPage() {
                             Heb je al een account?{" "}
                             <button
                               onClick={() => setShowAuthPopup(true)}
-                              className="text-[#814e1e] underline hover:no-underline cursor-pointer">
+                              className="text-[#814e1e] underline hover:no-underline cursor-pointer"
+                            >
                               Log in of registreer je
                             </button>
                           </p>
@@ -1706,7 +1753,8 @@ export default function CheckoutPage() {
                         <div>
                           <label
                             htmlFor="email"
-                            className="block text-sm font-medium text-gray-700 mb-1">
+                            className="block text-sm font-medium text-gray-700 mb-1"
+                          >
                             E-mailadres *
                           </label>
                           <div className="relative">
@@ -1715,7 +1763,8 @@ export default function CheckoutPage() {
                                 className="h-5 w-5 text-gray-400"
                                 fill="none"
                                 stroke="currentColor"
-                                viewBox="0 0 24 24">
+                                viewBox="0 0 24 24"
+                              >
                                 <path
                                   strokeLinecap="round"
                                   strokeLinejoin="round"
@@ -1769,7 +1818,8 @@ export default function CheckoutPage() {
                               <svg
                                 className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5"
                                 fill="currentColor"
-                                viewBox="0 0 20 20">
+                                viewBox="0 0 20 20"
+                              >
                                 <path
                                   fillRule="evenodd"
                                   d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
@@ -1787,7 +1837,8 @@ export default function CheckoutPage() {
                               <svg
                                 className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5"
                                 fill="currentColor"
-                                viewBox="0 0 20 20">
+                                viewBox="0 0 20 20"
+                              >
                                 <path
                                   fillRule="evenodd"
                                   d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
@@ -1807,7 +1858,8 @@ export default function CheckoutPage() {
                                     }));
                                     setEmailSuggestion(null);
                                   }}
-                                  className="text-sm text-amber-700 underline hover:no-underline mt-1">
+                                  className="text-sm text-amber-700 underline hover:no-underline mt-1"
+                                >
                                   {emailSuggestion}
                                 </button>
                               </div>
@@ -1819,7 +1871,8 @@ export default function CheckoutPage() {
                           <div>
                             <label
                               htmlFor="firstName"
-                              className="block text-sm font-medium text-gray-700 mb-1">
+                              className="block text-sm font-medium text-gray-700 mb-1"
+                            >
                               Voornaam *
                             </label>
                             <div className="relative">
@@ -1828,7 +1881,8 @@ export default function CheckoutPage() {
                                   className="h-5 w-5 text-gray-400"
                                   fill="none"
                                   stroke="currentColor"
-                                  viewBox="0 0 24 24">
+                                  viewBox="0 0 24 24"
+                                >
                                   <path
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
@@ -1851,7 +1905,8 @@ export default function CheckoutPage() {
                           <div>
                             <label
                               htmlFor="lastName"
-                              className="block text-sm font-medium text-gray-700 mb-1">
+                              className="block text-sm font-medium text-gray-700 mb-1"
+                            >
                               Achternaam *
                             </label>
                             <div className="relative">
@@ -1860,7 +1915,8 @@ export default function CheckoutPage() {
                                   className="h-5 w-5 text-gray-400"
                                   fill="none"
                                   stroke="currentColor"
-                                  viewBox="0 0 24 24">
+                                  viewBox="0 0 24 24"
+                                >
                                   <path
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
@@ -1885,7 +1941,8 @@ export default function CheckoutPage() {
                         <div>
                           <label
                             htmlFor="phone"
-                            className="block text-sm font-medium text-gray-700 mb-1">
+                            className="block text-sm font-medium text-gray-700 mb-1"
+                          >
                             Telefoonnummer
                           </label>
                           <div className="relative">
@@ -1894,7 +1951,8 @@ export default function CheckoutPage() {
                                 className="h-5 w-5 text-gray-400"
                                 fill="none"
                                 stroke="currentColor"
-                                viewBox="0 0 24 24">
+                                viewBox="0 0 24 24"
+                              >
                                 <path
                                   strokeLinecap="round"
                                   strokeLinejoin="round"
@@ -1923,7 +1981,8 @@ export default function CheckoutPage() {
                         <svg
                           className="w-5 h-5 text-[#814e1e]"
                           fill="currentColor"
-                          viewBox="0 0 20 20">
+                          viewBox="0 0 20 20"
+                        >
                           <path
                             fillRule="evenodd"
                             d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
@@ -1970,10 +2029,12 @@ export default function CheckoutPage() {
                                 scrollSnapType: "x mandatory",
                                 WebkitOverflowScrolling: "touch",
                                 cursor: isDragging ? "grabbing" : "default",
-                              }}>
+                              }}
+                            >
                               <div
                                 className="flex gap-4 pb-4"
-                                style={{ scrollSnapType: "x mandatory" }}>
+                                style={{ scrollSnapType: "x mandatory" }}
+                              >
                                 {previousAddresses.map((address) => (
                                   <div
                                     key={address.id}
@@ -2010,7 +2071,8 @@ export default function CheckoutPage() {
                                       }));
                                     }}
                                     onMouseDown={(e) => e.stopPropagation()}
-                                    onTouchStart={(e) => e.stopPropagation()}>
+                                    onTouchStart={(e) => e.stopPropagation()}
+                                  >
                                     {/* Delete button - always visible on mobile, hover on desktop */}
                                     <button
                                       className="absolute top-3 right-3 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200 p-2 bg-red-50 hover:bg-red-100 rounded-full"
@@ -2019,12 +2081,14 @@ export default function CheckoutPage() {
                                         handleDeleteAddress(address.id);
                                       }}
                                       type="button"
-                                      aria-label="Verwijder adres">
+                                      aria-label="Verwijder adres"
+                                    >
                                       <svg
                                         className="w-4 h-4 text-red-600"
                                         fill="none"
                                         stroke="currentColor"
-                                        viewBox="0 0 24 24">
+                                        viewBox="0 0 24 24"
+                                      >
                                         <path
                                           strokeLinecap="round"
                                           strokeLinejoin="round"
@@ -2038,7 +2102,8 @@ export default function CheckoutPage() {
                                       <svg
                                         className="w-5 h-5 text-[#814e1e] flex-shrink-0"
                                         fill="currentColor"
-                                        viewBox="0 0 20 20">
+                                        viewBox="0 0 20 20"
+                                      >
                                         <path
                                           fillRule="evenodd"
                                           d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
@@ -2099,7 +2164,8 @@ export default function CheckoutPage() {
                                     }));
                                   }}
                                   onMouseDown={(e) => e.stopPropagation()}
-                                  onTouchStart={(e) => e.stopPropagation()}>
+                                  onTouchStart={(e) => e.stopPropagation()}
+                                >
                                   <div className="text-center">
                                     <div className="w-12 h-12 bg-[#0071CE] text-white rounded-full flex items-center justify-center mx-auto mb-2 text-2xl font-light hover:bg-[#0063B8] transition-colors">
                                       +
@@ -2155,12 +2221,14 @@ export default function CheckoutPage() {
                                           behavior: "smooth",
                                         });
                                       }
-                                    }}>
+                                    }}
+                                  >
                                     <svg
                                       className="w-6 h-6 text-gray-700"
                                       fill="none"
                                       stroke="currentColor"
-                                      strokeWidth="2">
+                                      strokeWidth="2"
+                                    >
                                       <path
                                         d="M15 19l-7-7 7-7"
                                         strokeLinecap="round"
@@ -2183,12 +2251,14 @@ export default function CheckoutPage() {
                                           behavior: "smooth",
                                         });
                                       }
-                                    }}>
+                                    }}
+                                  >
                                     <svg
                                       className="w-6 h-6 text-gray-700"
                                       fill="none"
                                       stroke="currentColor"
-                                      strokeWidth="2">
+                                      strokeWidth="2"
+                                    >
                                       <path
                                         d="M9 5l7 7-7 7"
                                         strokeLinecap="round"
@@ -2212,14 +2282,16 @@ export default function CheckoutPage() {
                           <div>
                             <label
                               htmlFor="billingCountry"
-                              className="block text-sm font-medium text-gray-700 mb-1">
+                              className="block text-sm font-medium text-gray-700 mb-1"
+                            >
                               Land *
                             </label>
                             <div className="relative">
                               <svg
                                 className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2"
                                 fill="currentColor"
-                                viewBox="0 0 20 20">
+                                viewBox="0 0 20 20"
+                              >
                                 <path
                                   fillRule="evenodd"
                                   d="M3 6a3 3 0 013-3h10a1 1 0 01.8 1.6L14.25 8l2.55 3.4A1 1 0 0116 13H6a1 1 0 00-1 1v3a1 1 0 11-2 0V6z"
@@ -2232,7 +2304,8 @@ export default function CheckoutPage() {
                                 value={formData.billingCountry}
                                 onChange={handleInputChange}
                                 required
-                                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#814e1e] focus:border-transparent appearance-none bg-white">
+                                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#814e1e] focus:border-transparent appearance-none bg-white"
+                              >
                                 <option value="NL">Nederland</option>
                                 <option value="BE">België</option>
                                 <option value="DE">Duitsland</option>
@@ -2240,7 +2313,8 @@ export default function CheckoutPage() {
                               <svg
                                 className="w-4 h-4 text-gray-400 absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none"
                                 fill="currentColor"
-                                viewBox="0 0 20 20">
+                                viewBox="0 0 20 20"
+                              >
                                 <path
                                   fillRule="evenodd"
                                   d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
@@ -2257,14 +2331,16 @@ export default function CheckoutPage() {
                                 <div>
                                   <label
                                     htmlFor="billingPostcode"
-                                    className="block text-sm font-medium text-gray-700 mb-1">
+                                    className="block text-sm font-medium text-gray-700 mb-1"
+                                  >
                                     Postcode *
                                   </label>
                                   <div className="relative">
                                     <svg
                                       className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2"
                                       fill="currentColor"
-                                      viewBox="0 0 20 20">
+                                      viewBox="0 0 20 20"
+                                    >
                                       <path
                                         fillRule="evenodd"
                                         d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
@@ -2296,14 +2372,16 @@ export default function CheckoutPage() {
                                 <div>
                                   <label
                                     htmlFor="billingHouseNumber"
-                                    className="block text-sm font-medium text-gray-700 mb-1">
+                                    className="block text-sm font-medium text-gray-700 mb-1"
+                                  >
                                     Huisnummer *
                                   </label>
                                   <div className="relative">
                                     <svg
                                       className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2"
                                       fill="currentColor"
-                                      viewBox="0 0 20 20">
+                                      viewBox="0 0 20 20"
+                                    >
                                       <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
                                     </svg>
                                     <input
@@ -2331,14 +2409,16 @@ export default function CheckoutPage() {
                                 <div>
                                   <label
                                     htmlFor="billingHouseAddition"
-                                    className="block text-sm font-medium text-gray-700 mb-1">
+                                    className="block text-sm font-medium text-gray-700 mb-1"
+                                  >
                                     Toevoeging
                                   </label>
                                   <div className="relative">
                                     <svg
                                       className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2"
                                       fill="currentColor"
-                                      viewBox="0 0 20 20">
+                                      viewBox="0 0 20 20"
+                                    >
                                       <path
                                         fillRule="evenodd"
                                         d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
@@ -2384,7 +2464,8 @@ export default function CheckoutPage() {
                                 <svg
                                   className="w-5 h-5 text-green-600"
                                   fill="currentColor"
-                                  viewBox="0 0 20 20">
+                                  viewBox="0 0 20 20"
+                                >
                                   <path
                                     fillRule="evenodd"
                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
@@ -2433,7 +2514,8 @@ export default function CheckoutPage() {
                                 <svg
                                   className="w-4 h-4 text-gray-500"
                                   fill="currentColor"
-                                  viewBox="0 0 20 20">
+                                  viewBox="0 0 20 20"
+                                >
                                   <path
                                     fillRule="evenodd"
                                     d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
@@ -2452,7 +2534,8 @@ export default function CheckoutPage() {
                                     <svg
                                       className="w-4 h-4 inline mr-1"
                                       fill="currentColor"
-                                      viewBox="0 0 20 20">
+                                      viewBox="0 0 20 20"
+                                    >
                                       <path
                                         fillRule="evenodd"
                                         d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
@@ -2469,14 +2552,16 @@ export default function CheckoutPage() {
                               <div>
                                 <label
                                   htmlFor="billingAddress"
-                                  className="block text-sm font-medium text-gray-700 mb-1">
+                                  className="block text-sm font-medium text-gray-700 mb-1"
+                                >
                                   Straatnaam en huisnummer *
                                 </label>
                                 <div className="relative">
                                   <svg
                                     className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2"
                                     fill="currentColor"
-                                    viewBox="0 0 20 20">
+                                    viewBox="0 0 20 20"
+                                  >
                                     <path
                                       fillRule="evenodd"
                                       d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm0 2h12v8H4V6z"
@@ -2500,14 +2585,16 @@ export default function CheckoutPage() {
                                 <div>
                                   <label
                                     htmlFor="billingPostcode"
-                                    className="block text-sm font-medium text-gray-700 mb-1">
+                                    className="block text-sm font-medium text-gray-700 mb-1"
+                                  >
                                     Postcode *
                                   </label>
                                   <div className="relative">
                                     <svg
                                       className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2"
                                       fill="currentColor"
-                                      viewBox="0 0 20 20">
+                                      viewBox="0 0 20 20"
+                                    >
                                       <path
                                         fillRule="evenodd"
                                         d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
@@ -2536,14 +2623,16 @@ export default function CheckoutPage() {
                                 <div>
                                   <label
                                     htmlFor="billingCity"
-                                    className="block text-sm font-medium text-gray-700 mb-1">
+                                    className="block text-sm font-medium text-gray-700 mb-1"
+                                  >
                                     Plaats *
                                   </label>
                                   <div className="relative">
                                     <svg
                                       className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2"
                                       fill="currentColor"
-                                      viewBox="0 0 20 20">
+                                      viewBox="0 0 20 20"
+                                    >
                                       <path
                                         fillRule="evenodd"
                                         d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
@@ -2577,7 +2666,8 @@ export default function CheckoutPage() {
                             <div>
                               <label
                                 htmlFor="shippingPostcode"
-                                className="block text-sm font-medium text-gray-700 mb-1">
+                                className="block text-sm font-medium text-gray-700 mb-1"
+                              >
                                 Postcode *
                               </label>
                               <input
@@ -2603,7 +2693,8 @@ export default function CheckoutPage() {
                             <div>
                               <label
                                 htmlFor="shippingHouseNumber"
-                                className="block text-sm font-medium text-gray-700 mb-1">
+                                className="block text-sm font-medium text-gray-700 mb-1"
+                              >
                                 Huisnummer *
                               </label>
                               <input
@@ -2629,7 +2720,8 @@ export default function CheckoutPage() {
                             <div>
                               <label
                                 htmlFor="shippingHouseAddition"
-                                className="block text-sm font-medium text-gray-700 mb-1">
+                                className="block text-sm font-medium text-gray-700 mb-1"
+                              >
                                 Toevoeging
                               </label>
                               <input
@@ -2668,7 +2760,8 @@ export default function CheckoutPage() {
                                 <svg
                                   className="w-5 h-5 text-green-600"
                                   fill="currentColor"
-                                  viewBox="0 0 20 20">
+                                  viewBox="0 0 20 20"
+                                >
                                   <path
                                     fillRule="evenodd"
                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
@@ -2713,14 +2806,16 @@ export default function CheckoutPage() {
                               <div>
                                 <label
                                   htmlFor="shippingAddress"
-                                  className="block text-sm font-medium text-gray-700 mb-1">
+                                  className="block text-sm font-medium text-gray-700 mb-1"
+                                >
                                   Straatnaam en huisnummer *
                                 </label>
                                 <div className="relative">
                                   <svg
                                     className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2"
                                     fill="currentColor"
-                                    viewBox="0 0 20 20">
+                                    viewBox="0 0 20 20"
+                                  >
                                     <path
                                       fillRule="evenodd"
                                       d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm0 2h12v8H4V6z"
@@ -2743,14 +2838,16 @@ export default function CheckoutPage() {
                               <div>
                                 <label
                                   htmlFor="shippingCity"
-                                  className="block text-sm font-medium text-gray-700 mb-1">
+                                  className="block text-sm font-medium text-gray-700 mb-1"
+                                >
                                   Plaats *
                                 </label>
                                 <div className="relative">
                                   <svg
                                     className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2"
                                     fill="currentColor"
-                                    viewBox="0 0 20 20">
+                                    viewBox="0 0 20 20"
+                                  >
                                     <path
                                       fillRule="evenodd"
                                       d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
@@ -2775,7 +2872,8 @@ export default function CheckoutPage() {
                           <div>
                             <label
                               htmlFor="shippingCountry"
-                              className="block text-sm font-medium text-gray-700 mb-1">
+                              className="block text-sm font-medium text-gray-700 mb-1"
+                            >
                               Land *
                             </label>
                             <select
@@ -2784,7 +2882,8 @@ export default function CheckoutPage() {
                               value={formData.shippingCountry}
                               onChange={handleInputChange}
                               required={formData.useShippingAddress}
-                              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#814e1e] focus:border-transparent">
+                              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#814e1e] focus:border-transparent"
+                            >
                               <option value="NL">Nederland</option>
                               <option value="BE">België</option>
                               <option value="DE">Duitsland</option>
@@ -2806,7 +2905,8 @@ export default function CheckoutPage() {
                             summary.classList.toggle("hidden");
                           }
                         }}
-                        className="w-full flex items-center justify-between">
+                        className="w-full flex items-center justify-between"
+                      >
                         <span className="font-medium">Bekijk bestelling</span>
                         <div className="flex items-center gap-2">
                           <span className="font-semibold">
@@ -2816,7 +2916,8 @@ export default function CheckoutPage() {
                             className="w-5 h-5"
                             fill="none"
                             stroke="currentColor"
-                            viewBox="0 0 24 24">
+                            viewBox="0 0 24 24"
+                          >
                             <path
                               strokeLinecap="round"
                               strokeLinejoin="round"
@@ -2826,6 +2927,978 @@ export default function CheckoutPage() {
                           </svg>
                         </div>
                       </button>
+                    </div>
+
+                    {/* Order Summary Sidebar */}
+                    <div className="lg:col-span-1 sm:block md:hidden">
+                      <div
+                        id="order-summary"
+                        className="bg-white rounded-lg p-6 shadow-sm sticky top-4 hidden lg:block"
+                      >
+                        <div className="flex flex-wrap items-center gap-2 mb-4">
+                          <svg
+                            className="w-5 h-5 text-[#814e1e]"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                          <h2 className="text-xl font-semibold">
+                            Orderoverzicht
+                          </h2>
+                        </div>
+
+                        <div className="space-y-4 mb-6">
+                          {items.map((item) => (
+                            <div
+                              key={item.id}
+                              className="border border-gray-200 rounded-lg p-3"
+                            >
+                              <div className="flex flex-wrap gap-3">
+                                <div className="relative flex-shrink-0">
+                                  <Image
+                                    src={item.image}
+                                    alt={item.title}
+                                    width={60}
+                                    height={60}
+                                    className="object-cover rounded"
+                                  />
+                                </div>
+                                <div className="flex-1">
+                                  <div className="flex flex-wrap justify-between items-start mb-2">
+                                    <div>
+                                      <h3 className="text-sm font-medium">
+                                        {item.title}
+                                      </h3>
+                                      {item.variant && (
+                                        <p className="text-xs text-gray-500">
+                                          {item.variant}
+                                        </p>
+                                      )}
+                                    </div>
+                                    <button
+                                      onClick={() =>
+                                        removeFromCart(item.id, item.variant)
+                                      }
+                                      className="text-gray-400 hover:text-red-500 transition-colors p-1"
+                                      title="Product verwijderen"
+                                    >
+                                      <svg
+                                        className="w-4 h-4"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                      >
+                                        <path
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                          strokeWidth={2}
+                                          d="M6 18L18 6M6 6l12 12"
+                                        />
+                                      </svg>
+                                    </button>
+                                  </div>
+
+                                  {/* Quantity Controls */}
+                                  <div className="flex flex-wrap items-center justify-between">
+                                    <div className="flex flex-wrap items-center border border-gray-300 rounded">
+                                      <button
+                                        onClick={() =>
+                                          updateQuantity(
+                                            item.id,
+                                            item.variant,
+                                            Math.max(1, item.quantity - 1)
+                                          )
+                                        }
+                                        className="px-2 py-1 text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-colors"
+                                        disabled={item.quantity <= 1}
+                                      >
+                                        <svg
+                                          className="w-3 h-3"
+                                          fill="none"
+                                          stroke="currentColor"
+                                          viewBox="0 0 24 24"
+                                        >
+                                          <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            d="M20 12H4"
+                                          />
+                                        </svg>
+                                      </button>
+                                      <span className="px-3 py-1 text-sm font-medium border-x border-gray-300 min-w-[40px] text-center">
+                                        {item.quantity}
+                                      </span>
+                                      <button
+                                        onClick={() =>
+                                          updateQuantity(
+                                            item.id,
+                                            item.variant,
+                                            item.quantity + 1
+                                          )
+                                        }
+                                        className="px-2 py-1 text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-colors"
+                                      >
+                                        <svg
+                                          className="w-3 h-3"
+                                          fill="none"
+                                          stroke="currentColor"
+                                          viewBox="0 0 24 24"
+                                        >
+                                          <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            d="M12 4v16m8-8H4"
+                                          />
+                                        </svg>
+                                      </button>
+                                    </div>
+                                    <div className="text-sm font-medium">
+                                      <span className="text-gray-500">
+                                        €{item.price.toFixed(2)} ×{" "}
+                                        {item.quantity} ={" "}
+                                      </span>
+                                      <span className="text-[#814e1e] font-semibold">
+                                        €
+                                        {(item.price * item.quantity).toFixed(
+                                          2
+                                        )}
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Selected Address Display */}
+                        {(formData.billingAddress ||
+                          formData.selectedAddressId ||
+                          (formData.useShippingAddress &&
+                            formData.shippingAddress)) && (
+                          <div className="border-t pt-4 mb-4">
+                            <div className="flex flex-wrap items-center gap-2 mb-2">
+                              <svg
+                                className="w-4 h-4 text-[#814e1e]"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                  clipRule="evenodd"
+                                />
+                              </svg>
+                              <h3 className="text-sm font-semibold text-gray-900">
+                                Bezorgadres
+                              </h3>
+                            </div>
+                            <div className="text-sm text-gray-600 space-y-1">
+                              {(() => {
+                                // Show shipping address if "Verzenden naar een ander adres" is selected and shipping address is filled
+                                if (
+                                  formData.useShippingAddress &&
+                                  (formData.shippingAddress ||
+                                    formData.shippingPostcode)
+                                ) {
+                                  return (
+                                    <div>
+                                      {(formData.firstName ||
+                                        formData.lastName) && (
+                                        <p className="font-medium text-gray-900">
+                                          {formData.firstName}{" "}
+                                          {formData.lastName}
+                                        </p>
+                                      )}
+                                      {formData.shippingAddress ? (
+                                        <>
+                                          <p>
+                                            {`${formData.shippingAddress} ${
+                                              formData.shippingHouseNumber
+                                            }${
+                                              formData.shippingHouseAddition ||
+                                              ""
+                                            }`.trim()}
+                                          </p>
+                                          <p>
+                                            {formData.shippingPostcode}{" "}
+                                            {formData.shippingCity}
+                                          </p>
+                                          <p>
+                                            {(() => {
+                                              switch (
+                                                formData.shippingCountry
+                                              ) {
+                                                case "NL":
+                                                  return "Nederland";
+                                                case "BE":
+                                                  return "België";
+                                                case "DE":
+                                                  return "Duitsland";
+                                                default:
+                                                  return formData.shippingCountry;
+                                              }
+                                            })()}
+                                          </p>
+                                        </>
+                                      ) : (
+                                        <p className="text-gray-400 italic">
+                                          Verzendadres nog niet ingevuld
+                                        </p>
+                                      )}
+                                    </div>
+                                  );
+                                }
+
+                                // Otherwise show billing address (default behavior)
+                                const selectedAddress = previousAddresses.find(
+                                  (addr) =>
+                                    addr.id === formData.selectedAddressId
+                                );
+
+                                if (selectedAddress) {
+                                  return (
+                                    <div>
+                                      <p className="font-medium text-gray-900">
+                                        {selectedAddress.fullName}
+                                      </p>
+                                      <p>
+                                        {formData.billingAddress &&
+                                        formData.billingHouseNumber
+                                          ? `${formData.billingAddress} ${
+                                              formData.billingHouseNumber
+                                            }${
+                                              formData.billingHouseAddition ||
+                                              ""
+                                            }`.trim()
+                                          : selectedAddress.street.replace(
+                                              /\s+(\d+)\s+\1(?:\s|$)/,
+                                              " $1"
+                                            )}
+                                      </p>
+                                      <p>
+                                        {selectedAddress.postalCode}{" "}
+                                        {selectedAddress.city}
+                                      </p>
+                                      <p>
+                                        {(() => {
+                                          switch (selectedAddress.country) {
+                                            case "NL":
+                                              return "Nederland";
+                                            case "BE":
+                                              return "België";
+                                            case "DE":
+                                              return "Duitsland";
+                                            default:
+                                              return selectedAddress.country;
+                                          }
+                                        })()}
+                                      </p>
+                                    </div>
+                                  );
+                                } else if (formData.billingAddress) {
+                                  // Fallback to manual address
+                                  return (
+                                    <div>
+                                      {(formData.firstName ||
+                                        formData.lastName) && (
+                                        <p className="font-medium text-gray-900">
+                                          {formData.firstName}{" "}
+                                          {formData.lastName}
+                                        </p>
+                                      )}
+                                      <p>
+                                        {`${formData.billingAddress} ${
+                                          formData.billingHouseNumber
+                                        }${
+                                          formData.billingHouseAddition || ""
+                                        }`.trim()}
+                                      </p>
+                                      <p>
+                                        {formData.billingPostcode}{" "}
+                                        {formData.billingCity}
+                                      </p>
+                                      <p>
+                                        {formData.billingCountry === "NL"
+                                          ? "Nederland"
+                                          : formData.billingCountry}
+                                      </p>
+                                    </div>
+                                  );
+                                }
+                                return (
+                                  <p className="text-gray-400 italic">
+                                    Nog geen adres geselecteerd
+                                  </p>
+                                );
+                              })()}
+                            </div>
+                          </div>
+                        )}
+
+                        <div className="border-t pt-4 space-y-2">
+                          <div className="flex flex-wrap justify-between text-sm">
+                            <div className="flex flex-wrap items-center gap-2">
+                              <svg
+                                className="w-4 h-4 text-gray-500"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
+                                  clipRule="evenodd"
+                                />
+                              </svg>
+                              <span>Subtotaal</span>
+                            </div>
+                            <span>€{subtotal.toFixed(2)}</span>
+                          </div>
+                          <div className="flex flex-wrap justify-between text-sm">
+                            <div className="flex flex-wrap items-center gap-2">
+                              <svg
+                                className="w-4 h-4 text-gray-500"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                              >
+                                <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+                                <path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1V8a1 1 0 00-.293-.707L15 4.586A1 1 0 0014.414 4H14v3z" />
+                              </svg>
+                              <span>Verzending</span>
+                            </div>
+                            <span>
+                              {calculateShipping() === 0
+                                ? "Gratis"
+                                : `€${calculateShipping().toFixed(2)}`}
+                            </span>
+                          </div>
+                          {appliedDiscount && (
+                            <div className="flex flex-wrap justify-between text-sm text-green-600">
+                              <div className="flex flex-wrap items-center gap-2">
+                                <svg
+                                  className="w-4 h-4 text-green-500"
+                                  fill="currentColor"
+                                  viewBox="0 0 20 20"
+                                >
+                                  <path
+                                    fillRule="evenodd"
+                                    d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z"
+                                    clipRule="evenodd"
+                                  />
+                                </svg>
+                                <span>Korting ({appliedDiscount.code})</span>
+                              </div>
+                              <span>-€{calculateDiscount().toFixed(2)}</span>
+                            </div>
+                          )}
+                          {subtotal >= 75 && (
+                            <div className="flex flex-wrap justify-between text-sm text-purple-600">
+                              <span>Volume korting (10%)</span>
+                              <span>
+                                -€{calculateVolumeDiscount().toFixed(2)}
+                              </span>
+                            </div>
+                          )}
+                          <div className="border-t pt-2 flex justify-between font-semibold">
+                            <div className="flex flex-wrap items-center gap-2">
+                              <svg
+                                className="w-4 h-4 text-[#814e1e]"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
+                                  clipRule="evenodd"
+                                />
+                              </svg>
+                              <span>Totaal</span>
+                            </div>
+                            <span>€{calculateTotal().toFixed(2)}</span>
+                          </div>
+                        </div>
+
+                        {/* Loyalty Points Info */}
+                        {isLoggedIn && user?.loyalty && (
+                          <div className="mt-4">
+                            <CheckoutLoyaltyInfo
+                              orderTotal={subtotal}
+                              onCouponSelect={async (couponCode) => {
+                                // Apply the discount directly with the couponCode
+                                setIsApplyingDiscount(true);
+                                setDiscountError("");
+
+                                try {
+                                  // Call WooCommerce API to validate coupon
+                                  const response = await fetch(
+                                    `/api/woocommerce/coupons/validate`,
+                                    {
+                                      method: "POST",
+                                      headers: {
+                                        "Content-Type": "application/json",
+                                      },
+                                      body: JSON.stringify({
+                                        coupon_code: couponCode,
+                                        subtotal: subtotal,
+                                      }),
+                                    }
+                                  );
+
+                                  if (!response.ok) {
+                                    const errorData = await response.json();
+                                    throw new Error(
+                                      errorData.message ||
+                                        "Ongeldige kortingscode"
+                                    );
+                                  }
+
+                                  const couponData = await response.json();
+
+                                  // Apply the discount
+                                  setAppliedDiscount({
+                                    code: couponCode,
+                                    amount: couponData.discount_amount,
+                                    type:
+                                      couponData.discount_type === "percent"
+                                        ? "percentage"
+                                        : "fixed",
+                                  });
+
+                                  // Clear the discount code field
+                                  setDiscountCode("");
+                                } catch (error) {
+                                  console.error("Discount code error:", error);
+                                  setDiscountError(
+                                    error instanceof Error
+                                      ? error.message
+                                      : "Kortingscode kon niet worden toegepast"
+                                  );
+                                  setAppliedDiscount(null);
+                                } finally {
+                                  setIsApplyingDiscount(false);
+                                }
+                              }}
+                            />
+                          </div>
+                        )}
+
+                        {/* Trust Badges */}
+                        <div className="mt-6 pt-6 border-t">
+                          <div className="space-y-3">
+                            <div className="flex flex-wrap items-center gap-3">
+                              <svg
+                                className="w-5 h-5 text-green-600"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                  clipRule="evenodd"
+                                />
+                              </svg>
+                              <span className="text-sm text-gray-600">
+                                Veilig betalen met SSL-encryptie
+                              </span>
+                            </div>
+                            <div className="flex flex-wrap items-center gap-3">
+                              <svg
+                                className="w-5 h-5 text-green-600"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                  clipRule="evenodd"
+                                />
+                              </svg>
+                              <span className="text-sm text-gray-600">
+                                30 dagen bedenktijd
+                              </span>
+                            </div>
+                            <div className="flex flex-wrap items-center gap-3">
+                              <svg
+                                className="w-5 h-5 text-green-600"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path d="M19.5 12.5l-1.5-3h-3v-2c0-1.1-.9-2-2-2h-9c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h.76c.55 1.19 1.74 2 3.24 2s2.69-.81 3.24-2h3.52c.55 1.19 1.74 2 3.24 2s2.69-.81 3.24-2h.76c.55 0 1-.45 1-1v-3.5c0-.83-.67-1.5-1.5-1.5zm-11.5 4c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm8 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm3-3h-3v-2.5h2.5l.5 1v1.5z" />
+                              </svg>
+                              <span className="text-sm text-gray-600">
+                                Gratis verzending vanaf €40
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Mobile Order Summary */}
+                      <div
+                        id="mobile-order-summary"
+                        className="bg-white rounded-lg p-6 shadow-sm lg:hidden hidden"
+                      >
+                        <div className="flex flex-wrap items-center gap-2 mb-4">
+                          <svg
+                            className="w-5 h-5 text-[#814e1e]"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                          <h2 className="text-xl font-semibold">
+                            Orderoverzicht
+                          </h2>
+                        </div>
+
+                        <div className="space-y-4 mb-6">
+                          {items.map((item) => (
+                            <div
+                              key={item.id}
+                              className="border border-gray-200 rounded-lg p-3"
+                            >
+                              <div className="flex flex-wrap gap-3">
+                                <div className="relative flex-shrink-0">
+                                  <Image
+                                    src={item.image}
+                                    alt={item.title}
+                                    width={60}
+                                    height={60}
+                                    className="object-cover rounded"
+                                  />
+                                </div>
+                                <div className="flex-1">
+                                  <div className="flex flex-wrap justify-between items-start mb-2">
+                                    <div>
+                                      <h3 className="text-sm font-medium">
+                                        {item.title}
+                                      </h3>
+                                      {item.variant && (
+                                        <p className="text-xs text-gray-500">
+                                          {item.variant}
+                                        </p>
+                                      )}
+                                    </div>
+                                    <button
+                                      onClick={() =>
+                                        removeFromCart(item.id, item.variant)
+                                      }
+                                      className="text-gray-400 hover:text-red-500 transition-colors p-1"
+                                      title="Product verwijderen"
+                                    >
+                                      <svg
+                                        className="w-4 h-4"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                      >
+                                        <path
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                          strokeWidth={2}
+                                          d="M6 18L18 6M6 6l12 12"
+                                        />
+                                      </svg>
+                                    </button>
+                                  </div>
+
+                                  {/* Quantity Controls */}
+                                  <div className="flex flex-wrap items-center justify-between">
+                                    <div className="flex flex-wrap items-center border border-gray-300 rounded">
+                                      <button
+                                        onClick={() =>
+                                          updateQuantity(
+                                            item.id,
+                                            item.variant,
+                                            Math.max(1, item.quantity - 1)
+                                          )
+                                        }
+                                        className="px-2 py-1 text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-colors"
+                                        disabled={item.quantity <= 1}
+                                      >
+                                        <svg
+                                          className="w-3 h-3"
+                                          fill="none"
+                                          stroke="currentColor"
+                                          viewBox="0 0 24 24"
+                                        >
+                                          <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            d="M20 12H4"
+                                          />
+                                        </svg>
+                                      </button>
+                                      <span className="px-3 py-1 text-sm font-medium border-x border-gray-300 min-w-[40px] text-center">
+                                        {item.quantity}
+                                      </span>
+                                      <button
+                                        onClick={() =>
+                                          updateQuantity(
+                                            item.id,
+                                            item.variant,
+                                            item.quantity + 1
+                                          )
+                                        }
+                                        className="px-2 py-1 text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-colors"
+                                      >
+                                        <svg
+                                          className="w-3 h-3"
+                                          fill="none"
+                                          stroke="currentColor"
+                                          viewBox="0 0 24 24"
+                                        >
+                                          <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            d="M12 4v16m8-8H4"
+                                          />
+                                        </svg>
+                                      </button>
+                                    </div>
+                                    <div className="text-sm font-medium">
+                                      <span className="text-gray-500">
+                                        €{item.price.toFixed(2)} ×{" "}
+                                        {item.quantity} ={" "}
+                                      </span>
+                                      <span className="text-[#814e1e] font-semibold">
+                                        €
+                                        {(item.price * item.quantity).toFixed(
+                                          2
+                                        )}
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Selected Address Display - Mobile */}
+                        {(formData.billingAddress ||
+                          formData.selectedAddressId ||
+                          (formData.useShippingAddress &&
+                            formData.shippingAddress)) && (
+                          <div className="border-t pt-4 mb-4">
+                            <div className="flex flex-wrap items-center gap-2 mb-2">
+                              <svg
+                                className="w-4 h-4 text-[#814e1e]"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                  clipRule="evenodd"
+                                />
+                              </svg>
+                              <h3 className="text-sm font-semibold text-gray-900">
+                                Bezorgadres
+                              </h3>
+                            </div>
+                            <div className="text-sm text-gray-600 space-y-1">
+                              {(() => {
+                                // Show shipping address if "Verzenden naar een ander adres" is selected and shipping address is filled
+                                if (
+                                  formData.useShippingAddress &&
+                                  (formData.shippingAddress ||
+                                    formData.shippingPostcode)
+                                ) {
+                                  return (
+                                    <div>
+                                      {(formData.firstName ||
+                                        formData.lastName) && (
+                                        <p className="font-medium text-gray-900">
+                                          {formData.firstName}{" "}
+                                          {formData.lastName}
+                                        </p>
+                                      )}
+                                      {formData.shippingAddress ? (
+                                        <>
+                                          <p>
+                                            {`${formData.shippingAddress} ${
+                                              formData.shippingHouseNumber
+                                            }${
+                                              formData.shippingHouseAddition ||
+                                              ""
+                                            }`.trim()}
+                                          </p>
+                                          <p>
+                                            {formData.shippingPostcode}{" "}
+                                            {formData.shippingCity}
+                                          </p>
+                                          <p>
+                                            {(() => {
+                                              switch (
+                                                formData.shippingCountry
+                                              ) {
+                                                case "NL":
+                                                  return "Nederland";
+                                                case "BE":
+                                                  return "België";
+                                                case "DE":
+                                                  return "Duitsland";
+                                                default:
+                                                  return formData.shippingCountry;
+                                              }
+                                            })()}
+                                          </p>
+                                        </>
+                                      ) : (
+                                        <p className="text-gray-400 italic">
+                                          Verzendadres nog niet ingevuld
+                                        </p>
+                                      )}
+                                    </div>
+                                  );
+                                }
+
+                                // Otherwise show billing address (default behavior)
+                                const selectedAddress = previousAddresses.find(
+                                  (addr) =>
+                                    addr.id === formData.selectedAddressId
+                                );
+
+                                if (selectedAddress) {
+                                  return (
+                                    <div>
+                                      <p className="font-medium text-gray-900">
+                                        {selectedAddress.fullName}
+                                      </p>
+                                      <p>
+                                        {formData.billingAddress &&
+                                        formData.billingHouseNumber
+                                          ? `${formData.billingAddress} ${
+                                              formData.billingHouseNumber
+                                            }${
+                                              formData.billingHouseAddition ||
+                                              ""
+                                            }`.trim()
+                                          : selectedAddress.street.replace(
+                                              /\s+(\d+)\s+\1(?:\s|$)/,
+                                              " $1"
+                                            )}
+                                      </p>
+                                      <p>
+                                        {selectedAddress.postalCode}{" "}
+                                        {selectedAddress.city}
+                                      </p>
+                                      <p>
+                                        {(() => {
+                                          switch (selectedAddress.country) {
+                                            case "NL":
+                                              return "Nederland";
+                                            case "BE":
+                                              return "België";
+                                            case "DE":
+                                              return "Duitsland";
+                                            default:
+                                              return selectedAddress.country;
+                                          }
+                                        })()}
+                                      </p>
+                                    </div>
+                                  );
+                                } else if (formData.billingAddress) {
+                                  // Fallback to manual address
+                                  return (
+                                    <div>
+                                      {(formData.firstName ||
+                                        formData.lastName) && (
+                                        <p className="font-medium text-gray-900">
+                                          {formData.firstName}{" "}
+                                          {formData.lastName}
+                                        </p>
+                                      )}
+                                      <p>
+                                        {`${formData.billingAddress} ${
+                                          formData.billingHouseNumber
+                                        }${
+                                          formData.billingHouseAddition || ""
+                                        }`.trim()}
+                                      </p>
+                                      <p>
+                                        {formData.billingPostcode}{" "}
+                                        {formData.billingCity}
+                                      </p>
+                                      <p>
+                                        {formData.billingCountry === "NL"
+                                          ? "Nederland"
+                                          : formData.billingCountry}
+                                      </p>
+                                    </div>
+                                  );
+                                }
+                                return (
+                                  <p className="text-gray-400 italic">
+                                    Nog geen adres geselecteerd
+                                  </p>
+                                );
+                              })()}
+                            </div>
+                          </div>
+                        )}
+
+                        <div className="border-t pt-4 space-y-2">
+                          <div className="flex flex-wrap justify-between text-sm">
+                            <div className="flex flex-wrap items-center gap-2">
+                              <svg
+                                className="w-4 h-4 text-gray-500"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
+                                  clipRule="evenodd"
+                                />
+                              </svg>
+                              <span>Subtotaal</span>
+                            </div>
+                            <span>€{subtotal.toFixed(2)}</span>
+                          </div>
+                          <div className="flex flex-wrap justify-between text-sm">
+                            <div className="flex flex-wrap items-center gap-2">
+                              <svg
+                                className="w-4 h-4 text-gray-500"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                              >
+                                <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+                                <path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1V8a1 1 0 00-.293-.707L15 4.586A1 1 0 0014.414 4H14v3z" />
+                              </svg>
+                              <span>Verzending</span>
+                            </div>
+                            <span>
+                              {calculateShipping() === 0
+                                ? "Gratis"
+                                : `€${calculateShipping().toFixed(2)}`}
+                            </span>
+                          </div>
+                          {appliedDiscount && (
+                            <div className="flex flex-wrap justify-between text-sm text-green-600">
+                              <div className="flex flex-wrap items-center gap-2">
+                                <svg
+                                  className="w-4 h-4 text-green-500"
+                                  fill="currentColor"
+                                  viewBox="0 0 20 20"
+                                >
+                                  <path
+                                    fillRule="evenodd"
+                                    d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z"
+                                    clipRule="evenodd"
+                                  />
+                                </svg>
+                                <span>Korting ({appliedDiscount.code})</span>
+                              </div>
+                              <span>-€{calculateDiscount().toFixed(2)}</span>
+                            </div>
+                          )}
+                          {subtotal >= 75 && (
+                            <div className="flex flex-wrap justify-between text-sm text-purple-600">
+                              <span>Volume korting (10%)</span>
+                              <span>
+                                -€{calculateVolumeDiscount().toFixed(2)}
+                              </span>
+                            </div>
+                          )}
+                          <div className="border-t pt-2 flex flex-wrap justify-between font-semibold">
+                            <div className="flex flex-wrap items-center gap-2">
+                              <svg
+                                className="w-4 h-4 text-[#814e1e]"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
+                                  clipRule="evenodd"
+                                />
+                              </svg>
+                              <span>Totaal</span>
+                            </div>
+                            <span>€{calculateTotal().toFixed(2)}</span>
+                          </div>
+                        </div>
+
+                        {/* Loyalty Points Info - Mobile */}
+                        {isLoggedIn && user?.loyalty && (
+                          <div className="mt-4">
+                            <CheckoutLoyaltyInfo
+                              orderTotal={subtotal}
+                              onCouponSelect={async (couponCode) => {
+                                // Apply the discount directly with the couponCode
+                                setIsApplyingDiscount(true);
+                                setDiscountError("");
+
+                                try {
+                                  // Call WooCommerce API to validate coupon
+                                  const response = await fetch(
+                                    `/api/woocommerce/coupons/validate`,
+                                    {
+                                      method: "POST",
+                                      headers: {
+                                        "Content-Type": "application/json",
+                                      },
+                                      body: JSON.stringify({
+                                        coupon_code: couponCode,
+                                        subtotal: subtotal,
+                                      }),
+                                    }
+                                  );
+
+                                  if (!response.ok) {
+                                    const errorData = await response.json();
+                                    throw new Error(
+                                      errorData.message ||
+                                        "Ongeldige kortingscode"
+                                    );
+                                  }
+
+                                  const couponData = await response.json();
+
+                                  // Apply the discount
+                                  setAppliedDiscount({
+                                    code: couponCode,
+                                    amount: couponData.discount_amount,
+                                    type:
+                                      couponData.discount_type === "percent"
+                                        ? "percentage"
+                                        : "fixed",
+                                  });
+
+                                  // Clear the discount code field
+                                  setDiscountCode("");
+                                } catch (error) {
+                                  console.error("Discount code error:", error);
+                                  setDiscountError(
+                                    error instanceof Error
+                                      ? error.message
+                                      : "Kortingscode kon niet worden toegepast"
+                                  );
+                                  setAppliedDiscount(null);
+                                } finally {
+                                  setIsApplyingDiscount(false);
+                                }
+                              }}
+                            />
+                          </div>
+                        )}
+                      </div>
                     </div>
 
                     {/* Next Step Button */}
@@ -2881,7 +3954,8 @@ export default function CheckoutPage() {
                           (!formData.billingAddress &&
                             !formData.selectedAddressId)
                         }
-                        className="w-full bg-[#814e1e] text-white py-4 px-6 rounded-lg font-semibold text-lg hover:bg-[#6d3f18] disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors">
+                        className="w-full bg-[#814e1e] text-white py-4 px-6 rounded-lg font-semibold text-lg hover:bg-[#6d3f18] disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+                      >
                         {currentStep === 2
                           ? "Verder naar betaling"
                           : "Verder naar overzicht"}
@@ -2914,7 +3988,8 @@ export default function CheckoutPage() {
                         </h2>
                         <button
                           onClick={() => setCurrentStep(2)}
-                          className="text-[#0071CE] hover:underline text-sm flex items-center gap-1">
+                          className="text-[#0071CE] hover:underline text-sm flex items-center gap-1"
+                        >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
@@ -2924,7 +3999,8 @@ export default function CheckoutPage() {
                             stroke="currentColor"
                             strokeWidth="2"
                             strokeLinecap="round"
-                            strokeLinejoin="round">
+                            strokeLinejoin="round"
+                          >
                             <path d="M12 20h9"></path>
                             <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
                           </svg>
@@ -3093,7 +4169,8 @@ export default function CheckoutPage() {
                             Array.from({ length: 2 }).map((_, index) => (
                               <div
                                 key={`overview-loading-${index}`}
-                                className="bg-white rounded-lg p-3 border border-amber-200 animate-pulse">
+                                className="bg-white rounded-lg p-3 border border-amber-200 animate-pulse"
+                              >
                                 <div className="flex flex-wrap items-center gap-3">
                                   <div className="w-16 h-16 bg-amber-100 rounded-lg"></div>
                                   <div className="flex-1">
@@ -3108,7 +4185,8 @@ export default function CheckoutPage() {
                           : suggestedProducts.slice(0, 2).map((product) => (
                               <div
                                 key={`overview-${product.id}`}
-                                className="bg-white rounded-lg p-3 border border-amber-200 hover:border-amber-300 transition-colors">
+                                className="bg-white rounded-lg p-3 border border-amber-200 hover:border-amber-300 transition-colors"
+                              >
                                 <div className="flex flex-wrap items-center gap-3">
                                   <div className="w-16 h-16 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden">
                                     <img
@@ -3157,7 +4235,8 @@ export default function CheckoutPage() {
                                                 )
                                               ? "bg-purple-500"
                                               : "bg-green-500"
-                                          }`}>
+                                          }`}
+                                        >
                                           {product.badge}
                                         </span>
                                       )}
@@ -3168,7 +4247,8 @@ export default function CheckoutPage() {
                                       <svg
                                         className="w-4 h-4"
                                         fill="currentColor"
-                                        viewBox="0 0 20 20">
+                                        viewBox="0 0 20 20"
+                                      >
                                         <path
                                           fillRule="evenodd"
                                           d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -3188,7 +4268,8 @@ export default function CheckoutPage() {
                                           image: product.image,
                                         });
                                       }}
-                                      className="px-4 py-2 bg-[#814e1e] text-white text-sm rounded-lg hover:bg-[#6d3f18] transition-colors">
+                                      className="px-4 py-2 bg-[#814e1e] text-white text-sm rounded-lg hover:bg-[#6d3f18] transition-colors"
+                                    >
                                       Toevoegen
                                     </button>
                                   )}
@@ -3207,7 +4288,8 @@ export default function CheckoutPage() {
                               </p>
                               <button
                                 onClick={openProductsPopup}
-                                className="inline-block mt-2 text-[#814e1e] underline hover:no-underline text-sm cursor-pointer">
+                                className="inline-block mt-2 text-[#814e1e] underline hover:no-underline text-sm cursor-pointer"
+                              >
                                 Bekijk alle producten →
                               </button>
                             </div>
@@ -3259,7 +4341,8 @@ export default function CheckoutPage() {
                                 disabled={
                                   isApplyingDiscount || !discountCode.trim()
                                 }
-                                className="px-4 py-2 bg-[#0071CE] text-white rounded-lg hover:bg-[#0063B8] disabled:bg-gray-300 disabled:cursor-not-allowed text-sm font-medium">
+                                className="px-4 py-2 bg-[#0071CE] text-white rounded-lg hover:bg-[#0063B8] disabled:bg-gray-300 disabled:cursor-not-allowed text-sm font-medium"
+                              >
                                 {isApplyingDiscount
                                   ? "Toepassen..."
                                   : "Toepassen"}
@@ -3289,7 +4372,8 @@ export default function CheckoutPage() {
                             <button
                               type="button"
                               onClick={removeDiscount}
-                              className="text-red-600 hover:text-red-800 text-sm">
+                              className="text-red-600 hover:text-red-800 text-sm"
+                            >
                               Verwijderen
                             </button>
                           </div>
@@ -3344,15 +4428,17 @@ export default function CheckoutPage() {
               </div>
 
               {/* Order Summary Sidebar */}
-              <div className="lg:col-span-1">
+              <div className="lg:col-span-1 sm:hidden md:block">
                 <div
                   id="order-summary"
-                  className="bg-white rounded-lg p-6 shadow-sm sticky top-4 hidden lg:block">
+                  className="bg-white rounded-lg p-6 shadow-sm sticky top-4 hidden lg:block"
+                >
                   <div className="flex flex-wrap items-center gap-2 mb-4">
                     <svg
                       className="w-5 h-5 text-[#814e1e]"
                       fill="currentColor"
-                      viewBox="0 0 20 20">
+                      viewBox="0 0 20 20"
+                    >
                       <path
                         fillRule="evenodd"
                         d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z"
@@ -3366,7 +4452,8 @@ export default function CheckoutPage() {
                     {items.map((item) => (
                       <div
                         key={item.id}
-                        className="border border-gray-200 rounded-lg p-3">
+                        className="border border-gray-200 rounded-lg p-3"
+                      >
                         <div className="flex flex-wrap gap-3">
                           <div className="relative flex-shrink-0">
                             <Image
@@ -3394,12 +4481,14 @@ export default function CheckoutPage() {
                                   removeFromCart(item.id, item.variant)
                                 }
                                 className="text-gray-400 hover:text-red-500 transition-colors p-1"
-                                title="Product verwijderen">
+                                title="Product verwijderen"
+                              >
                                 <svg
                                   className="w-4 h-4"
                                   fill="none"
                                   stroke="currentColor"
-                                  viewBox="0 0 24 24">
+                                  viewBox="0 0 24 24"
+                                >
                                   <path
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
@@ -3422,12 +4511,14 @@ export default function CheckoutPage() {
                                     )
                                   }
                                   className="px-2 py-1 text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-colors"
-                                  disabled={item.quantity <= 1}>
+                                  disabled={item.quantity <= 1}
+                                >
                                   <svg
                                     className="w-3 h-3"
                                     fill="none"
                                     stroke="currentColor"
-                                    viewBox="0 0 24 24">
+                                    viewBox="0 0 24 24"
+                                  >
                                     <path
                                       strokeLinecap="round"
                                       strokeLinejoin="round"
@@ -3447,12 +4538,14 @@ export default function CheckoutPage() {
                                       item.quantity + 1
                                     )
                                   }
-                                  className="px-2 py-1 text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-colors">
+                                  className="px-2 py-1 text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-colors"
+                                >
                                   <svg
                                     className="w-3 h-3"
                                     fill="none"
                                     stroke="currentColor"
-                                    viewBox="0 0 24 24">
+                                    viewBox="0 0 24 24"
+                                  >
                                     <path
                                       strokeLinecap="round"
                                       strokeLinejoin="round"
@@ -3487,7 +4580,8 @@ export default function CheckoutPage() {
                         <svg
                           className="w-4 h-4 text-[#814e1e]"
                           fill="currentColor"
-                          viewBox="0 0 20 20">
+                          viewBox="0 0 20 20"
+                        >
                           <path
                             fillRule="evenodd"
                             d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
@@ -3638,7 +4732,8 @@ export default function CheckoutPage() {
                         <svg
                           className="w-4 h-4 text-gray-500"
                           fill="currentColor"
-                          viewBox="0 0 20 20">
+                          viewBox="0 0 20 20"
+                        >
                           <path
                             fillRule="evenodd"
                             d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
@@ -3654,7 +4749,8 @@ export default function CheckoutPage() {
                         <svg
                           className="w-4 h-4 text-gray-500"
                           fill="currentColor"
-                          viewBox="0 0 20 20">
+                          viewBox="0 0 20 20"
+                        >
                           <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
                           <path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1V8a1 1 0 00-.293-.707L15 4.586A1 1 0 0014.414 4H14v3z" />
                         </svg>
@@ -3672,7 +4768,8 @@ export default function CheckoutPage() {
                           <svg
                             className="w-4 h-4 text-green-500"
                             fill="currentColor"
-                            viewBox="0 0 20 20">
+                            viewBox="0 0 20 20"
+                          >
                             <path
                               fillRule="evenodd"
                               d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z"
@@ -3695,7 +4792,8 @@ export default function CheckoutPage() {
                         <svg
                           className="w-4 h-4 text-[#814e1e]"
                           fill="currentColor"
-                          viewBox="0 0 20 20">
+                          viewBox="0 0 20 20"
+                        >
                           <path
                             fillRule="evenodd"
                             d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
@@ -3778,7 +4876,8 @@ export default function CheckoutPage() {
                         <svg
                           className="w-5 h-5 text-green-600"
                           fill="currentColor"
-                          viewBox="0 0 20 20">
+                          viewBox="0 0 20 20"
+                        >
                           <path
                             fillRule="evenodd"
                             d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
@@ -3793,7 +4892,8 @@ export default function CheckoutPage() {
                         <svg
                           className="w-5 h-5 text-green-600"
                           fill="currentColor"
-                          viewBox="0 0 20 20">
+                          viewBox="0 0 20 20"
+                        >
                           <path
                             fillRule="evenodd"
                             d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
@@ -3808,7 +4908,8 @@ export default function CheckoutPage() {
                         <svg
                           className="w-5 h-5 text-green-600"
                           fill="currentColor"
-                          viewBox="0 0 24 24">
+                          viewBox="0 0 24 24"
+                        >
                           <path d="M19.5 12.5l-1.5-3h-3v-2c0-1.1-.9-2-2-2h-9c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h.76c.55 1.19 1.74 2 3.24 2s2.69-.81 3.24-2h3.52c.55 1.19 1.74 2 3.24 2s2.69-.81 3.24-2h.76c.55 0 1-.45 1-1v-3.5c0-.83-.67-1.5-1.5-1.5zm-11.5 4c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm8 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm3-3h-3v-2.5h2.5l.5 1v1.5z" />
                         </svg>
                         <span className="text-sm text-gray-600">
@@ -3822,12 +4923,14 @@ export default function CheckoutPage() {
                 {/* Mobile Order Summary */}
                 <div
                   id="mobile-order-summary"
-                  className="bg-white rounded-lg p-6 shadow-sm lg:hidden hidden">
+                  className="bg-white rounded-lg p-6 shadow-sm lg:hidden hidden"
+                >
                   <div className="flex flex-wrap items-center gap-2 mb-4">
                     <svg
                       className="w-5 h-5 text-[#814e1e]"
                       fill="currentColor"
-                      viewBox="0 0 20 20">
+                      viewBox="0 0 20 20"
+                    >
                       <path
                         fillRule="evenodd"
                         d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z"
@@ -3841,7 +4944,8 @@ export default function CheckoutPage() {
                     {items.map((item) => (
                       <div
                         key={item.id}
-                        className="border border-gray-200 rounded-lg p-3">
+                        className="border border-gray-200 rounded-lg p-3"
+                      >
                         <div className="flex flex-wrap gap-3">
                           <div className="relative flex-shrink-0">
                             <Image
@@ -3869,12 +4973,14 @@ export default function CheckoutPage() {
                                   removeFromCart(item.id, item.variant)
                                 }
                                 className="text-gray-400 hover:text-red-500 transition-colors p-1"
-                                title="Product verwijderen">
+                                title="Product verwijderen"
+                              >
                                 <svg
                                   className="w-4 h-4"
                                   fill="none"
                                   stroke="currentColor"
-                                  viewBox="0 0 24 24">
+                                  viewBox="0 0 24 24"
+                                >
                                   <path
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
@@ -3897,12 +5003,14 @@ export default function CheckoutPage() {
                                     )
                                   }
                                   className="px-2 py-1 text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-colors"
-                                  disabled={item.quantity <= 1}>
+                                  disabled={item.quantity <= 1}
+                                >
                                   <svg
                                     className="w-3 h-3"
                                     fill="none"
                                     stroke="currentColor"
-                                    viewBox="0 0 24 24">
+                                    viewBox="0 0 24 24"
+                                  >
                                     <path
                                       strokeLinecap="round"
                                       strokeLinejoin="round"
@@ -3922,12 +5030,14 @@ export default function CheckoutPage() {
                                       item.quantity + 1
                                     )
                                   }
-                                  className="px-2 py-1 text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-colors">
+                                  className="px-2 py-1 text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-colors"
+                                >
                                   <svg
                                     className="w-3 h-3"
                                     fill="none"
                                     stroke="currentColor"
-                                    viewBox="0 0 24 24">
+                                    viewBox="0 0 24 24"
+                                  >
                                     <path
                                       strokeLinecap="round"
                                       strokeLinejoin="round"
@@ -3962,7 +5072,8 @@ export default function CheckoutPage() {
                         <svg
                           className="w-4 h-4 text-[#814e1e]"
                           fill="currentColor"
-                          viewBox="0 0 20 20">
+                          viewBox="0 0 20 20"
+                        >
                           <path
                             fillRule="evenodd"
                             d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
@@ -4113,7 +5224,8 @@ export default function CheckoutPage() {
                         <svg
                           className="w-4 h-4 text-gray-500"
                           fill="currentColor"
-                          viewBox="0 0 20 20">
+                          viewBox="0 0 20 20"
+                        >
                           <path
                             fillRule="evenodd"
                             d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
@@ -4129,7 +5241,8 @@ export default function CheckoutPage() {
                         <svg
                           className="w-4 h-4 text-gray-500"
                           fill="currentColor"
-                          viewBox="0 0 20 20">
+                          viewBox="0 0 20 20"
+                        >
                           <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
                           <path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1V8a1 1 0 00-.293-.707L15 4.586A1 1 0 0014.414 4H14v3z" />
                         </svg>
@@ -4147,7 +5260,8 @@ export default function CheckoutPage() {
                           <svg
                             className="w-4 h-4 text-green-500"
                             fill="currentColor"
-                            viewBox="0 0 20 20">
+                            viewBox="0 0 20 20"
+                          >
                             <path
                               fillRule="evenodd"
                               d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z"
@@ -4170,7 +5284,8 @@ export default function CheckoutPage() {
                         <svg
                           className="w-4 h-4 text-[#814e1e]"
                           fill="currentColor"
-                          viewBox="0 0 20 20">
+                          viewBox="0 0 20 20"
+                        >
                           <path
                             fillRule="evenodd"
                             d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
@@ -4258,7 +5373,8 @@ export default function CheckoutPage() {
               <svg
                 className="w-16 h-16 mx-auto mb-4"
                 fill="currentColor"
-                viewBox="0 0 20 20">
+                viewBox="0 0 20 20"
+              >
                 <path
                   fillRule="evenodd"
                   d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
@@ -4277,7 +5393,8 @@ export default function CheckoutPage() {
                   <svg
                     className="w-5 h-5"
                     fill="currentColor"
-                    viewBox="0 0 20 20">
+                    viewBox="0 0 20 20"
+                  >
                     <path
                       fillRule="evenodd"
                       d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
@@ -4290,7 +5407,8 @@ export default function CheckoutPage() {
                   <svg
                     className="w-5 h-5"
                     fill="currentColor"
-                    viewBox="0 0 20 20">
+                    viewBox="0 0 20 20"
+                  >
                     <path
                       fillRule="evenodd"
                       d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
@@ -4303,7 +5421,8 @@ export default function CheckoutPage() {
                   <svg
                     className="w-5 h-5"
                     fill="currentColor"
-                    viewBox="0 0 20 20">
+                    viewBox="0 0 20 20"
+                  >
                     <path
                       fillRule="evenodd"
                       d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
@@ -4318,7 +5437,7 @@ export default function CheckoutPage() {
         </div>
 
         {/* Customer Testimonials Section */}
-        <div className="bg-white py-12">
+        {/* <div className="bg-white py-12">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl font-semibold text-center mb-8">
               Wat klanten zeggen
@@ -4330,7 +5449,8 @@ export default function CheckoutPage() {
                     <svg
                       key={i}
                       className="w-5 h-5 text-yellow-400 fill-current"
-                      viewBox="0 0 20 20">
+                      viewBox="0 0 20 20"
+                    >
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
@@ -4347,7 +5467,8 @@ export default function CheckoutPage() {
                     <svg
                       key={i}
                       className="w-5 h-5 text-yellow-400 fill-current"
-                      viewBox="0 0 20 20">
+                      viewBox="0 0 20 20"
+                    >
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
@@ -4364,7 +5485,8 @@ export default function CheckoutPage() {
                     <svg
                       key={i}
                       className="w-5 h-5 text-yellow-400 fill-current"
-                      viewBox="0 0 20 20">
+                      viewBox="0 0 20 20"
+                    >
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
@@ -4377,7 +5499,8 @@ export default function CheckoutPage() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
+        <TestimonialsSection />
 
         {/* Products Popup */}
         {showProductsPopup && (
@@ -4390,7 +5513,8 @@ export default function CheckoutPage() {
                 </h2>
                 <button
                   onClick={() => setShowProductsPopup(false)}
-                  className="text-gray-400 hover:text-gray-600 text-2xl font-bold">
+                  className="text-gray-400 hover:text-gray-600 text-2xl font-bold"
+                >
                   ×
                 </button>
               </div>
@@ -4399,7 +5523,8 @@ export default function CheckoutPage() {
               <div className="p-6">
                 <div
                   className="flex flex-wrap gap-4 overflow-x-auto pb-4"
-                  style={{ scrollSnapType: "x mandatory" }}>
+                  style={{ scrollSnapType: "x mandatory" }}
+                >
                   {allProducts.map((product) => (
                     <div
                       key={product.id}
@@ -4410,7 +5535,8 @@ export default function CheckoutPage() {
                           ? "#814e1e"
                           : "#e5e7eb",
                       }}
-                      onClick={() => toggleProductSelection(product.id)}>
+                      onClick={() => toggleProductSelection(product.id)}
+                    >
                       {/* Selection checkbox */}
                       <div className="flex flex-wrap items-center justify-between mb-3">
                         <div
@@ -4418,12 +5544,14 @@ export default function CheckoutPage() {
                             selectedProducts.has(product.id)
                               ? "bg-[#814e1e] border-[#814e1e]"
                               : "border-gray-300"
-                          }`}>
+                          }`}
+                        >
                           {selectedProducts.has(product.id) && (
                             <svg
                               className="w-3 h-3 text-white"
                               fill="currentColor"
-                              viewBox="0 0 20 20">
+                              viewBox="0 0 20 20"
+                            >
                               <path
                                 fillRule="evenodd"
                                 d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -4476,7 +5604,8 @@ export default function CheckoutPage() {
                                   : product.badge.includes("Premium")
                                   ? "bg-purple-500"
                                   : "bg-green-500"
-                              }`}>
+                              }`}
+                            >
                               {product.badge}
                             </span>
                           )}
@@ -4500,12 +5629,14 @@ export default function CheckoutPage() {
                                 )
                               }
                               className="px-2 py-1 text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-colors"
-                              disabled={(product.quantity || 1) <= 1}>
+                              disabled={(product.quantity || 1) <= 1}
+                            >
                               <svg
                                 className="w-3 h-3"
                                 fill="none"
                                 stroke="currentColor"
-                                viewBox="0 0 24 24">
+                                viewBox="0 0 24 24"
+                              >
                                 <path
                                   strokeLinecap="round"
                                   strokeLinejoin="round"
@@ -4524,12 +5655,14 @@ export default function CheckoutPage() {
                                   (product.quantity || 1) + 1
                                 )
                               }
-                              className="px-2 py-1 text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-colors">
+                              className="px-2 py-1 text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-colors"
+                            >
                               <svg
                                 className="w-3 h-3"
                                 fill="none"
                                 stroke="currentColor"
-                                viewBox="0 0 24 24">
+                                viewBox="0 0 24 24"
+                              >
                                 <path
                                   strokeLinecap="round"
                                   strokeLinejoin="round"
@@ -4599,13 +5732,15 @@ export default function CheckoutPage() {
                 <div className="flex flex-wrap gap-3">
                   <button
                     onClick={() => setShowProductsPopup(false)}
-                    className="px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors">
+                    className="px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors"
+                  >
                     Annuleren
                   </button>
                   <button
                     onClick={addSelectedProductsToCart}
                     disabled={selectedProducts.size === 0}
-                    className="px-6 py-2 bg-[#814e1e] text-white rounded-lg hover:bg-[#6d3f18] disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors">
+                    className="px-6 py-2 bg-[#814e1e] text-white rounded-lg hover:bg-[#6d3f18] disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                  >
                     {selectedProducts.size > 0
                       ? `Toevoegen aan winkelwagen`
                       : "Selecteer producten"}

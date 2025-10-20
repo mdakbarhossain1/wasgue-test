@@ -24,7 +24,7 @@ export default function ContactSection({
   };
 
   return (
-    <section className="py-12 px-4" style={sectionStyle}>
+    <section className="pb-10 px-4" style={sectionStyle}>
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Map Column */}

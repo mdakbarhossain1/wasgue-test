@@ -2,6 +2,9 @@ import type { Metadata, Viewport } from "next";
 import { EB_Garamond } from "next/font/google";
 import "./globals.css";
 import "./product-typography.css";
+import "./blog/blog-styling.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 // import FigmaHeader from "@/components/sections/FigmaHeader";
 // import ResponsiveInit from "@/components/ResponsiveInit";
 // import { CartProvider } from "@/context/CartContext";
@@ -40,7 +43,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="nl" className={`${ebGaramond.variable}`}>
-      <body className="antialiased">
+      <body className="antialiased overflow-x-hidden">
         <AuthProvider>
           <CartProvider>
             <ResponsiveInit />

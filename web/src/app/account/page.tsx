@@ -91,7 +91,7 @@ export default function AccountPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F6F0] py-12">
+    <div className="min-h-screen bg-[#F8F6F0] py-6 sm:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
@@ -139,15 +139,13 @@ export default function AccountPage() {
               <div className="space-y-3">
                 <Link
                   href="/account/profile"
-                  className="flex items-center justify-between p-3 rounded-lg hover:bg-[#FFF9F0] transition-colors group"
-                >
+                  className="flex items-center justify-between p-3 rounded-lg hover:bg-[#FFF9F0] transition-colors group">
                   <div className="flex items-center space-x-3">
                     <svg
                       className="w-5 h-5 text-[#814E1E]"
                       fill="none"
                       stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
+                      viewBox="0 0 24 24">
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -163,8 +161,7 @@ export default function AccountPage() {
                     className="w-4 h-4 text-gray-400 group-hover:text-[#814E1E] transition-colors"
                     fill="none"
                     stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
+                    viewBox="0 0 24 24">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -176,15 +173,13 @@ export default function AccountPage() {
 
                 <Link
                   href="/account/orders"
-                  className="flex items-center justify-between p-3 rounded-lg hover:bg-[#FFF9F0] transition-colors group"
-                >
+                  className="flex items-center justify-between p-3 rounded-lg hover:bg-[#FFF9F0] transition-colors group">
                   <div className="flex items-center space-x-3">
                     <svg
                       className="w-5 h-5 text-[#814E1E]"
                       fill="none"
                       stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
+                      viewBox="0 0 24 24">
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -204,8 +199,7 @@ export default function AccountPage() {
                       className="w-4 h-4 text-gray-400 group-hover:text-[#814E1E] transition-colors"
                       fill="none"
                       stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
+                      viewBox="0 0 24 24">
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -305,8 +299,7 @@ export default function AccountPage() {
                       <svg
                         className="w-4 h-4 text-[#D6AD61] ml-1"
                         fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
+                        viewBox="0 0 20 20">
                         <path
                           fillRule="evenodd"
                           d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
@@ -411,8 +404,7 @@ export default function AccountPage() {
                 </h3>
                 <Link
                   href="/account/orders"
-                  className="text-sm font-medium text-[#814E1E] hover:text-[#D6AD61] transition-colors"
-                >
+                  className="text-sm font-medium text-[#814E1E] hover:text-[#D6AD61] transition-colors">
                   Alle bestellingen →
                 </Link>
               </div>
@@ -422,8 +414,7 @@ export default function AccountPage() {
                   {recentOrders.map((order) => (
                     <div
                       key={order.id}
-                      className="border border-gray-200 rounded-lg p-4 hover:border-[#D6AD61] transition-colors"
-                    >
+                      className="border border-gray-200 rounded-lg p-4 hover:border-[#D6AD61] transition-colors">
                       <div className="flex items-center justify-between mb-3">
                         <div>
                           <h4 className="font-medium text-[#814E1E]">
@@ -437,8 +428,7 @@ export default function AccountPage() {
                           <span
                             className={`inline-flex px-2 py-1 text-xs font-medium rounded-full ${getStatusColor(
                               order.status
-                            )}`}
-                          >
+                            )}`}>
                             {getStatusText(order.status)}
                           </span>
                           <p className="text-sm font-bold text-[#814E1E] mt-1">
@@ -451,8 +441,7 @@ export default function AccountPage() {
                         {order.items.slice(0, 3).map((item) => (
                           <div
                             key={item.id}
-                            className="flex items-center space-x-2"
-                          >
+                            className="flex items-center space-x-2">
                             <Image
                               src={item.image}
                               alt={item.name}
@@ -493,8 +482,7 @@ export default function AccountPage() {
                     className="w-16 h-16 text-gray-300 mx-auto mb-4"
                     fill="none"
                     stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
+                    viewBox="0 0 24 24">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -510,8 +498,7 @@ export default function AccountPage() {
                   </p>
                   <Link
                     href="/wasparfum"
-                    className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-[#814E1E] hover:bg-[#D6AD61] transition-colors"
-                  >
+                    className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-[#814E1E] hover:bg-[#D6AD61] transition-colors">
                     Bekijk wasparfums
                   </Link>
                 </div>
@@ -526,15 +513,13 @@ export default function AccountPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Link
                   href="/wasparfum"
-                  className="flex items-center p-4 border-2 border-gray-200 rounded-lg hover:border-[#D6AD61] hover:bg-[#FFF9F0] transition-all group"
-                >
+                  className="flex items-center p-4 border-2 border-gray-200 rounded-lg hover:border-[#D6AD61] hover:bg-[#FFF9F0] transition-all group">
                   <div className="flex-shrink-0 w-12 h-12 bg-[#D6AD61] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                     <svg
                       className="w-6 h-6 text-white"
                       fill="none"
                       stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
+                      viewBox="0 0 24 24">
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -555,15 +540,13 @@ export default function AccountPage() {
 
                 <Link
                   href="/account/orders"
-                  className="flex items-center p-4 border-2 border-gray-200 rounded-lg hover:border-[#D6AD61] hover:bg-[#FFF9F0] transition-all group"
-                >
+                  className="flex items-center p-4 border-2 border-gray-200 rounded-lg hover:border-[#D6AD61] hover:bg-[#FFF9F0] transition-all group">
                   <div className="flex-shrink-0 w-12 h-12 bg-[#814E1E] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                     <svg
                       className="w-6 h-6 text-white"
                       fill="none"
                       stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
+                      viewBox="0 0 24 24">
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -594,15 +577,13 @@ export default function AccountPage() {
                         loyaltySection.scrollIntoView({ behavior: "smooth" });
                       }
                     }}
-                    className="flex items-center p-4 border-2 border-green-200 bg-green-50 rounded-lg hover:border-green-400 hover:bg-green-100 transition-all group"
-                  >
+                    className="flex items-center p-4 border-2 border-green-200 bg-green-50 rounded-lg hover:border-green-400 hover:bg-green-100 transition-all group">
                     <div className="flex-shrink-0 w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                       <svg
                         className="w-6 h-6 text-white"
                         fill="none"
                         stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
+                        viewBox="0 0 24 24">
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"

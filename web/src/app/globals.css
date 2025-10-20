@@ -762,11 +762,6 @@ body {
   padding: 0 !important;
 }
 
-.product-slider .slick-list .sliderNavs {
-  width: 80px !important;
-  border-radius: 5px;
-  overflow: hidden;
-}
 
 .slick-current .sliderNavs {
   border: 1px solid #000;
@@ -803,12 +798,65 @@ body {
   background: linear-gradient(270deg, #d6ad61 0, #fcce4e 100%);
 }
 
-@media (max-width: 768px) {
-  .product-slider .slick-list .sliderNavs {
-    width: 60px !important;
+/* Wrap slick slides nicely */
+.product-slider .slideNav-wrapper .slick-slide {
+  padding: 0 4px; /* equal gap between thumbnails */
+  box-sizing: border-box;
+}
+
+/* Each thumbnail container */
+.product-slider .sliderNavs {
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+/* Thumbnail image */
+.product-slider .thumbnail-img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+/* Active thumbnail highlight */
+.product-slider :global(.slick-current .thumbnail-img) {
+  border-color: #000;
+  transform: scale(1.05);
+}
+
+/* Hover effect */
+.product-slider .thumbnail-img:hover {
+  transform: scale(1.05);
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .product-slider .thumbnail-img {
+    height: 90px;
   }
 }
 
+@media (max-width: 768px) {
+  .product-slider .thumbnail-img {
+    height: 80px;
+  }
+}
+
+@media (max-width: 526px) {
+  .product-slider .thumbnail-img {
+    height: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-slider .thumbnail-img {
+    height: 65px;
+    border-radius: 5px;
+  }
+}
 .bottom_check {
   border-radius: 5px;
   border: 1px solid rgba(214, 173, 97, 0.3);
@@ -819,10 +867,19 @@ body {
 .custom-prose h2 {
   @apply text-3xl mt-3 !important;
 }
+
 .custom-prose p {
   @apply text-black !important;
 }
 
+.was-text-size p {
+  @apply text-sm !important;
+}
+
 .waarom-wasgeurtje-btn .site_btn {
   @apply bg-gradient-to-r from-yellow-400 to-yellow-200 hover:from-black hover:to-black min-w-[200px] text-center p-2.5 inline-block mt-5 text-white text-lg !important;
+}
+
+.prose ul li {
+  color: #000 !important;
 }

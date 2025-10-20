@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useMediaQuery, deviceBreakpoints } from "hooks/useMediaQuery";
 
 // Interface for footer links
@@ -92,12 +93,12 @@ const FooterLink = ({
   isTablet?: boolean;
 }) => (
   <li
-    className={`mb-4 ${isTablet ? "text-center" : "text-center md:text-left"}`}>
-    <a
+    className={`mb-4 ${isTablet ? "text-left" : "text-center md:text-left"}`}>
+    <Link
       href={link.url}
       className="text-[#c9c9c9] hover:text-white text-[15px] font-['Jost'] leading-[1.5]">
       {link.label}
-    </a>
+    </Link>
   </li>
 );
 
@@ -112,13 +113,13 @@ const FooterColumn = ({
   <div className="w-full md:w-auto">
     <h3
       className={`text-white font-['Jost'] text-[19px] mb-4 relative pb-2 leading-[1.2] ${
-        isTablet ? "text-center" : "text-center md:text-left"
+        isTablet ? "text-left" : "text-center md:text-left"
       }`}>
       {column.title}
       <div
         className={`absolute bottom-0 ${
           isTablet
-            ? "left-1/2 transform -translate-x-1/2"
+            ? "left-[20px] transform -translate-x-1/2"
             : "left-1/2 md:left-0 transform -translate-x-1/2 md:translate-x-0"
         } h-0.5 w-[39px] bg-[#e9c356]`}></div>
     </h3>
@@ -165,8 +166,11 @@ export default function Footer() {
     <footer className="bg-[#1d1d1d] text-white w-full relative z-0">
       {/* Newsletter signup */}
       <div className="container mx-auto px-4 py-10">
-        <div className="flex flex-col lg:flex-row justify-between items-start md:items-center gap-10">
-          <div className={`${isTablet ? "max-w-xl" : "max-w-lg"} mb-6 md:mb-0`}>
+        <div className="flex flex-col lg:flex-row md:justify-between items-start md:items-center gap-5">
+          <div
+            className={`${
+              isTablet ? "max-w-[500px]" : "max-w-[720px]"
+            } mb-0 sm:mb-6 `}>
             <h2
               className={`${
                 isTablet ? "text-[24px]" : "text-[22px] md:text-[26px]"
@@ -175,9 +179,7 @@ export default function Footer() {
             </h2>
             <p className="footer-newsletter-text">
               Schrijf je in voor onze nieuwsbrief en ontvang maandelijks
-              exclusieve kortingen
-              <br className={`${isTablet ? "block" : "hidden md:block"}`} />
-              en updates over onze nieuwste wasgeurtjes!
+              exclusieve kortingen en updates over onze nieuwste wasgeurtjes!
             </p>
           </div>
           <form
@@ -191,7 +193,7 @@ export default function Footer() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className={`px-4 py-3 w-full ${
-                isTablet ? "sm:w-[350px]" : "md:w-[400px]"
+                isTablet ? "sm:w-[360px]" : "md:w-[300px]"
               } rounded-[4px] border border-[#c6c6c6] bg-transparent text-white focus:outline-none focus:border-[#e9c356]`}
               required
             />
@@ -211,12 +213,12 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-8 md:py-12">
         <div
           className={`flex flex-col ${
-            isTablet ? "sm:flex-row" : "md:flex-row"
+            isTablet ? "sm:flex-col" : "md:flex-row"
           } justify-between`}>
           {/* Logo column */}
           <div
             className={`mb-8 ${
-              isTablet ? "sm:mb-0 sm:mr-8" : "md:mb-0 md:mr-12"
+              isTablet ? "mb-8 sm:mr-8" : "md:mb-0 md:mr-12"
             } flex justify-center ${
               isTablet ? "sm:justify-start" : "md:justify-start"
             }`}>
@@ -254,13 +256,13 @@ export default function Footer() {
             <div className="col-span-1">
               <h3
                 className={`text-white font-['Jost'] text-[19px] mb-4 relative pb-2 leading-[1.2] ${
-                  isTablet ? "text-center" : "text-center md:text-left"
+                  isTablet ? "text-left" : "text-center md:text-left"
                 }`}>
                 {footerColumns[3].title}
                 <div
                   className={`absolute bottom-0 ${
                     isTablet
-                      ? "left-1/2 transform -translate-x-1/2"
+                      ? "left-[20px] transform -translate-x-1/2"
                       : "left-1/2 md:left-0 transform -translate-x-1/2 md:translate-x-0"
                   } h-0.5 w-[39px] bg-[#e9c356]`}></div>
               </h3>
@@ -268,7 +270,7 @@ export default function Footer() {
               {/* Email */}
               <div
                 className={`flex flex-wrap flex-col ${
-                  isTablet ? "sm:flex-row" : "md:flex-row"
+                  isTablet ? "sm:flex-row justify-start" : "md:flex-row"
                 } items-center ${
                   isTablet ? "sm:items-start" : "md:items-start"
                 } gap-3 mb-4`}>
@@ -314,7 +316,7 @@ export default function Footer() {
         {/* Payment and shipping */}
         <div className={`mt-8 ${isTablet ? "sm:mt-10" : "md:mt-12"}`}>
           <div
-            className={`flex flex-col ${
+            className={`flex flex-col sm:justify-start lg:justify-start ${
               isTablet ? "sm:flex-row" : "md:flex-row"
             } gap-8 ${isTablet ? "sm:gap-12" : "md:gap-16"}`}>
             <div
@@ -366,20 +368,20 @@ export default function Footer() {
             Alle rechten voorbehouden © {new Date().getFullYear()} Wasgeurtje
           </p>
           <div className="flex gap-4">
-            <a
+            <Link
               href="/privacy-policy"
               className={`text-[#c9c9c9] font-['Jost'] ${
                 isTablet ? "text-[14px]" : "text-[14px]"
               } hover:text-white`}>
               Privacybeleid
-            </a>
-            <a
+            </Link>
+            <Link
               href="/algemene-voorwaarden"
               className={`text-[#c9c9c9] font-['Jost'] ${
                 isTablet ? "text-[14px]" : "text-[14px]"
               } hover:text-white`}>
               Algemene voorwaarden
-            </a>
+            </Link>
           </div>
         </div>
       </div>
