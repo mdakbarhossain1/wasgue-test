@@ -1321,41 +1321,41 @@ export default function CheckoutPage() {
     return null;
   }
 
-  const testimonials = [
-    {
-      text: "Heerlijke geuren die lang blijven hangen. De verzending was snel en het product was prachtig verpakt!",
-      author: "- Maria K.",
-    },
-    {
-      text: "Eindelijk een wasparfum dat niet te overheersend is. Perfect voor mijn gevoelige huid!",
-      author: "- Jan V.",
-    },
-    {
-      text: "Geweldige service en snelle levering. Ik bestel hier zeker weer!",
-      author: "- Sophie T.",
-    },
-  ];
+  // const testimonials = [
+  //   {
+  //     text: "Heerlijke geuren die lang blijven hangen. De verzending was snel en het product was prachtig verpakt!",
+  //     author: "- Maria K.",
+  //   },
+  //   {
+  //     text: "Eindelijk een wasparfum dat niet te overheersend is. Perfect voor mijn gevoelige huid!",
+  //     author: "- Jan V.",
+  //   },
+  //   {
+  //     text: "Geweldige service en snelle levering. Ik bestel hier zeker weer!",
+  //     author: "- Sophie T.",
+  //   },
+  // ];
 
-  const settings = {
-    dots: false, // hides the pagination dots
-    infinite: true,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    speed: 700,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    arrows: false, // hides navigation arrows
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: { slidesToShow: 2 },
-      },
-      {
-        breakpoint: 768,
-        settings: { slidesToShow: 1 },
-      },
-    ],
-  };
+  // const settings = {
+  //   dots: false, // hides the pagination dots
+  //   infinite: true,
+  //   autoplay: true,
+  //   autoplaySpeed: 3000,
+  //   speed: 700,
+  //   slidesToShow: 3,
+  //   slidesToScroll: 1,
+  //   arrows: false, // hides navigation arrows
+  //   responsive: [
+  //     {
+  //       breakpoint: 1024,
+  //       settings: { slidesToShow: 2 },
+  //     },
+  //     {
+  //       breakpoint: 768,
+  //       settings: { slidesToShow: 1 },
+  //     },
+  //   ],
+  // };
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
@@ -5473,7 +5473,7 @@ export default function CheckoutPage() {
         </div>
 
         {/* Customer Testimonials Section */}
-        {/* <div className="bg-white py-12">
+        <div className="bg-white py-12">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl font-semibold text-center mb-8">
               Wat klanten zeggen
@@ -5535,8 +5535,8 @@ export default function CheckoutPage() {
               </div>
             </div>
           </div>
-        </div> */}
-        <TestimonialsSection />
+        </div>
+        {/* <TestimonialsSection /> */}
         {/* <div className="bg-gradient-to-br from-white via-[#FFFDF8] to-[#FFF7EC] py-16">
           <div className="container mx-auto p-4">
             <h2 className="text-3xl font-semibold text-center mb-10 text-gray-800">
